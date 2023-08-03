@@ -1,12 +1,13 @@
-import { View, Text } from 'react-native'
-import React from 'react'
+import { View, Text } from "react-native";
+import React from "react";
+import BottomNavigator from "./Bottom/BottomNavigator";
 
 const Main = () => {
   return (
-    <View>
-      <Text>Main</Text>
+    <View style={{ flex: 1 }}>
+      <BottomNavigator />
     </View>
-  )
-}
+  );
+};
 
-export default Main
+export default Main;

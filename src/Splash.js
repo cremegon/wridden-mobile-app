@@ -1,15 +1,18 @@
 import { View, Text, SafeAreaView } from "react-native";
 import React, { useEffect } from "react";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 const Splash = ({ navigation }) => {
   useEffect(() => {
     setTimeout(() => {
-      navigation.navigate("Parent");
-    }, 3000);
-  }, []);
+      navigation.navigate("Login");
+    }, 1000);
+  });
+
+  const inset = useSafeAreaInsets();
   return (
-    <SafeAreaView>
-      <Text>Splash</Text>
+    <SafeAreaView style={{ paddingTop: inset.top }}>
+      <Text style={{ fontSize: 50 }}>Splash</Text>
     </SafeAreaView>
   );
 };

@@ -1,13 +1,12 @@
-import { View, Text } from "react-native";
+import { View, Text, SafeAreaView } from "react-native";
 import React from "react";
 import DrawerNavigator from "./Drawer/DrawerNavigator";
+import LoginNavigator from "./Screens/LoginNavigator";
 
 const ParentNavigator = () => {
   return (
-    <View>
-      <Text>
-        <DrawerNavigator />
-      </Text>
+    <View style={{ flex: 1 }}>
+      <DrawerNavigator />
     </View>
   );
 };
