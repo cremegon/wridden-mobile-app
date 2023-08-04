@@ -1,12 +1,12 @@
 import { View, Text } from "react-native";
 import React from "react";
 
-const StoryHome = () => {
+const CharacterDraw = () => {
   return (
     <View>
-      <Text>StoryHome</Text>
+      <Text>CharacterDraw</Text>
     </View>
   );
 };
 
-export default StoryHome;
+export default CharacterDraw;

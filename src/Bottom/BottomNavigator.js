@@ -1,9 +1,9 @@
 import { View, Text } from "react-native";
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import StoryHome from "./StoryHome";
-import CharacterHome from "./CharacterHome";
 import CommunityHome from "./CommunityHome";
+import StoryHomeNavigator from "./StoryHomeNavigator";
+import CharacterHomeNavigator from "./CharacterHomeNavigator";
 
 const Bottom = createBottomTabNavigator();
 const BottomNavigator = () => {
@@ -11,12 +11,12 @@ const BottomNavigator = () => {
     <Bottom.Navigator>
       <Bottom.Screen
         name="Story Home"
-        component={StoryHome}
+        component={StoryHomeNavigator}
         options={{ headerShown: false }}
       />
       <Bottom.Screen
         name="Character Home"
-        component={CharacterHome}
+        component={CharacterHomeNavigator}
         options={{ headerShown: false }}
       />
       <Bottom.Screen

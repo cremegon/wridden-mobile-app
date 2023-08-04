@@ -7,7 +7,7 @@ const LoginScreen = ({ navigation }) => {
   return (
     <View style={{ paddingTop: inset.top }}>
       <Text style={{ fontSize: 20, textAlign: "center" }}>Login Screen</Text>
-      <Button title="Login" onPress={navigation.navigate("Parent")} />
+      <Button title="Login" onPress={() => navigation.navigate("Parent")} />
     </View>
   );
 };
