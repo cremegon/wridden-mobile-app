@@ -1,13 +1,12 @@
-import { View, Text } from "react-native";
 import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import CharacterChoice from "./CharacterChoice";
-import CharacterDraw from "./CharacterDraw";
-import MainWriting from "../MainWritingStack/MainWriting";
+import CharacterChoice from "./Choice";
+import MainWriting from "../MainWriting";
+import DrawCharacter from "../../Components/DrawCharacter";
 
 const Stack = createNativeStackNavigator();
 
-const CharacterSelect = () => {
+const NewStoryRouter = () => {
   return (
     <Stack.Navigator>
       <Stack.Screen
@@ -17,7 +16,7 @@ const CharacterSelect = () => {
       />
       <Stack.Screen
         name="Character Draw"
-        component={CharacterDraw}
+        component={DrawCharacter}
         options={{ headerShown: false }}
       />
       <Stack.Screen
@@ -29,4 +28,4 @@ const CharacterSelect = () => {
   );
 };
 
-export default CharacterSelect;
+export default NewStoryRouter;

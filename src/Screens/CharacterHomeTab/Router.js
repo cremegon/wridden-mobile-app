@@ -1,7 +1,7 @@
 import { View, Text, Button, StyleSheet } from "react-native";
 import React from "react";
 
-const CharacterHomeAccess = ({ navigation }) => {
+const CharacterTabRouter = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <View style={styles.button}>
@@ -33,4 +33,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default CharacterHomeAccess;
+export default CharacterTabRouter;
