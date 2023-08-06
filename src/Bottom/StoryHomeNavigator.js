@@ -1,10 +1,10 @@
 import { View, Text } from "react-native";
 import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import WriteNew from "../Screens/WriteNew";
-import StoryList from "../Screens/StoryList";
-import ReadStory from "../Screens/ReadStory";
-import StoryHomeAccess from "../Screens/StoryHomeAccess";
+import WriteNew from "../Screens/StoryHomeStack/WriteNew";
+import StoryList from "../Screens/StoryHomeStack/StoryList";
+import ReadStory from "../Screens/StoryHomeStack/ReadStory";
+import StoryHomeAccess from "../Screens/StoryHomeStack/StoryHomeAccess";
 
 const Stack = createNativeStackNavigator();
 

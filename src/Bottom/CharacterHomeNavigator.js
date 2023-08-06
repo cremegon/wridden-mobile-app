@@ -1,9 +1,9 @@
 import { View, Text } from "react-native";
 import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import CharacterHomeAccess from "../Screens/CharacterHomeAccess";
-import CharacterList from "../Screens/CharacterList";
-import CharacterDraw from "../Screens/CharacterDraw";
+import CharacterHomeAccess from "../Screens/CharacterHomeStack/CharacterHomeAccess";
+import CharacterList from "../Screens/CharacterHomeStack/CharacterList";
+import CharacterDraw from "../Screens/CharacterHomeStack/CharacterDraw";
 
 const Stack = createNativeStackNavigator();
 

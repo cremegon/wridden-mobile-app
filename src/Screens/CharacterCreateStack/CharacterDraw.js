@@ -1,12 +1,12 @@
 import { View, Text } from "react-native";
 import React from "react";
 
-const LoginNavigator = () => {
+const CharacterDraw = () => {
   return (
     <View>
-      <Text>Login Navigator</Text>
+      <Text>Character Create</Text>
     </View>
   );
 };
 
-export default LoginNavigator;
+export default CharacterDraw;
