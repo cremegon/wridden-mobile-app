@@ -9,7 +9,8 @@ import { View } from "react-native";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import SignUp from "./src/Screens/SignUp";
 import ResetPass from "./src/Screens/ResetPass";
-import Test from "./src/Screens/Test";
+import Test from "./src/Components/Card";
+import Card from "./src/Components/Card";
 
 const RootStack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -54,8 +55,8 @@ const App = () => {
           options={{ headerShown: false }}
         />
         <RootStack.Screen
-          name="Test"
-          component={Test}
+          name="Card"
+          component={Card}
           options={{ headerShown: false }}
         />
         <RootStack.Screen
