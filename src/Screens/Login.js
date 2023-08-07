@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import db from "../Helpers/Database";
 import { TextInput } from "react-native-gesture-handler";
+import { SafeAreaView } from "react-native-safe-area-context";
+import { MdFace } from "react-icons/md";
 
 const LoginScreen = ({ navigation }) => {
   const [id, setId] = useState("");
@@ -23,7 +25,7 @@ const LoginScreen = ({ navigation }) => {
   }*/
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <View>
         <Text
           style={{
@@ -76,7 +78,7 @@ const LoginScreen = ({ navigation }) => {
           Sign Up
         </Text>
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 

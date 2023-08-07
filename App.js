@@ -9,6 +9,7 @@ import { View } from "react-native";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import SignUp from "./src/Screens/SignUp";
 import ResetPass from "./src/Screens/ResetPass";
+import Test from "./src/Screens/Test";
 
 const RootStack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -53,9 +54,14 @@ const App = () => {
           options={{ headerShown: false }}
         />
         <RootStack.Screen
+          name="Test"
+          component={Test}
+          options={{ headerShown: false }}
+        />
+        <RootStack.Screen
           name="Reset Pass"
           component={ResetPass}
-          options={{ headerShown: false }}
+          options={{ headerShown: true }}
         />
         <RootStack.Screen
           name="MainApp"
