@@ -1,12 +1,14 @@
-import { View, Text, Button } from "react-native";
-import React from "react";
+import { View, Text, Button, StyleSheet } from "react-native";
+import React, { useState } from "react";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import db from "../Helpers/Database";
+import { TextInput } from "react-native-gesture-handler";
 
 const LoginScreen = ({ navigation }) => {
-  const inset = useSafeAreaInsets();
+  const [id, setId] = useState("");
+  const [pass, setPass] = useState("");
 
-  function testDatabase() {
+  /*function testDatabase() {
     db.transaction((tx) => {
       tx.executeSql(
         `CREATE TABLE IF NOT EXISTS demo (
@@ -18,14 +20,99 @@ const LoginScreen = ({ navigation }) => {
         (_, { rows: { _array } }) => console.log(_array)
       );
     });
-  }
+  }*/
 
   return (
-    <View style={{ paddingTop: inset.top }}>
-      <Text style={{ fontSize: 20, textAlign: "center" }}>Login Screen</Text>
-      <Button title="Login" onPress={() => testDatabase()} />
+    <View style={styles.container}>
+      <View>
+        <Text
+          style={{
+            fontSize: 20,
+            textAlign: "center",
+            fontWeight: "bold",
+            marginBottom: 10,
+          }}
+        >
+          Wridden
+        </Text>
+
+        <TextInput
+          style={styles.inputbox}
+          placeholder="Username or email address"
+          textAlign="left"
+          onChangeText={(val) => setId(val)}
+        />
+
+        <TextInput
+          style={styles.inputbox}
+          placeholder="Password"
+          textAlign="left"
+          onChangeText={(val) => setPass(val)}
+          secureTextEntry={true}
+        />
+
+        <Text
+          style={styles.forgotpass}
+          onPress={() => navigation.navigate("Reset Pass")}
+        >
+          Forgot Password?
+        </Text>
+
+        <View style={styles.button}>
+          <Button
+            title="Login"
+            onPress={() => navigation.navigate("MainApp")}
+          />
+        </View>
+      </View>
+
+      <View style={styles.signup_container}>
+        <Text>Dont have an account?</Text>
+        <Text
+          style={styles.signup}
+          onPress={() => navigation.navigate("Sign Up")}
+        >
+          {" "}
+          Sign Up
+        </Text>
+      </View>
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    justifyContent: "space-evenly",
+    flex: 1,
+    alignItems: "center",
+  },
+  button: {
+    width: 300,
+    paddingTop: 20,
+  },
+  inputbox: {
+    borderWidth: 1,
+    borderColor: "grey",
+    paddingTop: 10,
+    borderRadius: 10,
+    marginTop: 10,
+    width: 300,
+    paddingHorizontal: 10,
+    paddingVertical: 5,
+  },
+  forgotpass: {
+    fontWeight: "bold",
+    marginTop: 15,
+    alignSelf: "flex-end",
+    color: "royalblue",
+  },
+  signup_container: {
+    flexDirection: "row",
+  },
+  signup: {
+    fontWeight: "bold",
+    color: "royalblue",
+  },
+});
 
 export default LoginScreen;

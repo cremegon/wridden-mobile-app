@@ -7,6 +7,8 @@ import Main from "./src/Main";
 import SettingsPage from "./src/Screens/Settings";
 import { View } from "react-native";
 import { createDrawerNavigator } from "@react-navigation/drawer";
+import SignUp from "./src/Screens/SignUp";
+import ResetPass from "./src/Screens/ResetPass";
 
 const RootStack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -43,6 +45,16 @@ const App = () => {
         <RootStack.Screen
           name="Login"
           component={LoginScreen}
+          options={{ headerShown: false }}
+        />
+        <RootStack.Screen
+          name="Sign Up"
+          component={SignUp}
+          options={{ headerShown: false }}
+        />
+        <RootStack.Screen
+          name="Reset Pass"
+          component={ResetPass}
           options={{ headerShown: false }}
         />
         <RootStack.Screen
