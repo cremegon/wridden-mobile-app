@@ -11,6 +11,7 @@ import SignUp from "./src/Screens/SignUp";
 import ResetPass from "./src/Screens/ResetPass";
 import Test from "./src/Components/Card";
 import Card from "./src/Components/Card";
+import DrawCharacter from "./src/Components/DrawCharacter";
 
 const RootStack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -55,8 +56,8 @@ const App = () => {
           options={{ headerShown: false }}
         />
         <RootStack.Screen
-          name="Card"
-          component={Card}
+          name="Draw Character"
+          component={DrawCharacter}
           options={{ headerShown: false }}
         />
         <RootStack.Screen
