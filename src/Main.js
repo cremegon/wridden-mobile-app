@@ -8,7 +8,7 @@ import CharacterTabRouter from "./Screens/CharacterHomeTab/Router";
 import CharacterList from "./Screens/CharacterHomeTab/List";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import DrawCharacter from "./Components/DrawCharacter";
+import DrawingCharacter2 from "./Components/DrawCharacter2";
 
 const Bottom = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -63,7 +63,7 @@ const CharacterHomeTab = () => {
       />
       <Stack.Screen
         name="Character Draw"
-        component={DrawCharacter}
+        component={DrawingCharacter2}
         options={{ headerShown: false }}
       />
     </Stack.Navigator>

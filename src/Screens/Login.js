@@ -4,7 +4,8 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 import db from "../Helpers/Database";
 import { TextInput } from "react-native-gesture-handler";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { MdFace } from "react-icons/md";
+import { Keyboard } from "react-native";
+import DismissKeyboard from "../Components/DismissKeyboard";
 
 const LoginScreen = ({ navigation }) => {
   const [id, setId] = useState("");
@@ -25,60 +26,62 @@ const LoginScreen = ({ navigation }) => {
   }*/
 
   return (
-    <SafeAreaView style={styles.container}>
-      <View>
-        <Text
-          style={{
-            fontSize: 20,
-            textAlign: "center",
-            fontWeight: "bold",
-            marginBottom: 10,
-          }}
-        >
-          Wridden
-        </Text>
+    <DismissKeyboard>
+      <SafeAreaView style={styles.container}>
+        <View>
+          <Text
+            style={{
+              fontSize: 20,
+              textAlign: "center",
+              fontWeight: "bold",
+              marginBottom: 10,
+            }}
+          >
+            Wridden
+          </Text>
 
-        <TextInput
-          style={styles.inputbox}
-          placeholder="Username or email address"
-          textAlign="left"
-          onChangeText={(val) => setId(val)}
-        />
-
-        <TextInput
-          style={styles.inputbox}
-          placeholder="Password"
-          textAlign="left"
-          onChangeText={(val) => setPass(val)}
-          secureTextEntry={true}
-        />
-
-        <Text
-          style={styles.forgotpass}
-          onPress={() => navigation.navigate("Reset Pass")}
-        >
-          Forgot Password?
-        </Text>
-
-        <View style={styles.button}>
-          <Button
-            title="Login"
-            onPress={() => navigation.navigate("MainApp")}
+          <TextInput
+            style={styles.inputbox}
+            placeholder="Username or email address"
+            textAlign="left"
+            onChangeText={(val) => setId(val)}
           />
-        </View>
-      </View>
 
-      <View style={styles.signup_container}>
-        <Text>Dont have an account?</Text>
-        <Text
-          style={styles.signup}
-          onPress={() => navigation.navigate("Draw Character")}
-        >
-          {" "}
-          Sign Up
-        </Text>
-      </View>
-    </SafeAreaView>
+          <TextInput
+            style={styles.inputbox}
+            placeholder="Password"
+            textAlign="left"
+            onChangeText={(val) => setPass(val)}
+            secureTextEntry={true}
+          />
+
+          <Text
+            style={styles.forgotpass}
+            onPress={() => navigation.navigate("Reset Pass")}
+          >
+            Forgot Password?
+          </Text>
+
+          <View style={styles.button}>
+            <Button
+              title="Login"
+              onPress={() => navigation.navigate("MainApp")}
+            />
+          </View>
+        </View>
+
+        <View style={styles.signup_container}>
+          <Text>Dont have an account?</Text>
+          <Text
+            style={styles.signup}
+            onPress={() => navigation.navigate("Draw Character")}
+          >
+            {" "}
+            Sign Up
+          </Text>
+        </View>
+      </SafeAreaView>
+    </DismissKeyboard>
   );
 };
 

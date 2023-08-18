@@ -12,6 +12,7 @@ import ResetPass from "./src/Screens/ResetPass";
 import Test from "./src/Components/Card";
 import Card from "./src/Components/Card";
 import DrawCharacter from "./src/Components/DrawCharacter";
+import DrawingCharacter2 from "./src/Components/DrawCharacter2";
 
 const RootStack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -57,7 +58,7 @@ const App = () => {
         />
         <RootStack.Screen
           name="Draw Character"
-          component={DrawCharacter}
+          component={DrawingCharacter2}
           options={{ headerShown: false }}
         />
         <RootStack.Screen

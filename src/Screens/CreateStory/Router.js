@@ -3,6 +3,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import CharacterChoice from "./Choice";
 import MainWriting from "../MainWriting";
 import DrawCharacter from "../../Components/DrawCharacter";
+import DrawingCharacter2 from "../../Components/DrawCharacter2";
 
 const Stack = createNativeStackNavigator();
 
@@ -16,7 +17,7 @@ const NewStoryRouter = () => {
       />
       <Stack.Screen
         name="Character Draw"
-        component={DrawCharacter}
+        component={DrawingCharacter2}
         options={{ headerShown: false }}
       />
       <Stack.Screen
