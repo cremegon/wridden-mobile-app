@@ -1,7 +1,6 @@
-import Constants from "expo-constants";
 import * as SQLite from "expo-sqlite";
 
-function openDatabase() {
+export default function openDatabase() {
   if (Platform.OS === "web") {
     return {
       transaction: () => {
@@ -15,6 +14,3 @@ function openDatabase() {
   const db = SQLite.openDatabase("db.db");
   return db;
 }
-
-const db = openDatabase();
-export default db;

@@ -13,6 +13,8 @@ import Test from "./src/Components/Card";
 import Card from "./src/Components/Card";
 import DrawCharacter from "./src/Components/DrawCharacter";
 import DrawingCharacter2 from "./src/Components/DrawCharacter2";
+import { useEffect } from "react";
+import openDatabase from "./src/Helpers/Database";
 
 const RootStack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -37,7 +39,17 @@ const MainApp = () => {
   );
 };
 
+const db = openDatabase();
+
 const App = () => {
+  useEffect(() => {
+    db.transaction((tx) => {
+      tx.executeSql(
+        "create table if not exists items (id integer primary key not null, done int, value text);"
+      );
+    });
+  }, []);
+
   return (
     <NavigationContainer>
       <RootStack.Navigator>

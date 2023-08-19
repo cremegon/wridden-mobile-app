@@ -12,7 +12,6 @@ import {
   SkCanvas,
 } from "@shopify/react-native-skia";
 import { useRef, useState, Children } from "react";
-import Slider from "@react-native-community/slider";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 interface IPath {
@@ -32,7 +31,7 @@ export default function DrawCharacter() {
   const canvasRef = useRef<SkCanvas |null>(null);
   const currentPath = useRef < SkPath | null >(null);
   const [paths, setPaths] = useState < IPath[] > ([]);
-  const [slider, setSlider] = useState(0)
+  //const [slider, setSlider] = useState(0)
   const onTouch = useTouchHandler({
     onStart: ({ x, y }) => {
       currentPath.current = Skia.Path.Make();
