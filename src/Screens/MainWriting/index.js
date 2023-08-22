@@ -15,7 +15,7 @@ import { GestureHandlerRootView } from "react-native-gesture-handler";
 
 const MainWriting = () => {
   return (
-    <GestureHandlerRootView>
+    <DismissKeyboard>
       <View style={styles.container}>
         <TextInput style={styles.title} placeholder="Title" multiline={true} />
         <TextInput
@@ -24,9 +24,8 @@ const MainWriting = () => {
           multiline={true}
           enablesReturnKeyAutomatically
         />
-        <ArcGraph />
       </View>
-    </GestureHandlerRootView>
+    </DismissKeyboard>
   );
 };
 

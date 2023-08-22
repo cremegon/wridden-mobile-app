@@ -15,6 +15,7 @@ import DrawCharacter from "./src/Components/DrawCharacter";
 import DrawingCharacter2 from "./src/Components/DrawCharacter2";
 import { useEffect } from "react";
 import openDatabase from "./src/Helpers/Database";
+import TestTop from "./src/Screens/TestTop";
 
 const RootStack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -71,6 +72,11 @@ const App = () => {
         <RootStack.Screen
           name="Draw Character"
           component={DrawingCharacter2}
+          options={{ headerShown: false }}
+        />
+        <RootStack.Screen
+          name="Test Top"
+          component={TestTop}
           options={{ headerShown: false }}
         />
         <RootStack.Screen

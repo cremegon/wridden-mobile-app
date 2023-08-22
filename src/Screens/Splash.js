@@ -6,7 +6,7 @@ const Splash = ({ navigation }) => {
   useEffect(() => {
     setTimeout(() => {
       navigation.navigate("Login");
-    }, 2000);
+    }, 500);
   });
 
   const inset = useSafeAreaInsets();
