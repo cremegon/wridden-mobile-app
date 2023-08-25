@@ -1,12 +1,12 @@
 import { View, Text } from "react-native";
 import React from "react";
 
-const ArcGraph = () => {
+const CommunityHome = () => {
   return (
     <View>
-      <Text>ArcGraph</Text>
+      <Text>CommunityHome</Text>
     </View>
   );
 };
 
-export default ArcGraph;
+export default CommunityHome;

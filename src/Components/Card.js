@@ -8,8 +8,8 @@ const Card = ({ title, image, navigation, link }) => {
     <SafeAreaView style={styles.container}>
       <TouchableOpacity onPress={() => navigation.navigate(link)}>
         <Image source={image} style={styles.card} />
+        <Text style={styles.title}>{title}</Text>
       </TouchableOpacity>
-      <Text style={styles.title}>{title}</Text>
     </SafeAreaView>
   );
 };
@@ -17,9 +17,10 @@ const Card = ({ title, image, navigation, link }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    marginVertical: -15,
   },
   card: {
-    height: 200,
+    height: 150,
     width: 400,
   },
   title: {

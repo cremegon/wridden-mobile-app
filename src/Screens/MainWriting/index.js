@@ -10,30 +10,22 @@ import React from "react";
 import { Modal } from "react-native";
 import { StatusBar } from "react-native";
 import DismissKeyboard from "../../Components/DismissKeyboard";
+import { ArcGraph } from "../../Components/ArcGraph";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
-import ArcGraph from "../../Components/ArcGraph";
-import { SafeAreaView } from "react-native-safe-area-context";
 
 const MainWriting = () => {
   return (
-    <GestureHandlerRootView style={{ flex: 1 }}>
-      <DismissKeyboard>
-        <SafeAreaView style={styles.container}>
-          <ArcGraph />
-          <TextInput
-            style={styles.title}
-            placeholder="Title"
-            multiline={true}
-          />
-          <TextInput
-            style={styles.notes}
-            placeholder="Note"
-            multiline={true}
-            enablesReturnKeyAutomatically
-          />
-        </SafeAreaView>
-      </DismissKeyboard>
-    </GestureHandlerRootView>
+    <DismissKeyboard>
+      <View style={styles.container}>
+        <TextInput style={styles.title} placeholder="Title" multiline={true} />
+        <TextInput
+          style={styles.notes}
+          placeholder="Note"
+          multiline={true}
+          enablesReturnKeyAutomatically
+        />
+      </View>
+    </DismissKeyboard>
   );
 };
 
@@ -41,7 +33,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "white",
-    paddingTop: 50,
   },
   title: {
     fontSize: 30,

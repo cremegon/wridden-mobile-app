@@ -27,7 +27,7 @@ const MainApp = () => {
         <Drawer.Screen
           name="Main"
           component={Main}
-          options={{ headerShown: false }}
+          options={{ headerShown: true }}
         />
 
         <Drawer.Screen
