@@ -11,7 +11,6 @@ import { Border, Color, FontSize, FontFamily } from "../../GlobalStyles";
 const CommunityHome = () => {
   return (
     <View>
-      <Text>CommunityHome</Text>
       <AppHeader title={"Welcome"} back={false} />
       <ScrollView>
         <SearchBar />
