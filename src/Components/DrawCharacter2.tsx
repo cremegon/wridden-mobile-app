@@ -2,7 +2,7 @@ import { View, Text, StyleSheet,
   Dimensions, GestureResponderEvent, 
   TouchableOpacity, 
   Button, TextInput} from 'react-native'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Svg, Path } from 'react-native-svg'
 import Buttons from './Buttons';
 import { SafeAreaView } from 'react-native-safe-area-context'

@@ -1,47 +1,40 @@
 import { TextInput } from "react-native";
-import React, { useEffect, useState } from "react";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
-import * as SQLite from "expo-sqlite";
+import React, { useContext, useEffect, useState } from "react";
 import { View, Text, Button, StyleSheet } from "react-native";
-import db from "../Helpers/Database";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { MdFace } from "react-icons/md";
-import { Keyboard } from "react-native";
 import DismissKeyboard from "../Components/DismissKeyboard";
-
-//const db = SQLite.openDatabase("mydatabase.db");
+import { UserContext } from "../Components/Context/UserContext";
+import DatabaseContext from "../Components/Context/DatabaseContext";
 
 const LoginScreen = ({ navigation }) => {
-  /*const [item, setItem] = useState("");
+  const { setUser } = useContext(UserContext);
+  const db = useContext(DatabaseContext);
 
-  const inset = useSafeAreaInsets();
-  useEffect(() => {
-    // Create a table if it doesn't exist
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  function handleSubmit() {
     db.transaction((tx) => {
       tx.executeSql(
-        "CREATE TABLE IF NOT EXISTS items (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT);"
+        "SELECT * FROM users WHERE (email=? OR username=?) AND password=?",
+        [email, email, password],
+        (tx, { rows }) => {
+          console.log(rows);
+          if (rows.length > 0) {
+            console.log(rows);
+            // setUser({ id: rows[0].id, username: rows[0].username });
+            //navigation.navigate("MainApp");
+          } else {
+            console.log("Incorrect Username or Password");
+          }
+        },
+        (error) => {
+          console.log("Error selecting data", error);
+        }
       );
     });
-  }, []);
+  }
 
-  // Insert data into the 'items' table
-  const insertItem = (name) => {
-    console.log(name);
-    db.transaction((tx) => {
-      tx.executeSql("INSERT INTO items (name) VALUES (?)", [name]);
-    });
-  };
-
-  const debugData = () =>
-    db.transaction(
-      (tx) => {
-        tx.executeSql("SELECT * FROM items", [], (_, { rows }) =>
-          console.log(JSON.stringify(rows))
-        );
-      },
-      (error) => console.error(error),
-      () => console.log("done")
-    );*/
   return (
     <DismissKeyboard>
       <SafeAreaView style={styles.container}>
@@ -60,14 +53,16 @@ const LoginScreen = ({ navigation }) => {
             style={styles.inputbox}
             placeholder="Username or email address"
             textAlign="left"
-            onChangeText={(val) => setId(val)}
+            value={email}
+            onChangeText={(val) => setEmail(val)}
           />
 
           <TextInput
             style={styles.inputbox}
             placeholder="Password"
             textAlign="left"
-            onChangeText={(val) => setPass(val)}
+            value={password}
+            onChangeText={(val) => setPassword(val)}
             secureTextEntry={true}
           />
 
@@ -79,10 +74,7 @@ const LoginScreen = ({ navigation }) => {
           </Text>
 
           <View style={styles.button}>
-            <Button
-              title="Login"
-              onPress={() => navigation.navigate("MainApp")}
-            />
+            <Button title="Login" onPress={() => handleSubmit()} />
           </View>
         </View>
 
@@ -98,13 +90,6 @@ const LoginScreen = ({ navigation }) => {
         </View>
       </SafeAreaView>
     </DismissKeyboard>
-
-    /*<View style={{ paddingTop: inset.top }}>
-      <Text style={{ fontSize: 20, textAlign: "center" }}>Login Screen</Text>
-      <TextInput onChangeText={(text) => setItem(text)}></TextInput>
-      <Button title="Insert" onPress={() => insertItem(item)} />
-      <Button title="Print" onPress={() => debugData()} />
-    </View>*/
   );
 };
 
