@@ -17,27 +17,18 @@ const Card = ({ title, image, navigation, link }) => {
       <Pressable onPress={() => navigation.navigate(link)}>
         <Image source={image} style={styles.card} />
         <Text style={styles.title}>{title}</Text>
-<<<<<<< Updated upstream
-      </TouchableOpacity>
-=======
       </Pressable>
->>>>>>> Stashed changes
     </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-<<<<<<< Updated upstream
-    flex: 1,
-    marginVertical: -15,
-=======
     justifyContent: "flex-start",
     paddingTop: -30,
->>>>>>> Stashed changes
   },
   card: {
-    height: 150,
+    height: 200,
     width: 400,
     borderRadius: 12,
   },

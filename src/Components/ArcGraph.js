@@ -2,8 +2,6 @@ import { View, Text } from "react-native";
 import React from "react";
 
 const ArcGraph = () => {
-<<<<<<< Updated upstream
-=======
   const translateY = useSharedValue(0);
   const context = useSharedValue({ y: 0 });
 
@@ -33,7 +31,6 @@ const ArcGraph = () => {
       transform: [{ translateY: translateY.value }],
     };
   });
->>>>>>> Stashed changes
   return (
     <View>
       <Text>ArcGraph</Text>

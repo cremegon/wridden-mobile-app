@@ -1,24 +1,17 @@
-<<<<<<< Updated upstream
-import { View, Text } from "react-native";
 import React from "react";
-=======
 import { View, Text, StyleSheet } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
 import SearchBar from "../../Components/SearchBar";
 import SmallButton from "../../Components/SmallButton";
 import TopStoriesCard from "../../Components/TopStoriesCard";
 import CommunityButton from "../../Components/CommunityButton";
-import React from "react";
 import AppHeader from "../../Components/AppHeader";
 import { Border, Color, FontSize, FontFamily } from "../../GlobalStyles";
->>>>>>> Stashed changes
 
 const CommunityHome = () => {
   return (
     <View>
-<<<<<<< Updated upstream
       <Text>CommunityHome</Text>
-=======
       <AppHeader title={"Welcome"} back={false} />
       <ScrollView>
         <SearchBar />
@@ -36,13 +29,10 @@ const CommunityHome = () => {
         <CommunityButton title="New Authors" />
         <Text>Community Home</Text>
       </ScrollView>
->>>>>>> Stashed changes
     </View>
   );
 };
 
-<<<<<<< Updated upstream
-=======
 const styles = StyleSheet.create({
   prompt: {
     fontFamily: FontFamily.materialThemeTitleLarge,
@@ -56,5 +46,4 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
   },
 });
->>>>>>> Stashed changes
 export default CommunityHome;

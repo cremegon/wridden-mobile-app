@@ -33,26 +33,6 @@ const StoryHomeAccess = ({ navigation }) => {
           image={require("../../assets/oh.png")}
           link="Read Story"
         />
-        <Card
-          title="Character List"
-          navigation={navigation}
-          image={require("../../assets/aww.png")}
-          link="Character List"
-        />
-
-        <Card
-          title="Character Draw"
-          navigation={navigation}
-          image={require("../../assets/idonot.png")}
-          link="Character Draw"
-        />
-
-        <Card
-          title="Community Home"
-          navigation={navigation}
-          image={require("../../assets/oh.png")}
-          link="Community Home"
-        />
       </ScrollView>
     </SafeAreaView>
     /*
