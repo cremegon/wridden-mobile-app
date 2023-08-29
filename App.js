@@ -33,7 +33,7 @@ const MainApp = () => {
         <Drawer.Screen
           name="Settings"
           component={SettingsPage}
-          options={{ headerShown: true }}
+          options={{ headerShown: false }}
         />
       </Drawer.Navigator>
     </View>

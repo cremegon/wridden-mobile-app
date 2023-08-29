@@ -1,15 +1,16 @@
 import { View, Text, StyleSheet, 
   Dimensions, GestureResponderEvent, 
   TouchableOpacity, 
-  Button} from 'react-native'
+  Button, TextInput} from 'react-native'
 import React, { useState } from 'react'
 import { Svg, Path } from 'react-native-svg'
 import Buttons from './Buttons';
+import { SafeAreaView } from 'react-native-safe-area-context'
+import Slider from '@react-native-community/slider';
 
 const {height, width} = Dimensions.get("window");
 
 const DrawingCharacter2 = () =>  {
-
   const [currentPath, setCurrentPath] = useState<string[]>([]);
   const [paths, setPaths] = useState([])
   const [ClearClicked, setClearClicked] = useState(false)
@@ -67,7 +68,7 @@ const DrawingCharacter2 = () =>  {
 
 
       return( 
-      <View
+      <SafeAreaView
         onTouchMove={onTouchMove}
         onTouchEnd={onTouchEnd}
         style={styles.container}
@@ -95,6 +96,18 @@ const DrawingCharacter2 = () =>  {
               />
             ))}
         </Svg>
+
+        <TextInput placeholder='Enter Character Name' style = {{paddingTop: 30}}/>
+      
+      <View style = {{paddingTop: 0}}>
+        <Slider
+          style={{width: 200, height: 40}}
+          minimumValue={0}
+          maximumValue={1}
+          minimumTrackTintColor="#FFFFFF"
+          maximumTrackTintColor="#000000"
+        />
+      </View>
         <View style = {styles.buttonList}>
 
           {titles.map((titles) => (
@@ -102,7 +115,7 @@ const DrawingCharacter2 = () =>  {
           ))}
 
         </View>
-      </View>
+      </SafeAreaView>
       )
 }
 
@@ -111,15 +124,16 @@ export default DrawingCharacter2;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        marginTop: 20,
+        marginHorizontal: 20,
         justifyContent: "flex-start",
         alignItems: "center"
     },
     svgContainer: {
         height: "70%",
         width: "100%",
-        borderColor: "black",
-        backgroundColor: "white",
-        borderWidth: 1
+        backgroundColor: "black",
+        
     },
     clearButton: {
       marginTop: 10,

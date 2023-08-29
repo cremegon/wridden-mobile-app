@@ -90,7 +90,7 @@ const LoginScreen = ({ navigation }) => {
           <Text>Dont have an account?</Text>
           <Text
             style={styles.signup}
-            onPress={() => navigation.navigate("Test Top")}
+            onPress={() => navigation.navigate("Sign Up")}
           >
             {" "}
             Sign Up

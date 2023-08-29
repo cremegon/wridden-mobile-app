@@ -1,12 +1,17 @@
 import { View, Text, Button, StyleSheet } from "react-native";
 import React from "react";
-import Test from "../../Components/Card";
 import { ScrollView } from "react-native-gesture-handler";
 import Card from "../../Components/Card";
+import { SafeAreaView } from "react-native-safe-area-context";
+import AppHeader from "../../Components/AppHeader";
+import { Appbar } from "react-native-paper";
+import CardV2 from "../../Components/CardV2";
+import { useNavigation } from "@react-navigation/native";
 
 const StoryHomeAccess = ({ navigation }) => {
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
+      <AppHeader title={"Welcome"} navigation={navigation} />
       <ScrollView>
         <Card
           title="Write New"
@@ -49,7 +54,7 @@ const StoryHomeAccess = ({ navigation }) => {
           link="Community Home"
         />
       </ScrollView>
-    </View>
+    </SafeAreaView>
     /*
       <View style={styles.button}>
         <Button
@@ -76,8 +81,9 @@ const StoryHomeAccess = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
+    justifyContent: "flex-start",
     alignItems: "center",
+    backgroundColor: "white",
   },
 
   button: {

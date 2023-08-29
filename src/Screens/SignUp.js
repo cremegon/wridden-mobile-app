@@ -79,6 +79,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     textAlign: "left",
+    marginTop: -20,
   },
   button: {
     width: 300,

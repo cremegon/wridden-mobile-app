@@ -1,10 +1,13 @@
 import { View, Text, Button, StyleSheet } from "react-native";
 import React from "react";
 import Card from "../../Components/Card";
+import AppHeader from "../../Components/AppHeader";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 const CharacterTabRouter = ({ navigation }) => {
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
+      <AppHeader title={"Welcome"} />
       <Card
         title="Character List"
         navigation={navigation}
@@ -18,7 +21,7 @@ const CharacterTabRouter = ({ navigation }) => {
         image={require("../../assets/idonot.png")}
         link="Character Draw"
       />
-    </View>
+    </SafeAreaView>
     /*
       <View style={styles.button}>
         <Button
@@ -39,8 +42,9 @@ const CharacterTabRouter = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
+    justifyContent: "flex-start",
     alignItems: "center",
+    backgroundColor: "white",
   },
 
   button: {
