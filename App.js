@@ -9,9 +9,6 @@ import { View } from "react-native";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import SignUp from "./src/Screens/SignUp";
 import ResetPass from "./src/Screens/ResetPass";
-import Test from "./src/Components/Card";
-import Card from "./src/Components/Card";
-import DrawCharacter from "./src/Components/DrawCharacter";
 import DrawingCharacter2 from "./src/Components/DrawCharacter2";
 import { useEffect } from "react";
 import openDatabase from "./src/Helpers/Database";
@@ -93,14 +90,5 @@ const App = () => {
     </NavigationContainer>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
 
 export default App;

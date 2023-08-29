@@ -4,9 +4,6 @@ import { ScrollView } from "react-native-gesture-handler";
 import Card from "../../Components/Card";
 import { SafeAreaView } from "react-native-safe-area-context";
 import AppHeader from "../../Components/AppHeader";
-import { Appbar } from "react-native-paper";
-import CardV2 from "../../Components/CardV2";
-import { useNavigation } from "@react-navigation/native";
 
 const StoryHomeAccess = ({ navigation }) => {
   return (

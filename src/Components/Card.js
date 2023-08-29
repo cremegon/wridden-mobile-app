@@ -8,8 +8,6 @@ import {
 } from "react-native";
 import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { TouchableOpacity } from "react-native-gesture-handler";
-import { FontSize } from "../GlobalStyles";
 
 const Card = ({ title, image, navigation, link }) => {
   return (
