@@ -2,6 +2,8 @@ import { View, Text, Button, TextInput, StyleSheet } from "react-native";
 import React, { useState } from "react";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { SafeAreaView } from "react-native-safe-area-context";
+import DatabaseContext from "../Components/Context/DatabaseContext";
+import { useContext } from "react";
 
 const SignUp = ({ navigation }) => {
   const inset = useSafeAreaInsets();
@@ -9,6 +11,25 @@ const SignUp = ({ navigation }) => {
   const [name, setName] = useState("");
   const [pass, setPass] = useState("");
   const [pass2, setPass2] = useState("");
+
+  const db = useContext(DatabaseContext);
+
+  function handleSubmit() {
+    db.transaction((tx) => {
+      tx.executeSql(
+        "INSERT INTO users (email, username, password) VALUES (?, ?, ?)",
+        [email, name, pass],
+        (tx, result) => {
+          console.log("Insert successful");
+          navigation.navigate("Login");
+        },
+        (error) => {
+          console.log("Error inserting data:", error);
+        }
+      );
+    });
+  }
+
   return (
     <SafeAreaView style={styles.container}>
       <View>
@@ -25,6 +46,7 @@ const SignUp = ({ navigation }) => {
           style={styles.inputbox}
           placeholder="Enter email"
           textAlign="left"
+          value={email}
           onChangeText={(val) => setEmail(val)}
         />
 
@@ -32,6 +54,7 @@ const SignUp = ({ navigation }) => {
           style={styles.inputbox}
           placeholder="Enter username"
           textAlign="left"
+          value={name}
           onChangeText={(val) => setName(val)}
         />
 
@@ -39,6 +62,7 @@ const SignUp = ({ navigation }) => {
           style={styles.inputbox}
           placeholder="Enter password"
           textAlign="left"
+          value={pass}
           secureTextEntry={true}
           onChangeText={(val) => setPass(val)}
         />
@@ -47,15 +71,13 @@ const SignUp = ({ navigation }) => {
           style={styles.inputbox}
           placeholder="Confirm password"
           textAlign="left"
+          value={pass2}
           secureTextEntry={true}
           onChangeText={(val) => setPass2(val)}
         />
 
         <View style={styles.button}>
-          <Button
-            title="Create Account"
-            onPress={() => navigation.navigate("Login")}
-          />
+          <Button title="Create Account" onPress={() => handleSubmit()} />
         </View>
       </View>
 
