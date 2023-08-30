@@ -1,73 +1,37 @@
-import { View, Text, StyleSheet, ScrollView } from "react-native";
-import React from "react";
+import { View, Text, ScrollView } from "react-native";
+import React, { useState, useEffect } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
-import ArcGraph from "../../Components/ArcGraph";
+import AppHeader from "../../Components/AppHeader";
+import Card from "../../Components/Card";
 
-const ReadStory = () => {
+export default ReadStory = ({ navigation }) => {
+  const [count, setCount] = useState(0);
+  const titleList = [
+    { title: "Where We Simmer", nav: "Story 1" },
+    { title: "Upperdown", nav: "Story 2" },
+  ];
+
   return (
-    <SafeAreaView style={styles.container}>
-      <ArcGraph />
+    <SafeAreaView style={{ flex: 1, backgroundColor: "white" }}>
+      <AppHeader
+        title={"Story List"}
+        icon={"chevron-back"}
+        navigation={navigation}
+        onPress={"Story Home Access"}
+      />
       <ScrollView>
-        <Text style={styles.title}> The Big Bad Wolf</Text>
-
-        <Text style={styles.notes}>
-          At vero eos et accusamus et iusto odio dignissimos ducimus qui
-          blanditiis praesentium voluptatum deleniti atque corrupti quos dolores
-          et quas molestias excepturi sint occaecati cupiditate non provident,
-          similique sunt in culpa qui officia deserunt mollitia animi, id est
-          laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita
-          distinctio. Nam libero tempore, cum soluta nobis est eligendi optio
-          cumque nihil impedit quo minus id quod maxime placeat facere possimus,
-          omnis voluptas assumenda est, omnis dolor repellendus. Temporibus
-          autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe
-          eveniet ut et voluptates repudiandae sint et molestiae non recusandae.
-          Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis
-          voluptatibus maiores alias consequatur aut perferendis doloribus
-          asperiores repellat.
-          {"\n"}
-          {"\n"}
-          At vero eos et accusamus et iusto odio dignissimos ducimus qui
-          blanditiis praesentium voluptatum deleniti atque corrupti quos dolores
-          et quas molestias excepturi sint occaecati cupiditate non provident,
-          similique sunt in culpa qui officia deserunt mollitia animi, id est
-          laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita
-          distinctio. Nam libero tempore, cum soluta nobis est eligendi optio
-          cumque nihil impedit quo minus id quod maxime placeat facere possimus,
-          omnis voluptas assumenda est, omnis dolor repellendus. Temporibus
-          autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe
-          eveniet ut et voluptates repudiandae sint et molestiae non recusandae.
-          Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis
-          voluptatibus maiores alias consequatur aut perferendis doloribus
-          asperiores repellat.
-        </Text>
+        <View>
+          {titleList.map((item, index) => (
+            <Card
+              title={item.title}
+              navigation={navigation}
+              image={require("../../assets/oh.png")}
+              link={item.nav}
+              params={item.title}
+            />
+          ))}
+        </View>
       </ScrollView>
     </SafeAreaView>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "white",
-  },
-  title: {
-    fontSize: 30,
-    paddingTop: 50,
-    paddingBottom: 20,
-    paddingLeft: 20,
-    fontWeight: "bold",
-  },
-  notes: {
-    fontSize: 18,
-    paddingTop: 0,
-    paddingHorizontal: 25,
-  },
-  BGModal: {
-    flex: 1,
-    backgroundColor: "blue",
-  },
-  modal: {
-    paddingTop: 50,
-  },
-});
-export default ReadStory;

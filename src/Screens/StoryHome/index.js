@@ -58,14 +58,7 @@ const StoryHomeAccess = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "flex-start",
-    alignItems: "center",
     backgroundColor: "white",
-  },
-
-  button: {
-    paddingBottom: 20,
-    width: 200,
   },
 });
 

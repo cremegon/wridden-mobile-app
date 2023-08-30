@@ -6,6 +6,7 @@ import {
   TouchableOpacity,
   Modal,
   Dimensions,
+  Pressable,
 } from "react-native";
 import React, { useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -106,12 +107,9 @@ export default CharacterList = ({ navigation }) => {
               }}
             >
               <Text style={styles.modalButton}>Yes</Text>
-              <Text
-                style={styles.modalButton}
-                onPress={() => SetIsModalVisible(false)}
-              >
-                No
-              </Text>
+              <Pressable onPress={() => SetIsModalVisible(false)}>
+                <Text style={styles.modalButton}>No</Text>
+              </Pressable>
             </View>
           </View>
         </View>

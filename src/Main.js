@@ -12,6 +12,12 @@ import DrawingCharacter2 from "./Components/DrawCharacter2";
 import CommunityHome from "./Screens/CommunityHomeTab/CommunityHome";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import Profile from "./Screens/Profile";
+import story1 from "./Screens/StoryScreens/Story1";
+import story2 from "./Screens/StoryScreens/Story2";
+import Story3 from "./Screens/StoryScreens/story3";
+import Story2 from "./Screens/StoryScreens/Story2";
+import Story1 from "./Screens/StoryScreens/Story1";
+import Story4 from "./Screens/StoryScreens/story4";
 
 const Bottom = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -37,6 +43,26 @@ const StoryHomeTab = () => {
       <Stack.Screen
         name="Read Story"
         component={ReadStory}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="Story 1"
+        component={Story1}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="Story 2"
+        component={Story2}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="Story 3"
+        component={Story3}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="Story 4"
+        component={Story4}
         options={{ headerShown: false }}
       />
     </Stack.Navigator>

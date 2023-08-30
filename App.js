@@ -24,12 +24,12 @@ const Drawer = createDrawerNavigator();
 
 const MainApp = ({ navigation }) => {
   const { user } = useContext(UserContext);
-  useEffect(() => {
+  /* useEffect(() => {
     if (!user) {
       //redirect if the context is lost ....
       navigation.navigate("Login");
     }
-  }, [user]);
+  }, [user]); */
 
   return (
     <View style={{ flex: 1 }}>

@@ -74,7 +74,10 @@ const LoginScreen = ({ navigation }) => {
           </Text>
 
           <View style={styles.button}>
-            <Button title="Login" onPress={() => handleSubmit()} />
+            <Button
+              title="Login"
+              onPress={() => navigation.navigate("MainApp")}
+            />
           </View>
         </View>
 

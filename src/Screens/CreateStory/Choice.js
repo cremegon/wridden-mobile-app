@@ -1,49 +1,36 @@
 import { View, Text, Button, StyleSheet } from "react-native";
 import React from "react";
+import { SafeAreaView } from "react-native-safe-area-context";
+import Buttons from "../../Components/Buttons";
 
-const CharacterChoice = ({ navigation }) => {
+export default CharacterChoice = ({ navigation }) => {
   return (
-    <View style={styles.container}>
+    <SafeAreaView
+      style={{
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
       <View>
-        <Text style={styles.question}>
+        <Text style={{ fontSize: 16, fontStyle: "italic" }}>
           Would you like to create a new Character?
         </Text>
       </View>
-      <View style={styles.buttoncontainer}>
-        <View style={styles.button}>
-          <Button
+      <View style={{ flexDirection: "row" }}>
+        <View style={{ padding: 20, width: 150 }}>
+          <Buttons
             title="Yes"
             onPress={() => navigation.navigate("Character Draw")}
           />
         </View>
-        <View style={styles.button}>
-          <Button
+        <View style={{ padding: 20, width: 150 }}>
+          <Buttons
             title="No"
             onPress={() => navigation.navigate("Main Writing")}
           />
         </View>
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-
-  button: {
-    padding: 20,
-    width: 150,
-  },
-  question: {
-    padding: 10,
-  },
-  buttoncontainer: {
-    flexDirection: "row",
-  },
-});
-
-export default CharacterChoice;

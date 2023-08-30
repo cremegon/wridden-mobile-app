@@ -52,12 +52,22 @@ const SettingsPage = ({ navigation }) => {
         marginHorizontal: 10,
       }}
     >
-      <Ionicons name={icon} size={24} color="black" />
-      <Text style={{ marginLeft: 36, fontSize: 16 }}>{text}</Text>
+      <Ionicons
+        name={icon}
+        size={24}
+        color="gold"
+        style={{
+          padding: 10,
+          backgroundColor: "black",
+          borderRadius: 90,
+          opacity: 1,
+        }}
+      />
+      <Text style={{ marginLeft: 30, fontSize: 18, marginTop: 8 }}>{text}</Text>
     </TouchableOpacity>
   );
   return (
-    <SafeAreaView style={{ paddingTop: 10 }}>
+    <SafeAreaView style={{ paddingTop: 10, backgroundColor: "white", flex: 1 }}>
       <AppHeader
         title={"Settings"}
         onPress={"Profile"}
