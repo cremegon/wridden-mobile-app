@@ -70,7 +70,7 @@ const CommunityHome = ({ navigation }) => {
         </Text>
         <View
           style={{
-            backgroundColor: "yellow",
+            backgroundColor: "white",
             marginTop: 10,
             borderTopEndRadius: 20,
             borderTopStartRadius: 20,
@@ -101,7 +101,7 @@ const CommunityHome = ({ navigation }) => {
           <View
             style={{
               alignItems: "center",
-              marginHorizontal: 50,
+              marginHorizontal: 40,
               paddingVertical: 8,
               borderRadius: 20,
               backgroundColor: "khaki",
@@ -129,7 +129,7 @@ const CommunityHome = ({ navigation }) => {
             </Text>
           </View>
 
-          <View style={{ height: 150, marginTop: 20 }}>
+          <View style={{ height: 150, marginTop: 15 }}>
             <ScrollView
               horizontal={true}
               showsHorizontalScrollIndicator={false}
@@ -162,7 +162,7 @@ const CommunityHome = ({ navigation }) => {
           </Text>
 
           <Posts
-            title={"Need Review for the Ending pls"}
+            title={"Need review for the ending pls"}
             name={"Michael Dawodu"}
             number={5}
           />

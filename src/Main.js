@@ -12,12 +12,10 @@ import DrawingCharacter2 from "./Components/DrawCharacter2";
 import CommunityHome from "./Screens/CommunityHomeTab/CommunityHome";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import Profile from "./Screens/Profile";
-import story1 from "./Screens/StoryScreens/Story1";
-import story2 from "./Screens/StoryScreens/Story2";
-import Story3 from "./Screens/StoryScreens/story3";
 import Story2 from "./Screens/StoryScreens/Story2";
 import Story1 from "./Screens/StoryScreens/Story1";
-import Story4 from "./Screens/StoryScreens/story4";
+import Story3 from "./Screens/StoryScreens/Story3";
+import Story4 from "./Screens/StoryScreens/Story4";
 
 const Bottom = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();

@@ -1,4 +1,4 @@
-import { TextInput } from "react-native";
+import { ImageBackground, TextInput } from "react-native";
 import React, { useContext, useEffect, useState } from "react";
 import { View, Text, Button, StyleSheet } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -37,7 +37,17 @@ const LoginScreen = ({ navigation }) => {
 
   return (
     <DismissKeyboard>
-      <SafeAreaView style={styles.container}>
+      <ImageBackground
+        source={require("../assets/SPLASH_BACKGROUND.jpg")}
+        style={{
+          flex: 1,
+          justifyContent: "center",
+          alignItems: "center",
+          height: null,
+          width: null,
+        }}
+        resizeMode="cover"
+      >
         <View>
           <Text
             style={{
@@ -55,6 +65,7 @@ const LoginScreen = ({ navigation }) => {
             textAlign="left"
             value={email}
             onChangeText={(val) => setEmail(val)}
+            placeholderTextColor={"lightgrey"}
           />
 
           <TextInput
@@ -64,6 +75,7 @@ const LoginScreen = ({ navigation }) => {
             value={password}
             onChangeText={(val) => setPassword(val)}
             secureTextEntry={true}
+            placeholderTextColor={"lightgrey"}
           />
 
           <Text
@@ -82,7 +94,7 @@ const LoginScreen = ({ navigation }) => {
         </View>
 
         <View style={styles.signup_container}>
-          <Text>Dont have an account?</Text>
+          <Text style={{ color: "black" }}>Dont have an account?</Text>
           <Text
             style={styles.signup}
             onPress={() => navigation.navigate("Sign Up")}
@@ -91,7 +103,7 @@ const LoginScreen = ({ navigation }) => {
             Sign Up
           </Text>
         </View>
-      </SafeAreaView>
+      </ImageBackground>
     </DismissKeyboard>
   );
 };
@@ -101,13 +113,13 @@ const styles = StyleSheet.create({
     justifyContent: "space-evenly",
     flex: 1,
     alignItems: "center",
+    backgroundColor: "pink",
   },
   button: {
     width: 300,
     paddingTop: 20,
   },
   inputbox: {
-    borderWidth: 1,
     borderColor: "grey",
     paddingTop: 10,
     borderRadius: 10,
@@ -115,6 +127,7 @@ const styles = StyleSheet.create({
     width: 300,
     paddingHorizontal: 10,
     paddingVertical: 5,
+    backgroundColor: "white",
   },
   forgotpass: {
     fontWeight: "bold",
@@ -124,6 +137,11 @@ const styles = StyleSheet.create({
   },
   signup_container: {
     flexDirection: "row",
+    marginTop: 20,
+    backgroundColor: "white",
+    padding: 5,
+    paddingHorizontal: 10,
+    borderRadius: 10,
   },
   signup: {
     fontWeight: "bold",
