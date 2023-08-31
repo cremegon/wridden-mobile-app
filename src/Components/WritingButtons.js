@@ -10,8 +10,24 @@ import React, { useState } from "react";
 import { FontAwesome } from "@expo/vector-icons";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { Entypo } from "@expo/vector-icons";
+import * as ImagePicker from "expo-image-picker";
+import { bgData } from "../assets/images";
 
 export default WritingButtons = ({ onLongPress }) => {
+  const [selectedImage, setSelectedImage] = useState(bgData[0].source);
+  const handleImageSelection = async () => {
+    let result = await ImagePicker.launchImageLibraryAsync({
+      mediaTypes: ImagePicker.MediaTypeOptions.All,
+      allowsEditing: true,
+      quality: 1,
+    });
+
+    console.log(result);
+
+    if (!result.canceled) {
+      setSelectedImage(result.assets[0].uri);
+    }
+  };
   return (
     <View
       style={{
@@ -34,6 +50,7 @@ export default WritingButtons = ({ onLongPress }) => {
           elevation: 4,
           paddingLeft: 13,
         }}
+        onPress={handleImageSelection}
       />
       <Entypo
         name="save"

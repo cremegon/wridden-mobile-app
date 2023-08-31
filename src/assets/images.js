@@ -40,3 +40,19 @@ export const charData = [
     onPress: "Mice",
   },
 ];
+
+export const bgData = [
+  {
+    key: 1,
+    source: require("../assets/SPLASH_BACKGROUND.jpg"),
+  },
+  {
+    key: 2,
+    source: require("../assets/SPLASH_BACKGROUND_2.jpg"),
+  },
+  {
+    key: 3,
+    source:
+      "https://e0.pxfuel.com/wallpapers/492/862/desktop-wallpaper-plain-white.jpg",
+  },
+];

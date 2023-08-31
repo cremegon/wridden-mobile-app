@@ -4,29 +4,47 @@ import {
   TextInput,
   StyleSheet,
   Pressable,
+  Image,
   Keyboard,
   TouchableWithoutFeedback,
   KeyboardAvoidingView,
+  ImageBackground,
 } from "react-native";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Modal } from "react-native";
-import { StatusBar } from "react-native";
 import DismissKeyboard from "../../Components/DismissKeyboard";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
-import { SafeAreaView } from "react-native-safe-area-context";
 import ArcGraph from "../../Components/ArcGraph";
+import WritingButtons from "../../Components/WritingButtons";
+import { bgData, charData } from "../../assets/images";
+import { FontAwesome } from "@expo/vector-icons";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { Entypo } from "@expo/vector-icons";
-import { FontAwesome } from "@expo/vector-icons";
-import WritingButtons from "../../Components/WritingButtons";
+import * as ImagePicker from "expo-image-picker";
 
-const MainWriting = ({ onLongPress, navigation }) => {
+const MainWriting = ({ onLongPress, navigation, route }) => {
   const [isModalVisible, SetIsModalVisible] = useState(false);
+  const [selectedImage, setSelectedImage] = useState({ uri: bgData[2].source });
+  const handleImageSelection = async () => {
+    let result = await ImagePicker.launchImageLibraryAsync({
+      mediaTypes: ImagePicker.MediaTypeOptions.All,
+      allowsEditing: true,
+      quality: 1,
+    });
+
+    console.log(result);
+
+    if (!result.canceled) {
+      setSelectedImage({ uri: result.assets[0].uri });
+    }
+  };
+
   return (
     <DismissKeyboard>
       <GestureHandlerRootView style={{ flex: 1 }}>
-        <SafeAreaView style={styles.container}>
+        <ImageBackground source={selectedImage} style={styles.container}>
           <ArcGraph />
+
           <TextInput
             style={styles.title}
             placeholder="Title"
@@ -39,12 +57,71 @@ const MainWriting = ({ onLongPress, navigation }) => {
             enablesReturnKeyAutomatically
             placeholderTextColor={"lightgrey"}
           />
-          <WritingButtons onLongPress={() => SetIsModalVisible(true)} />
+          <View
+            style={{
+              flexDirection: "row",
+              justifyContent: "center",
+              flex: 1,
+            }}
+          >
+            <MaterialCommunityIcons
+              name="image"
+              size={24}
+              color="coral"
+              style={{
+                backgroundColor: "gold",
+                borderWidth: 2,
+                padding: 10,
+                borderRadius: 90,
+                borderColor: "coral",
+                alignSelf: "center",
+                elevation: 4,
+                paddingLeft: 13,
+              }}
+              onPress={() => {
+                handleImageSelection();
+              }}
+            />
+            <Entypo
+              name="save"
+              size={24}
+              color="coral"
+              style={{
+                backgroundColor: "gold",
+                borderWidth: 2,
+                padding: 10,
+                borderRadius: 90,
+                borderColor: "coral",
+                alignSelf: "center",
+                elevation: 4,
+                paddingLeft: 13,
+                marginRight: 170,
+                marginLeft: 20,
+              }}
+              onPress={() => console.warn("Story Saved")}
+              onLongPress={() => SetIsModalVisible(true)}
+            />
+            <FontAwesome
+              name="arrow-circle-right"
+              size={32}
+              color="coral"
+              style={{
+                backgroundColor: "gold",
+                borderWidth: 2,
+                padding: 15,
+                borderRadius: 90,
+                borderColor: "coral",
+                alignSelf: "center",
+                elevation: 4,
+                paddingLeft: 18,
+              }}
+            />
+          </View>
           <Modal
             visible={isModalVisible}
             transparent={true}
             onRequestClose={() => SetIsModalVisible(false)}
-            animationType="slide"
+            animationType="fade"
           >
             <View
               style={{
@@ -92,7 +169,7 @@ const MainWriting = ({ onLongPress, navigation }) => {
               </View>
             </View>
           </Modal>
-        </SafeAreaView>
+        </ImageBackground>
       </GestureHandlerRootView>
     </DismissKeyboard>
   );
@@ -101,11 +178,12 @@ const MainWriting = ({ onLongPress, navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "white",
+    width: undefined,
+    height: undefined,
   },
   title: {
     fontSize: 30,
-    paddingTop: 50,
+    marginTop: 70,
     paddingLeft: 20,
     fontWeight: "bold",
     flex: 1,
