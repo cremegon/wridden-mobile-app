@@ -99,6 +99,14 @@ const Main = () => {
           tabBarInactiveTintColor: "grey",
           tabBarHideOnKeyboard: true,
           headerShown: false,
+          tabBarStyle: {
+            position: "absolute",
+            bottom: 10,
+            left: 30,
+            right: 30,
+            height: 70,
+            borderRadius: 30,
+          },
         }}
       >
         <Bottom.Screen
@@ -110,7 +118,7 @@ const Main = () => {
                 <Ionicons
                   name="ios-home"
                   size={24}
-                  color={tabInfo.focused ? "red" : "grey"}
+                  color={tabInfo.focused ? "#fd9418" : "#a6c2c1"}
                 />
               );
             },
@@ -125,7 +133,7 @@ const Main = () => {
                 <Ionicons
                   name="body"
                   size={24}
-                  color={tabInfo.focused ? "red" : "grey"}
+                  color={tabInfo.focused ? "#fd9418" : "#a6c2c1"}
                 />
               );
             },
@@ -140,7 +148,7 @@ const Main = () => {
                 <Ionicons
                   name="ios-people"
                   size={24}
-                  color={tabInfo.focused ? "red" : "grey"}
+                  color={tabInfo.focused ? "#fd9418" : "#a6c2c1"}
                 />
               );
             },
@@ -155,7 +163,7 @@ const Main = () => {
                 <Ionicons
                   name="person-circle"
                   size={24}
-                  color={tabInfo.focused ? "red" : "grey"}
+                  color={tabInfo.focused ? "#fd9418" : "#a6c2c1"}
                 />
               );
             },

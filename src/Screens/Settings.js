@@ -26,7 +26,6 @@ const SettingsPage = ({ navigation }) => {
   };
   const settingItems = [
     { icon: "text", text: "Change Font", action: changeFont },
-    { icon: "sunny", text: "Dark Mode", action: changeMode },
     { icon: "color-palette", text: "Custom Background", action: changeBg },
     {
       icon: "notifications",
@@ -43,31 +42,58 @@ const SettingsPage = ({ navigation }) => {
   ];
 
   const renderSettingsItem = ({ icon, text, action }) => (
-    <TouchableOpacity
-      onPress={action}
-      style={{
-        flexDirection: "row",
-        paddingVertical: 8,
-        paddingLeft: 20,
-        marginHorizontal: 10,
-      }}
-    >
-      <Ionicons
-        name={icon}
-        size={24}
-        color="gold"
+    <TouchableOpacity onPress={action}>
+      <View
         style={{
-          padding: 10,
-          backgroundColor: "black",
-          borderRadius: 90,
-          opacity: 1,
+          flexDirection: "row",
+          paddingVertical: 8,
+          paddingLeft: 20,
+          marginHorizontal: 10,
+          backgroundColor: "white",
+          borderRadius: 30,
+          marginVertical: 4,
+          width: 380,
+          elevation: 3,
         }}
-      />
-      <Text style={{ marginLeft: 30, fontSize: 18, marginTop: 8 }}>{text}</Text>
+      >
+        <Ionicons
+          name={icon}
+          size={24}
+          color="#ffa951"
+          style={{
+            padding: 10,
+            backgroundColor: "#ffe087",
+            borderRadius: 90,
+          }}
+        />
+        <Text
+          style={{
+            marginLeft: 30,
+            fontSize: 18,
+            marginTop: 8,
+            fontFamily: "Nunito-ExtraBold",
+            alignItems: "center",
+          }}
+        >
+          {text}
+        </Text>
+        <Ionicons
+          name="chevron-forward"
+          size={24}
+          color="#fd9418"
+          style={{ marginLeft: "auto", marginRight: 20, alignSelf: "center" }}
+        />
+      </View>
     </TouchableOpacity>
   );
   return (
-    <SafeAreaView style={{ paddingTop: 10, backgroundColor: "white", flex: 1 }}>
+    <SafeAreaView
+      style={{
+        paddingTop: 10,
+        backgroundColor: "rgba(226,237,236,0.4)",
+        flex: 1,
+      }}
+    >
       <AppHeader
         title={"Settings"}
         onPress={"Profile"}
@@ -76,17 +102,7 @@ const SettingsPage = ({ navigation }) => {
       />
 
       <View style={{ marginTop: 20, borderRadius: 20 }}>
-        <Text
-          style={{
-            fontSize: 18,
-            fontWeight: "bold",
-            marginLeft: 15,
-            marginBottom: 15,
-          }}
-        >
-          Account
-        </Text>
-        <View>
+        <View style={{ alignItems: "center" }}>
           {settingItems.map((item, index) => (
             <React.Fragment key={index}>
               {renderSettingsItem(item)}

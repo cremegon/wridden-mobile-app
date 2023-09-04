@@ -1,7 +1,8 @@
-import { View, Text, Button, StyleSheet } from "react-native";
+import { View, Text, Button, StyleSheet, Pressable } from "react-native";
 import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import Buttons from "../../Components/Buttons";
+import { Buttons2 } from "../../Components/Buttons2";
 
 export default CharacterChoice = ({ navigation }) => {
   return (
@@ -18,18 +19,12 @@ export default CharacterChoice = ({ navigation }) => {
         </Text>
       </View>
       <View style={{ flexDirection: "row" }}>
-        <View style={{ padding: 20, width: 150 }}>
-          <Buttons
-            title="Yes"
-            onPress={() => navigation.navigate("Character Draw")}
-          />
-        </View>
-        <View style={{ padding: 20, width: 150 }}>
-          <Buttons
-            title="No"
-            onPress={() => navigation.navigate("Main Writing")}
-          />
-        </View>
+        <Buttons2
+          title={"Yes"}
+          link={"Character Draw"}
+          navigation={navigation}
+        />
+        <Buttons2 title={"No"} link={"Main Writing"} navigation={navigation} />
       </View>
     </SafeAreaView>
   );

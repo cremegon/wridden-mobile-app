@@ -135,14 +135,4 @@ const styles = StyleSheet.create({
     width: 120,
     borderRadius: 90,
   },
-  modalButton: {
-    backgroundColor: "pink",
-    paddingHorizontal: 30,
-    paddingVertical: 5,
-    fontSize: 20,
-    fontWeight: "bold",
-    borderRadius: 12,
-    marginHorizontal: 20,
-    color: "palevioletred",
-  },
 });

@@ -55,4 +55,46 @@ export const bgData = [
     source:
       "https://e0.pxfuel.com/wallpapers/492/862/desktop-wallpaper-plain-white.jpg",
   },
+  {
+    key: 4,
+    source: require("../assets/profile_bg.jpg"),
+  },
+  {
+    key: 5,
+    source: require("../assets/V2_splash_2.png"),
+  },
+];
+
+export const btnData = [
+  {
+    key: 1,
+    source: require("../assets/write_new_btn_2.png"),
+  },
+  {
+    key: 2,
+    source: require("../assets/story_list_btn_3.png"),
+  },
+  {
+    key: 3,
+    source: require("../assets/read_story_btn_2.png"),
+  },
+  {
+    key: 4,
+    source: require("../assets/SPLASH_2.png"),
+  },
+  {
+    key: 5,
+    source: require("../assets/char_list_btn1.png"),
+  },
+  {
+    key: 6,
+    source: require("../assets/char_create_btn1.png"),
+  },
+];
+
+export const iconData = [
+  { key: 1, source: require("../assets/mystery_icon.png") },
+  { key: 2, source: require("../assets/romance_icon2.png") },
+  { key: 3, source: require("../assets/action_icon.png") },
+  { key: 4, source: require("../assets/fantasy_icon2.png") },
 ];

@@ -8,14 +8,14 @@ export default Posts = ({ title, name, number }) => {
   return (
     <View
       style={{
-        backgroundColor: "khaki",
+        backgroundColor: "white",
         alignSelf: "center",
         borderRadius: 15,
-        marginHorizontal: 25,
+        width: 370,
         paddingVertical: 10,
         paddingHorizontal: 5,
         paddingBottom: 20,
-        marginTop: 8,
+        marginTop: 15,
         elevation: 3,
       }}
     >
@@ -29,7 +29,7 @@ export default Posts = ({ title, name, number }) => {
             width: 50,
             borderRadius: 90,
             borderWidth: 2,
-            borderColor: "gold",
+            borderColor: "limegreen",
             marginLeft: 15,
             marginTop: 10,
           }}
@@ -37,13 +37,24 @@ export default Posts = ({ title, name, number }) => {
         <View style={{ paddingTop: 7, marginHorizontal: 12 }}>
           <Text style={{ fontSize: 18, fontWeight: "bold" }}>{title}</Text>
           <View style={{ flexDirection: "row" }}>
-            <Text>{name}</Text>
-            <Text style={{ marginLeft: 10 }}>1h ago</Text>
+            <Text style={{ color: "grey" }}>{name}</Text>
+            <View
+              style={{
+                backgroundColor: "limegreen",
+                width: 7,
+                height: 7,
+                borderRadius: 90,
+                marginTop: 8,
+                justifyContent: "center",
+                marginLeft: 5,
+              }}
+            />
+            <Text style={{ marginLeft: 5, color: "grey" }}>1h ago</Text>
           </View>
         </View>
       </View>
-      <View style={{ marginHorizontal: 10, marginTop: 10 }}>
-        <Text style={{ flexWrap: "wrap" }}>
+      <View style={{ marginHorizontal: 15, marginTop: 10 }}>
+        <Text style={{ flexWrap: "wrap", fontFamily: "OpenSans-Regular" }}>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
           minim veniam, quis nostrud exercitation ullamco laboris nisi ut
@@ -54,20 +65,26 @@ export default Posts = ({ title, name, number }) => {
         style={{
           flexDirection: "row",
           justifyContent: "space-around",
-          marginTop: 10,
+          marginTop: 20,
         }}
       >
         <View style={{ flexDirection: "row" }}>
-          <FontAwesome name="thumbs-o-up" size={20} color="grey" />
-          <Text style={{ marginTop: 2, marginHorizontal: 5 }}>23 votes</Text>
+          <FontAwesome name="thumbs-up" size={20} color="#fd9418" />
+          <Text style={{ marginTop: 2, marginHorizontal: 5, color: "grey" }}>
+            23 votes
+          </Text>
         </View>
         <View style={{ flexDirection: "row" }}>
-          <FontAwesome name="comment-o" size={20} color="grey" />
-          <Text style={{ marginTop: 2, marginHorizontal: 5 }}>9 comments</Text>
+          <Ionicons name="chatbubble-ellipses" size={20} color="#fd9418" />
+          <Text style={{ marginTop: 2, marginHorizontal: 5, color: "grey" }}>
+            9 comments
+          </Text>
         </View>
         <View style={{ flexDirection: "row" }}>
-          <Ionicons name="eye" size={20} color="grey" />
-          <Text style={{ marginTop: 2, marginHorizontal: 5 }}>35 views</Text>
+          <Ionicons name="eye" size={20} color="#fd9418" />
+          <Text style={{ marginTop: 2, marginHorizontal: 5, color: "grey" }}>
+            35 views
+          </Text>
         </View>
       </View>
     </View>

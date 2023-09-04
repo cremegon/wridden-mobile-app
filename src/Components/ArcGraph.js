@@ -28,12 +28,12 @@ const ArcGraph = () => {
       if (translateY.value > SCREEN_HEIGHT / 6) {
         translateY.value = withSpring(SCREEN_HEIGHT / 3);
       } else if (translateY.value < SCREEN_HEIGHT / 4) {
-        translateY.value = withSpring(SCREEN_HEIGHT / 8);
+        translateY.value = withSpring(SCREEN_HEIGHT / 10);
       }
     });
 
   useEffect(() => {
-    translateY.value = withSpring(SCREEN_HEIGHT / 8);
+    translateY.value = withSpring(SCREEN_HEIGHT / 10);
   }, []);
 
   const rTopSheetStyle = useAnimatedStyle(() => {
@@ -52,7 +52,7 @@ const ArcGraph = () => {
 
 const styles = StyleSheet.create({
   topSheet: {
-    backgroundColor: "royalblue",
+    backgroundColor: "#ffa951",
     height: SCREEN_HEIGHT,
     width: "100%",
     position: "absolute",

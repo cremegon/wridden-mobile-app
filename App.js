@@ -18,6 +18,8 @@ import {
   UserContext,
   UserProvider,
 } from "./src/Components/Context/UserContext";
+import { useFonts } from "expo-font";
+import { useCallback } from "react";
 
 const RootStack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -64,6 +66,25 @@ const App = () => {
       );
     });
   }, []);
+
+  const [fontsLoaded, fontError] = useFonts({
+    "AlegreyaSans-ExtraBold": require("./assets/fonts/AlegreyaSans-ExtraBold.ttf"),
+    "Nunito-ExtraBold": require("./assets/fonts/Nunito-ExtraBold.ttf"),
+    "OpenSans-Regular": require("./assets/fonts/OpenSans-Regular.ttf"),
+    "OpenSans-Italic": require("./assets/fonts/OpenSans-Italic.ttf"),
+    "Nunito-Bold": require("./assets/fonts/Nunito-Bold.ttf"),
+    "OpenSans-Bold": require("./assets/fonts/OpenSans-Bold.ttf"),
+  });
+
+  const onLayoutRootView = useCallback(async () => {
+    if (fontsLoaded || fontError) {
+      await SplashScreen.hideAsync();
+    }
+  }, [fontsLoaded, fontError]);
+
+  if (!fontsLoaded && !fontError) {
+    return null;
+  }
 
   return (
     <DatabaseContext.Provider value={db}>

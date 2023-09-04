@@ -1,10 +1,12 @@
-import { ImageBackground, TextInput } from "react-native";
-import React, { useContext, useEffect, useState } from "react";
+import { ImageBackground, Pressable, TextInput } from "react-native";
+import React, { useContext, useEffect, useState, useCallback } from "react";
 import { View, Text, Button, StyleSheet } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import DismissKeyboard from "../Components/DismissKeyboard";
 import { UserContext } from "../Components/Context/UserContext";
 import DatabaseContext from "../Components/Context/DatabaseContext";
+import { useFonts } from "expo-font";
+import Buttons from "../Components/Buttons";
 
 const LoginScreen = ({ navigation }) => {
   const { setUser } = useContext(UserContext);
@@ -38,7 +40,7 @@ const LoginScreen = ({ navigation }) => {
   return (
     <DismissKeyboard>
       <ImageBackground
-        source={require("../assets/SPLASH_BACKGROUND.jpg")}
+        source={require("../assets/splash_bg.png")}
         style={{
           flex: 1,
           justifyContent: "center",
@@ -49,16 +51,7 @@ const LoginScreen = ({ navigation }) => {
         resizeMode="cover"
       >
         <View>
-          <Text
-            style={{
-              fontSize: 20,
-              textAlign: "center",
-              fontWeight: "bold",
-              marginBottom: 10,
-            }}
-          >
-            Wridden
-          </Text>
+          <Text style={[styles.title]}>Wridden</Text>
           <TextInput
             style={styles.inputbox}
             placeholder="Username or email address"
@@ -85,16 +78,13 @@ const LoginScreen = ({ navigation }) => {
             Forgot Password?
           </Text>
 
-          <View style={styles.button}>
-            <Button
-              title="Login"
-              onPress={() => navigation.navigate("MainApp")}
-            />
-          </View>
+          <Buttons link={"MainApp"} title={"Login"} navigation={navigation} />
         </View>
 
         <View style={styles.signup_container}>
-          <Text style={{ color: "black" }}>Dont have an account?</Text>
+          <Text style={{ color: "black", fontFamily: "Nunito-Bold" }}>
+            Dont have an account?
+          </Text>
           <Text
             style={styles.signup}
             onPress={() => navigation.navigate("Sign Up")}
@@ -115,9 +105,11 @@ const styles = StyleSheet.create({
     alignItems: "center",
     backgroundColor: "pink",
   },
-  button: {
-    width: 300,
-    paddingTop: 20,
+  title: {
+    fontSize: 40,
+    textAlign: "center",
+    marginBottom: 10,
+    fontFamily: "AlegreyaSans-ExtraBold",
   },
   inputbox: {
     borderColor: "grey",
@@ -130,22 +122,23 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
   },
   forgotpass: {
-    fontWeight: "bold",
     marginTop: 15,
     alignSelf: "flex-end",
-    color: "royalblue",
+    color: "#fd9418",
+    fontFamily: "Nunito-Bold",
   },
   signup_container: {
     flexDirection: "row",
     marginTop: 20,
     backgroundColor: "white",
     padding: 5,
-    paddingHorizontal: 10,
-    borderRadius: 10,
+    paddingHorizontal: 15,
+    paddingVertical: 10,
+    borderRadius: 20,
   },
   signup: {
-    fontWeight: "bold",
-    color: "royalblue",
+    fontFamily: "Nunito-ExtraBold",
+    color: "#fd9418",
   },
 });
 

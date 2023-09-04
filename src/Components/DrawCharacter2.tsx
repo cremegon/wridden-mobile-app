@@ -7,6 +7,7 @@ import { Svg, Path } from 'react-native-svg'
 import Buttons from './Buttons';
 import { SafeAreaView } from 'react-native-safe-area-context'
 import Slider from '@react-native-community/slider';
+import { Buttons2 } from './Buttons2';
 
 const {height, width} = Dimensions.get("window");
 
@@ -111,7 +112,7 @@ const DrawingCharacter2 = () =>  {
         <View style = {styles.buttonList}>
 
           {titles.map((titles) => (
-            <Buttons onPress = {titles.function} title={titles.title} key={titles.key}/>
+            <Buttons2 onPress = {titles.function} title={titles.title} key={titles.key}/>
           ))}
 
         </View>

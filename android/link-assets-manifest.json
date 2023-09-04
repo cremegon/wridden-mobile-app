@@ -1,0 +1,17 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "assets/fonts/AlegreyaSans-ExtraBold.ttf",
+      "sha1": "3984c68344841f8d02136f5f26417cb7967fa2b2"
+    },
+    {
+      "path": "assets/fonts/AlegreyaSans-Regular.ttf",
+      "sha1": "f7948392bdd91cb15db72254357f32d25b8566c0"
+    },
+    {
+      "path": "assets/fonts/AlegreyaSans-Thin.ttf",
+      "sha1": "d1cfd3600b13d727a88d13984130bcf8c9df3b73"
+    }
+  ]
+}

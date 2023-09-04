@@ -11,7 +11,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 
 const Card = ({ title, image, navigation, link, params }) => {
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
       <Pressable
         onPress={() => navigation.navigate(link, { paramKey: params })}
         style={{ marginHorizontal: 50 }}
@@ -19,14 +19,14 @@ const Card = ({ title, image, navigation, link, params }) => {
         <Image source={image} style={styles.card} />
         <Text style={styles.title}>{title}</Text>
       </Pressable>
-    </SafeAreaView>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     alignItems: "center",
-    paddingTop: -30,
+    marginVertical: 10,
   },
   card: {
     height: 200,

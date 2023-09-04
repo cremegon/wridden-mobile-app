@@ -1,30 +1,28 @@
-import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import { View, Text, StyleSheet, Pressable } from "react-native";
 import React from "react";
 
-const Buttons = ({ title, onPress }) => {
+const Buttons = ({ title, navigation, link }) => {
   return (
-    <View>
-      <TouchableOpacity style={styles.clearButton} onPress={onPress}>
-        <Text style={styles.clearButtonText}>{title}</Text>
-      </TouchableOpacity>
+    <View style={{ marginVertical: 20 }}>
+      <Pressable onPress={() => navigation.navigate(link)}>
+        <Text style={styles.button}>{title}</Text>
+      </Pressable>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  clearButton: {
-    marginTop: 10,
-    backgroundColor: "pink",
-    paddingVertical: 8,
-    paddingHorizontal: 20,
-    borderRadius: 15,
-  },
-  clearButtonText: {
-    color: "white",
-    fontSize: 20,
-    fontWeight: "bold",
+  button: {
+    alignSelf: "center",
+    backgroundColor: "rgba(253, 148, 24, 1)",
+    width: 300,
+    height: 45,
+    textAlignVertical: "center",
     textAlign: "center",
-    color: "palevioletred",
+    borderRadius: 30,
+    fontSize: 20,
+    fontFamily: "Nunito-ExtraBold",
+    color: "floralwhite",
   },
 });
 

@@ -21,6 +21,7 @@ import { FontAwesome } from "@expo/vector-icons";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { Entypo } from "@expo/vector-icons";
 import * as ImagePicker from "expo-image-picker";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 const MainWriting = ({ onLongPress, navigation, route }) => {
   const [isModalVisible, SetIsModalVisible] = useState(false);
@@ -39,12 +40,13 @@ const MainWriting = ({ onLongPress, navigation, route }) => {
     }
   };
 
+  const inset = useSafeAreaInsets();
+
   return (
     <DismissKeyboard>
       <GestureHandlerRootView style={{ flex: 1 }}>
         <ImageBackground source={selectedImage} style={styles.container}>
           <ArcGraph />
-
           <TextInput
             style={styles.title}
             placeholder="Title"
@@ -67,16 +69,14 @@ const MainWriting = ({ onLongPress, navigation, route }) => {
             <MaterialCommunityIcons
               name="image"
               size={24}
-              color="coral"
+              color="#ffe087"
               style={{
-                backgroundColor: "gold",
-                borderWidth: 2,
+                backgroundColor: "#ffa951",
                 padding: 10,
                 borderRadius: 90,
-                borderColor: "coral",
                 alignSelf: "center",
                 elevation: 4,
-                paddingLeft: 13,
+                paddingLeft: 10,
               }}
               onPress={() => {
                 handleImageSelection();
@@ -85,16 +85,14 @@ const MainWriting = ({ onLongPress, navigation, route }) => {
             <Entypo
               name="save"
               size={24}
-              color="coral"
+              color="#ffe087"
               style={{
-                backgroundColor: "gold",
-                borderWidth: 2,
+                backgroundColor: "#ffa951",
                 padding: 10,
                 borderRadius: 90,
-                borderColor: "coral",
                 alignSelf: "center",
                 elevation: 4,
-                paddingLeft: 13,
+                paddingLeft: 10,
                 marginRight: 170,
                 marginLeft: 20,
               }}
@@ -104,16 +102,14 @@ const MainWriting = ({ onLongPress, navigation, route }) => {
             <FontAwesome
               name="arrow-circle-right"
               size={32}
-              color="coral"
+              color="#ffe087"
               style={{
-                backgroundColor: "gold",
-                borderWidth: 2,
+                backgroundColor: "#ffa951",
                 padding: 15,
                 borderRadius: 90,
-                borderColor: "coral",
                 alignSelf: "center",
                 elevation: 4,
-                paddingLeft: 18,
+                paddingLeft: 16,
               }}
             />
           </View>
@@ -183,17 +179,18 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 30,
-    marginTop: 70,
+    marginTop: 140,
     paddingLeft: 20,
     fontWeight: "bold",
-    flex: 1,
   },
   notes: {
     fontSize: 18,
+    marginTop: 20,
     width: "90%",
     alignSelf: "center",
-    flex: 5,
     textAlignVertical: "top",
+    flex: 1,
+    marginBottom: 70,
   },
   BGModal: {
     flex: 1,

@@ -12,10 +12,15 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { charData } from "../../assets/images";
 import Posts from "../../Components/Posts";
+import { iconData } from "../../assets/images";
 
 const CommunityHome = ({ navigation }) => {
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: "royalblue" }}>
+    <SafeAreaView style={{ flex: 1, backgroundColor: "#e77f04" }}>
+      <Image
+        source={require("../../assets/doods_4.png")}
+        style={{ position: "absolute", width: "100%", top: 30, height: "20%" }}
+      />
       <ScrollView>
         <View
           style={{
@@ -27,9 +32,9 @@ const CommunityHome = ({ navigation }) => {
         >
           <TouchableOpacity onPress={() => navigation.goBack()}>
             <Ionicons
-              name="arrow-back-circle-outline"
+              name="arrow-back-circle"
               size={40}
-              color="white"
+              color="#230a0a"
               style={{ marginTop: 3 }}
             />
           </TouchableOpacity>
@@ -48,11 +53,11 @@ const CommunityHome = ({ navigation }) => {
         </View>
         <Text
           style={{
-            fontSize: 30,
-            fontWeight: "bold",
+            fontSize: 35,
             color: "white",
             marginLeft: 20,
             marginTop: 10,
+            fontFamily: "AlegreyaSans-ExtraBold",
           }}
         >
           {" "}
@@ -60,17 +65,19 @@ const CommunityHome = ({ navigation }) => {
         </Text>
         <Text
           style={{
-            fontSize: 15,
+            fontSize: 14,
             color: "white",
             marginLeft: 28,
-            marginTop: 5,
+            marginTop: 0,
+            fontFamily: "OpenSans-Regular",
+            marginBottom: 5,
           }}
         >
           Find topics you like and interact with others!
         </Text>
         <View
           style={{
-            backgroundColor: "white",
+            backgroundColor: "rgba(244,244,244,1)",
             marginTop: 10,
             borderTopEndRadius: 20,
             borderTopStartRadius: 20,
@@ -101,51 +108,92 @@ const CommunityHome = ({ navigation }) => {
           <View
             style={{
               alignItems: "center",
-              marginHorizontal: 40,
-              paddingVertical: 8,
+              marginHorizontal: 30,
+              paddingVertical: 10,
               borderRadius: 20,
-              backgroundColor: "khaki",
+              backgroundColor: "white",
+              elevation: 5,
             }}
           >
-            <Text
+            <View
               style={{
-                fontSize: 18,
-                fontWeight: "bold",
-                marginBottom: 10,
+                backgroundColor: "#fd9418",
+                paddingHorizontal: 12,
+                borderRadius: 20,
+                marginTop: 3,
               }}
             >
-              Prompt of the Day
-            </Text>
-            <Text
+              <Text
+                style={{
+                  fontSize: 20,
+                  color: "floralwhite",
+                  fontFamily: "AlegreyaSans-ExtraBold",
+                  marginBottom: 4,
+                }}
+              >
+                Prompt of the Day
+              </Text>
+            </View>
+            <View
               style={{
-                fontSize: 15,
-                fontStyle: "italic",
-                paddingHorizontal: 15,
-                paddingVertical: 5,
-                borderRadius: 10,
+                backgroundColor: "white",
+                paddingHorizontal: 10,
+                marginHorizontal: 20,
+                borderRadius: 20,
+                marginTop: 5,
               }}
             >
-              Rainy day, Colorful Apricot, Rust
-            </Text>
+              <Text
+                style={{
+                  fontSize: 14,
+                  textAlign: "center",
+                  paddingVertical: 5,
+                  borderRadius: 10,
+                  fontFamily: "OpenSans-Italic",
+                  color: "#230a0a",
+                }}
+              >
+                It’s the last evening of your vacation and you’re watching the
+                sunset with your friends/partner/family, wishing summer would
+                never end. But just as the sun dips below the horizon, you
+                notice it returning in reverse.
+              </Text>
+            </View>
           </View>
 
-          <View style={{ height: 150, marginTop: 15 }}>
+          <View style={{ height: 170, marginTop: 15 }}>
             <ScrollView
               horizontal={true}
               showsHorizontalScrollIndicator={false}
               style={{ marginTop: 20, marginLeft: 20 }}
             >
               <View style={styles.horizontalScrollItems}>
-                <Text style={styles.scrollText}>New Stories</Text>
+                <Image
+                  source={iconData[0].source}
+                  style={styles.scrollItemIcon}
+                />
+                <Text style={styles.scrollText}>Mystery</Text>
               </View>
               <View style={styles.horizontalScrollItems}>
-                <Text style={styles.scrollText}>Top Stories</Text>
+                <Image
+                  source={iconData[1].source}
+                  style={styles.scrollItemIcon}
+                />
+                <Text style={styles.scrollText}>Romance</Text>
               </View>
               <View style={styles.horizontalScrollItems}>
-                <Text style={styles.scrollText}>New Topic</Text>
+                <Image
+                  source={iconData[2].source}
+                  style={styles.scrollItemIcon}
+                />
+                <Text style={styles.scrollText}>Action</Text>
               </View>
               <View style={styles.horizontalScrollItems}>
-                <Text style={styles.scrollText}>Trending</Text>
+                <Image
+                  source={iconData[3].source}
+                  style={styles.scrollItemIcon}
+                />
+                <Text style={styles.scrollText}>Fantasy</Text>
               </View>
             </ScrollView>
           </View>
@@ -154,7 +202,7 @@ const CommunityHome = ({ navigation }) => {
             style={{
               fontSize: 20,
               fontWeight: "bold",
-              marginVertical: 20,
+              marginVertical: 10,
               marginLeft: 30,
             }}
           >
@@ -186,28 +234,40 @@ const styles = StyleSheet.create({
   horizontalScrollText: {
     paddingHorizontal: 16,
     paddingVertical: 7,
-    backgroundColor: "lightsalmon",
+    backgroundColor: "#e0e7e6",
     borderRadius: 10,
     marginHorizontal: 10,
-    color: "maroon",
+    color: "#230a0a",
+    fontFamily: "Nunito-ExtraBold",
+    fontSize: 14,
     shadowColor: "black",
     elevation: 3,
   },
   horizontalScrollItems: {
     width: 130,
     height: 130,
-    backgroundColor: "steelblue",
-    borderRadius: 10,
+    backgroundColor: "#230a0a",
+    borderRadius: 40,
     marginHorizontal: 10,
-    shadowColor: "black",
     elevation: 3,
+    justifyContent: "center",
+    alignItems: "center",
   },
   scrollText: {
-    fontSize: 30,
-    marginLeft: 6,
-    marginTop: 10,
-    fontWeight: "bold",
-    color: "skyblue",
+    fontSize: 20,
+    textAlign: "center",
+    textAlignVertical: "center",
+    fontFamily: "AlegreyaSans-ExtraBold",
+    color: "floralwhite",
+    marginTop: 5,
+  },
+  scrollItemIcon: {
+    width: 50,
+    height: 50,
+    backgroundColor: "#230a0a",
+    borderRadius: 90,
+    padding: 20,
+    tintColor: "white",
   },
 });
 

@@ -6,12 +6,12 @@ const AppHeader = ({ navigation, onPress, title, icon }) => {
   return (
     <View style={styles.headerNav}>
       <TouchableOpacity
-        style={{ position: "absolute", left: 25 }}
+        style={{ position: "absolute", left: 25, top: 2 }}
         onPress={() => navigation.navigate(onPress)}
       >
         <Ionicons name={icon} size={26} color="black" />
       </TouchableOpacity>
-      <Text style={{ fontSize: 22, fontWeight: "bold" }}>{title}</Text>
+      <Text style={{ fontSize: 22, fontFamily: "OpenSans-Bold" }}>{title}</Text>
     </View>
   );
 };
