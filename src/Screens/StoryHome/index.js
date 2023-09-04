@@ -31,7 +31,7 @@ const StoryHomeAccess = ({ navigation }) => {
       <Text style={styles.title1}>Explore the world of fantasies</Text>
       <Text style={styles.title2}>and create your own!</Text>
 
-      <View style={{ alignItems: "center", width: "100%", marginTop: "100%" }}>
+      <View style={{ alignItems: "center", width: "100%", marginTop: "105%" }}>
         <View style={{ flexDirection: "row" }}>
           <View
             style={{
@@ -39,8 +39,8 @@ const StoryHomeAccess = ({ navigation }) => {
               borderRadius: 40,
               paddingHorizontal: 25,
               borderColor: "#fd9418",
-              width: 150,
-              height: 150,
+              width: 130,
+              height: 130,
               backgroundColor: "white",
               elevation: 4,
             }}
@@ -48,13 +48,13 @@ const StoryHomeAccess = ({ navigation }) => {
             <Pressable onPress={() => navigation.navigate("Write New")}>
               <Image
                 source={require("../../assets/write_icon2.png")}
-                style={{ width: 80, height: 80, alignSelf: "center" }}
+                style={{ width: 60, height: 60, alignSelf: "center" }}
               />
               <Text
                 style={{
                   textAlign: "center",
                   fontFamily: "Nunito-ExtraBold",
-                  fontSize: 16,
+                  fontSize: 15,
                   color: "#230a0a",
                   marginTop: 10,
                 }}
@@ -70,8 +70,8 @@ const StoryHomeAccess = ({ navigation }) => {
               paddingHorizontal: 25,
               borderColor: "#fd9418",
               marginLeft: 20,
-              width: 150,
-              height: 150,
+              width: 130,
+              height: 130,
               backgroundColor: "white",
               elevation: 4,
             }}
@@ -79,7 +79,7 @@ const StoryHomeAccess = ({ navigation }) => {
             <Pressable onPress={() => navigation.navigate("Story List")}>
               <Image
                 source={require("../../assets/storylist_icon2.png")}
-                style={{ width: 80, height: 80, alignSelf: "center" }}
+                style={{ width: 60, height: 60, alignSelf: "center" }}
               />
               <Text
                 style={{
@@ -101,8 +101,8 @@ const StoryHomeAccess = ({ navigation }) => {
             borderRadius: 40,
             paddingHorizontal: 25,
             borderColor: "#fd9418",
-            width: 320,
-            height: 150,
+            width: 280,
+            height: 130,
             marginTop: 15,
             backgroundColor: "white",
             elevation: 4,
@@ -111,7 +111,7 @@ const StoryHomeAccess = ({ navigation }) => {
           <Pressable onPress={() => navigation.navigate("Read Story")}>
             <Image
               source={require("../../assets/storylist_icon2.png")}
-              style={{ width: 80, height: 80, alignSelf: "center" }}
+              style={{ width: 60, height: 60, alignSelf: "center" }}
             />
             <Text
               style={{
@@ -154,7 +154,7 @@ const StoryHomeAccess = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "rgba(226,237,236,0.4)",
+    backgroundColor: "rgba(244,244,244,1)",
     zIndex: -2,
   },
   btn: {

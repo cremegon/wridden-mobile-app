@@ -12,13 +12,15 @@ import React, { useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import AppHeader from "../../Components/AppHeader";
 import { charData } from "../../assets/images";
+import { StatusBar } from "react-native";
 
 export default CharacterList = ({ navigation }) => {
   const [isModalVisible, SetIsModalVisible] = useState(false);
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
 
   return (
-    <SafeAreaView style={{ flex: 1 }}>
+    <SafeAreaView style={{ flex: 1, backgroundColor: "rgba(244,244,244,1)" }}>
+      <StatusBar backgroundColor={"#e77f04"} />
       <AppHeader
         navigation={navigation}
         onPress={"Character Home Access"}
@@ -64,14 +66,14 @@ export default CharacterList = ({ navigation }) => {
             flex: 1,
             justifyContent: "center",
             alignItems: "center",
-            marginBottom: 150,
+            marginBottom: 120,
           }}
         >
           <View
             style={{
               backgroundColor: "white",
               padding: 20,
-              paddingBottom: 100,
+              paddingBottom: 50,
               borderRadius: 12,
               shadowColor: "black",
               elevation: 4,
@@ -88,15 +90,20 @@ export default CharacterList = ({ navigation }) => {
             <Text
               style={{
                 textAlign: "center",
-                fontSize: 22,
-                fontWeight: "bold",
+                fontSize: 30,
                 marginTop: 15,
-                fontStyle: "italic",
+                fontFamily: "AlegreyaSans-ExtraBoldItalic",
               }}
             >
               {charData[selectedImageIndex].name}
             </Text>
-            <Text style={{ textAlign: "center", marginTop: 10 }}>
+            <Text
+              style={{
+                textAlign: "center",
+                marginTop: 10,
+                fontFamily: "OpenSans-Regular",
+              }}
+            >
               Would you like to edit this Character?
             </Text>
             <View
@@ -121,18 +128,35 @@ export default CharacterList = ({ navigation }) => {
 const styles = StyleSheet.create({
   charTitle: {
     fontSize: 18,
-    fontWeight: "bold",
     borderWidth: 2,
     textAlign: "center",
-    borderColor: "steelblue",
+    borderColor: "white",
+    backgroundColor: "white",
+    elevation: 3,
     paddingVertical: 1,
     paddingHorizontal: 8,
     borderRadius: 20,
     marginBottom: 10,
+    color: "#fd9418",
+    fontFamily: "AlegreyaSans-ExtraBold",
   },
   charIcon: {
     height: 120,
     width: 120,
     borderRadius: 90,
+    borderWidth: 2,
+    borderColor: "#fd9418",
+  },
+  modalButton: {
+    color: "floralwhite",
+    backgroundColor: "#fd9418",
+    textAlign: "center",
+    paddingHorizontal: 40,
+    paddingVertical: 10,
+    borderRadius: 25,
+    elevation: 5,
+    marginHorizontal: 10,
+    fontFamily: "Nunito-ExtraBold",
+    fontSize: 18,
   },
 });

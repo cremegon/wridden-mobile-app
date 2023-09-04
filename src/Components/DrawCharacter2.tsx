@@ -4,14 +4,12 @@ import { View, Text, StyleSheet,
   Button, TextInput} from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { Svg, Path } from 'react-native-svg'
-import Buttons from './Buttons';
 import { SafeAreaView } from 'react-native-safe-area-context'
-import Slider from '@react-native-community/slider';
 import { Buttons2 } from './Buttons2';
 
 const {height, width} = Dimensions.get("window");
 
-const DrawingCharacter2 = () =>  {
+const DrawingCharacter2 = ({navigation}) =>  {
   const [currentPath, setCurrentPath] = useState<string[]>([]);
   const [paths, setPaths] = useState([])
   const [ClearClicked, setClearClicked] = useState(false)
@@ -21,27 +19,6 @@ const DrawingCharacter2 = () =>  {
     setCurrentPath([])
     setClearClicked(true)
   }
-
-  const warnLog = () => {
-    console.warn("working")
-  }
-
-  const titles = [{
-    key: 1,
-    title: "Clear",
-    function: handleClearClick
-  },
-  {
-    key: 2,
-    title: "Erase",
-    function: handleClearClick
-  },
-  {
-    key: 3,
-    title: "Next",
-    function: handleClearClick
-  },
-]
 
   const onTouchMove = (event: GestureResponderEvent) => {
     const newPath = [...currentPath];
@@ -68,7 +45,7 @@ const DrawingCharacter2 = () =>  {
   };
 
 
-      return( 
+  return( 
       <SafeAreaView
         onTouchMove={onTouchMove}
         onTouchEnd={onTouchEnd}
@@ -99,22 +76,9 @@ const DrawingCharacter2 = () =>  {
         </Svg>
 
         <TextInput placeholder='Enter Character Name' style = {{paddingTop: 30}}/>
-      
-      <View style = {{paddingTop: 0}}>
-        <Slider
-          style={{width: 200, height: 40}}
-          minimumValue={0}
-          maximumValue={1}
-          minimumTrackTintColor="#FFFFFF"
-          maximumTrackTintColor="#000000"
-        />
-      </View>
+
         <View style = {styles.buttonList}>
-
-          {titles.map((titles) => (
-            <Buttons2 onPress = {titles.function} title={titles.title} key={titles.key}/>
-          ))}
-
+          <Buttons2 title={"Next"} link={"Character Traits"} navigation={navigation}/>
         </View>
       </SafeAreaView>
       )

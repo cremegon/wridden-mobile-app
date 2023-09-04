@@ -89,7 +89,6 @@ const SettingsPage = ({ navigation }) => {
   return (
     <SafeAreaView
       style={{
-        paddingTop: 10,
         backgroundColor: "rgba(226,237,236,0.4)",
         flex: 1,
       }}
@@ -101,7 +100,7 @@ const SettingsPage = ({ navigation }) => {
         navigation={navigation}
       />
 
-      <View style={{ marginTop: 20, borderRadius: 20 }}>
+      <View style={{ marginTop: 30, borderRadius: 20 }}>
         <View style={{ alignItems: "center" }}>
           {settingItems.map((item, index) => (
             <React.Fragment key={index}>

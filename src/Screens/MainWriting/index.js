@@ -64,6 +64,7 @@ const MainWriting = ({ onLongPress, navigation, route }) => {
               flexDirection: "row",
               justifyContent: "center",
               flex: 1,
+              marginTop: 60,
             }}
           >
             <MaterialCommunityIcons
@@ -71,7 +72,7 @@ const MainWriting = ({ onLongPress, navigation, route }) => {
               size={24}
               color="#ffe087"
               style={{
-                backgroundColor: "#ffa951",
+                backgroundColor: "white",
                 padding: 10,
                 borderRadius: 90,
                 alignSelf: "center",
@@ -87,7 +88,7 @@ const MainWriting = ({ onLongPress, navigation, route }) => {
               size={24}
               color="#ffe087"
               style={{
-                backgroundColor: "#ffa951",
+                backgroundColor: "white",
                 padding: 10,
                 borderRadius: 90,
                 alignSelf: "center",
@@ -104,7 +105,7 @@ const MainWriting = ({ onLongPress, navigation, route }) => {
               size={32}
               color="#ffe087"
               style={{
-                backgroundColor: "#ffa951",
+                backgroundColor: "white",
                 padding: 15,
                 borderRadius: 90,
                 alignSelf: "center",
@@ -130,8 +131,8 @@ const MainWriting = ({ onLongPress, navigation, route }) => {
               <View
                 style={{
                   backgroundColor: "white",
-                  padding: 10,
-                  paddingVertical: 20,
+                  padding: 30,
+                  paddingVertical: 30,
                   borderRadius: 12,
                   shadowColor: "black",
                   elevation: 4,
@@ -140,8 +141,8 @@ const MainWriting = ({ onLongPress, navigation, route }) => {
                 <Text
                   style={{
                     textAlign: "center",
-                    marginTop: 10,
-                    fontStyle: "italic",
+                    marginVertical: 10,
+                    fontFamily: "OpenSans-Italic",
                   }}
                 >
                   Would you like to Save and Exit?
@@ -179,7 +180,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 30,
-    marginTop: 140,
+    marginTop: 100,
     paddingLeft: 20,
     fontWeight: "bold",
   },
@@ -200,14 +201,16 @@ const styles = StyleSheet.create({
     paddingTop: 50,
   },
   modalButton: {
-    backgroundColor: "pink",
+    color: "floralwhite",
+    backgroundColor: "#fd9418",
+    textAlign: "center",
     paddingHorizontal: 30,
-    paddingVertical: 5,
-    fontSize: 20,
-    fontWeight: "bold",
-    borderRadius: 12,
-    marginHorizontal: 20,
-    color: "palevioletred",
+    paddingVertical: 7,
+    borderRadius: 25,
+    elevation: 5,
+    marginHorizontal: 10,
+    fontFamily: "Nunito-ExtraBold",
+    fontSize: 18,
   },
 });
 

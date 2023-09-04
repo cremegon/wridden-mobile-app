@@ -84,7 +84,7 @@ const CommunityHome = ({ navigation }) => {
             paddingBottom: 100,
           }}
         >
-          <View style={{ height: 80 }}>
+          <View style={{ height: 80, marginBottom: 5 }}>
             <ScrollView
               horizontal={true}
               showsHorizontalScrollIndicator={false}
@@ -246,7 +246,7 @@ const styles = StyleSheet.create({
   horizontalScrollItems: {
     width: 130,
     height: 130,
-    backgroundColor: "#230a0a",
+    backgroundColor: "#e0e7e6",
     borderRadius: 40,
     marginHorizontal: 10,
     elevation: 3,
@@ -258,16 +258,16 @@ const styles = StyleSheet.create({
     textAlign: "center",
     textAlignVertical: "center",
     fontFamily: "AlegreyaSans-ExtraBold",
-    color: "floralwhite",
+    color: "#fd9418",
     marginTop: 5,
   },
   scrollItemIcon: {
     width: 50,
     height: 50,
-    backgroundColor: "#230a0a",
+    backgroundColor: "#e0e7e6",
     borderRadius: 90,
     padding: 20,
-    tintColor: "white",
+    tintColor: "#fd9418",
   },
 });
 

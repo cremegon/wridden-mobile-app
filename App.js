@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Keyboard, StatusBar } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Splash from "./src/Screens/Splash";
@@ -10,7 +10,7 @@ import { createDrawerNavigator } from "@react-navigation/drawer";
 import SignUp from "./src/Screens/SignUp";
 import ResetPass from "./src/Screens/ResetPass";
 import DrawingCharacter2 from "./src/Components/DrawCharacter2";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import DatabaseContext from "./src/Components/Context/DatabaseContext";
 import TestTop from "./src/Screens/TestTop";
 import db from "./src/Helpers/Database";
@@ -69,6 +69,7 @@ const App = () => {
 
   const [fontsLoaded, fontError] = useFonts({
     "AlegreyaSans-ExtraBold": require("./assets/fonts/AlegreyaSans-ExtraBold.ttf"),
+    "AlegreyaSans-ExtraBoldItalic": require("./assets/fonts/AlegreyaSans-ExtraBoldItalic.ttf"),
     "Nunito-ExtraBold": require("./assets/fonts/Nunito-ExtraBold.ttf"),
     "OpenSans-Regular": require("./assets/fonts/OpenSans-Regular.ttf"),
     "OpenSans-Italic": require("./assets/fonts/OpenSans-Italic.ttf"),

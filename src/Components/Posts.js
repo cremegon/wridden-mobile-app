@@ -69,19 +69,19 @@ export default Posts = ({ title, name, number }) => {
         }}
       >
         <View style={{ flexDirection: "row" }}>
-          <FontAwesome name="thumbs-up" size={20} color="#fd9418" />
+          <FontAwesome name="thumbs-up" size={20} color="#ffa951" />
           <Text style={{ marginTop: 2, marginHorizontal: 5, color: "grey" }}>
             23 votes
           </Text>
         </View>
         <View style={{ flexDirection: "row" }}>
-          <Ionicons name="chatbubble-ellipses" size={20} color="#fd9418" />
+          <Ionicons name="chatbubble-ellipses" size={20} color="#ffa951" />
           <Text style={{ marginTop: 2, marginHorizontal: 5, color: "grey" }}>
             9 comments
           </Text>
         </View>
         <View style={{ flexDirection: "row" }}>
-          <Ionicons name="eye" size={20} color="#fd9418" />
+          <Ionicons name="eye" size={20} color="#ffa951" />
           <Text style={{ marginTop: 2, marginHorizontal: 5, color: "grey" }}>
             35 views
           </Text>

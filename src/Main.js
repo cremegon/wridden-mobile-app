@@ -1,4 +1,4 @@
-import { View, Text } from "react-native";
+import { View, Text, StatusBar } from "react-native";
 import React from "react";
 import WriteNew from "./Screens/StoryHome/WriteNew";
 import StoryList from "./Screens/StoryHome/StoryList";
@@ -16,6 +16,9 @@ import Story2 from "./Screens/StoryScreens/Story2";
 import Story1 from "./Screens/StoryScreens/Story1";
 import Story3 from "./Screens/StoryScreens/Story3";
 import Story4 from "./Screens/StoryScreens/Story4";
+import { Keyboard } from "react-native";
+import { useState, useEffect } from "react";
+import CharacterTraits from "./Screens/StoryHome/CharacterTraits";
 
 const Bottom = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -41,6 +44,11 @@ const StoryHomeTab = () => {
       <Stack.Screen
         name="Read Story"
         component={ReadStory}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="Character Traits"
+        component={CharacterTraits}
         options={{ headerShown: false }}
       />
       <Stack.Screen
@@ -90,6 +98,26 @@ const CharacterHomeTab = () => {
 };
 
 const Main = () => {
+  const [keyboardShow, setKeyboardShow] = useState(false);
+  useEffect(() => {
+    const keyboardDidShowListener = Keyboard.addListener(
+      "keyboardDidShow",
+      () => {
+        setKeyboardShow(true);
+      }
+    );
+    const keyboardDidHideListener = Keyboard.addListener(
+      "keyboardDidHide",
+      () => {
+        setKeyboardShow(false);
+      }
+    );
+
+    return () => {
+      keyboardDidHideListener.remove();
+      keyboardDidShowListener.remove();
+    };
+  }, []);
   return (
     <View style={{ flex: 1 }}>
       <Bottom.Navigator
@@ -101,11 +129,12 @@ const Main = () => {
           headerShown: false,
           tabBarStyle: {
             position: "absolute",
-            bottom: 10,
+            bottom: keyboardShow ? -100 : 20,
             left: 30,
             right: 30,
             height: 70,
             borderRadius: 30,
+            elevation: 3,
           },
         }}
       >
@@ -118,7 +147,7 @@ const Main = () => {
                 <Ionicons
                   name="ios-home"
                   size={24}
-                  color={tabInfo.focused ? "#fd9418" : "#a6c2c1"}
+                  color={tabInfo.focused ? "#fd9418" : "#8f9d9b"}
                 />
               );
             },
@@ -133,7 +162,7 @@ const Main = () => {
                 <Ionicons
                   name="body"
                   size={24}
-                  color={tabInfo.focused ? "#fd9418" : "#a6c2c1"}
+                  color={tabInfo.focused ? "#fd9418" : "#8f9d9b"}
                 />
               );
             },
@@ -148,7 +177,7 @@ const Main = () => {
                 <Ionicons
                   name="ios-people"
                   size={24}
-                  color={tabInfo.focused ? "#fd9418" : "#a6c2c1"}
+                  color={tabInfo.focused ? "#fd9418" : "#8f9d9b"}
                 />
               );
             },
@@ -163,7 +192,7 @@ const Main = () => {
                 <Ionicons
                   name="person-circle"
                   size={24}
-                  color={tabInfo.focused ? "#fd9418" : "#a6c2c1"}
+                  color={tabInfo.focused ? "#fd9418" : "#8f9d9b"}
                 />
               );
             },

@@ -8,61 +8,72 @@ import { btnData } from "../../assets/images";
 const CharacterTabRouter = ({ navigation }) => {
   return (
     <SafeAreaView style={styles.container}>
-      <AppHeader title={"Welcome"} />
-      <View
-        style={{
-          flexDirection: "row",
-          alignItems: "flex-end",
-          flex: 1,
-          marginBottom: 30,
-        }}
-      >
-        <Pressable onPress={() => navigation.navigate("Character List")}>
-          <Image source={btnData[4].source} style={{ borderRadius: 40 }} />
-          <Text
+      <View style={{ flex: 1, justifyContent: "flex-end", marginBottom: 120 }}>
+        <View style={{ flexDirection: "row" }}>
+          <View
             style={{
-              position: "absolute",
-              top: 150,
-              left: 20,
-              fontSize: 27,
-              fontWeight: "bold",
-              color: "floralwhite",
+              padding: 15,
+              borderRadius: 40,
+              paddingHorizontal: 25,
+              borderColor: "#fd9418",
+              width: 130,
+              height: 130,
+              backgroundColor: "white",
+              elevation: 4,
             }}
           >
-            Character{"\n"}List
-          </Text>
-        </Pressable>
-        <Pressable onPress={() => navigation.navigate("Character List")}>
-          <Image source={btnData[5].source} style={{ borderRadius: 40 }} />
-          <Text
+            <Pressable onPress={() => navigation.navigate("Character List")}>
+              <Image
+                source={require("../../assets/write_icon2.png")}
+                style={{ width: 60, height: 60, alignSelf: "center" }}
+              />
+              <Text
+                style={{
+                  textAlign: "center",
+                  fontFamily: "Nunito-ExtraBold",
+                  fontSize: 13,
+                  color: "#230a0a",
+                  marginTop: 10,
+                }}
+              >
+                Character List
+              </Text>
+            </Pressable>
+          </View>
+          <View
             style={{
-              position: "absolute",
-              top: 150,
-              left: 20,
-              fontSize: 27,
-              fontWeight: "bold",
-              color: "floralwhite",
+              padding: 15,
+              borderRadius: 40,
+              paddingHorizontal: 25,
+              borderColor: "#fd9418",
+              marginLeft: 20,
+              width: 130,
+              height: 130,
+              backgroundColor: "white",
+              elevation: 4,
             }}
           >
-            Character{"\n"}Create
-          </Text>
-        </Pressable>
+            <Pressable onPress={() => navigation.navigate("Character Draw")}>
+              <Image
+                source={require("../../assets/storylist_icon2.png")}
+                style={{ width: 60, height: 60, alignSelf: "center" }}
+              />
+              <Text
+                style={{
+                  textAlign: "center",
+                  fontFamily: "Nunito-ExtraBold",
+                  fontSize: 13,
+                  color: "#230a0a",
+                  marginTop: 10,
+                }}
+              >
+                Character Draw
+              </Text>
+            </Pressable>
+          </View>
+        </View>
       </View>
     </SafeAreaView>
-    /*
-      <View style={styles.button}>
-        <Button
-          title="Go to Character List"
-          onPress={() => navigation.navigate("Character List")}
-        />
-      </View>
-      <View style={styles.button}>
-        <Button
-          title="Go to Character Draw"
-          onPress={() => navigation.navigate("Character Draw")}
-        />
-      </View>
-    </View>*/
   );
 };
 
@@ -70,12 +81,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: "center",
-    backgroundColor: "white",
-  },
-
-  button: {
-    paddingBottom: 20,
-    width: 200,
+    backgroundColor: "rgba(226,237,236,0.4)",
   },
 });
 

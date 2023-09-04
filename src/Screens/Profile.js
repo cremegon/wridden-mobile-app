@@ -15,6 +15,8 @@ import { TextInput } from "react-native-gesture-handler";
 import { useNavigation } from "@react-navigation/native";
 import AppHeader from "../Components/AppHeader";
 import { FontAwesome5 } from "@expo/vector-icons";
+import { StatusBar } from "react-native";
+import { KeyboardAvoidingView } from "react-native";
 
 export default Profile = ({ navigation }) => {
   nav = useNavigation();
@@ -52,6 +54,7 @@ export default Profile = ({ navigation }) => {
 
   return (
     <SafeAreaView style={styles.container}>
+      <StatusBar backgroundColor={"#e77f04"} />
       <AppHeader
         navigation={navigation}
         onPress={"Settings"}
@@ -59,14 +62,14 @@ export default Profile = ({ navigation }) => {
         icon={"settings"}
       />
 
-      <ScrollView>
+      <ScrollView style={{ marginTop: -32 }}>
         {/* Profile Image Selection */}
         <View style={{ alignItems: "center", marginTop: 32 }}>
           <View
             style={{
               position: "absolute",
-              top: 20,
-              left: 10,
+              bottom: 80,
+              right: 10,
               zIndex: 2,
               backgroundColor: "white",
               padding: 5,
@@ -74,7 +77,7 @@ export default Profile = ({ navigation }) => {
             }}
           >
             <TouchableOpacity onPress={handleImageSelectionBg}>
-              <Ionicons name="camera" size={24} color="salmon" />
+              <Ionicons name="camera" size={24} color="lightgrey" />
             </TouchableOpacity>
           </View>
 
@@ -143,7 +146,12 @@ export default Profile = ({ navigation }) => {
         <View>
           <Text style={styles.details}>Hussain Ahmed Shaikh</Text>
           <View
-            style={{ paddingTop: 5, flexDirection: "row", alignSelf: "center" }}
+            style={{
+              marginTop: 5,
+              marginBottom: 15,
+              flexDirection: "row",
+              alignSelf: "center",
+            }}
           >
             <FontAwesome5 name="map-marker-alt" size={20} color="salmon" />
             <Text
@@ -194,7 +202,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "white",
-    paddingTop: 10,
   },
   headerNav: {
     flexDirection: "row",
@@ -212,25 +219,27 @@ const styles = StyleSheet.create({
   },
   bioWindow: {
     marginTop: 20,
+    marginBottom: 10,
     alignItems: "center",
     marginHorizontal: 80,
     borderRadius: 16,
     padding: 20,
-    backgroundColor: "#e2edec",
+    backgroundColor: "white",
+    elevation: 2,
   },
   numericBox: {
     flexDirection: "row",
     justifyContent: "space-evenly",
     marginTop: 10,
     backgroundColor: "#e2edec",
-    width: 250,
+    width: 280,
     alignSelf: "center",
     paddingVertical: 10,
     borderRadius: 20,
   },
   numericNumber: {
     fontSize: 25,
-    fontFamily: "Nunito-ExtraBold",
+    fontFamily: "OpenSans-Bold",
     textAlign: "center",
   },
   numericText: {
