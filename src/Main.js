@@ -18,7 +18,7 @@ import Story3 from "./Screens/StoryScreens/Story3";
 import Story4 from "./Screens/StoryScreens/Story4";
 import { Keyboard } from "react-native";
 import { useState, useEffect } from "react";
-import CharacterTraits from "./Screens/StoryHome/CharacterTraits";
+import ChapterSelect from "./Screens/StoryScreens/ChapterSelect";
 
 const Bottom = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -47,11 +47,6 @@ const StoryHomeTab = () => {
         options={{ headerShown: false }}
       />
       <Stack.Screen
-        name="Character Traits"
-        component={CharacterTraits}
-        options={{ headerShown: false }}
-      />
-      <Stack.Screen
         name="Story 1"
         component={Story1}
         options={{ headerShown: false }}
@@ -69,6 +64,11 @@ const StoryHomeTab = () => {
       <Stack.Screen
         name="Story 4"
         component={Story4}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="Chapter Select"
+        component={ChapterSelect}
         options={{ headerShown: false }}
       />
     </Stack.Navigator>

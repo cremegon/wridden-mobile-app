@@ -231,7 +231,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-evenly",
     marginTop: 10,
-    backgroundColor: "#e2edec",
+    backgroundColor: "#f0f3f3",
     width: 280,
     alignSelf: "center",
     paddingVertical: 10,

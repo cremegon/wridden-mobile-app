@@ -258,16 +258,16 @@ const styles = StyleSheet.create({
     textAlign: "center",
     textAlignVertical: "center",
     fontFamily: "AlegreyaSans-ExtraBold",
-    color: "#fd9418",
+    color: "#3f2b2b",
     marginTop: 5,
   },
   scrollItemIcon: {
     width: 50,
     height: 50,
-    backgroundColor: "#e0e7e6",
+    backgroundColor: "white",
     borderRadius: 90,
     padding: 20,
-    tintColor: "#fd9418",
+    tintColor: "#3f2b2b",
   },
 });
 

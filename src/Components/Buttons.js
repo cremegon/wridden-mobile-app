@@ -1,10 +1,12 @@
 import { View, Text, StyleSheet, Pressable } from "react-native";
 import React from "react";
 
-const Buttons = ({ title, navigation, link }) => {
+const Buttons = ({ title, navigation, link, params }) => {
   return (
     <View style={{ marginVertical: 20 }}>
-      <Pressable onPress={() => navigation.navigate(link)}>
+      <Pressable
+        onPress={() => navigation.navigate(link, { paramKey: params })}
+      >
         <Text style={styles.button}>{title}</Text>
       </Pressable>
     </View>

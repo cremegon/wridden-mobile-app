@@ -14,7 +14,7 @@ export default ReadStory = ({ navigation }) => {
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "white" }}>
       <AppHeader
-        title={"Story List"}
+        title={"Read Stories"}
         icon={"chevron-back"}
         navigation={navigation}
         onPress={"Story Home Access"}
@@ -25,7 +25,7 @@ export default ReadStory = ({ navigation }) => {
             <Card
               title={item.title}
               navigation={navigation}
-              image={require("../../assets/oh.png")}
+              image={require("../../assets/storylist_btn3.png")}
               link={item.nav}
               params={item.title}
             />

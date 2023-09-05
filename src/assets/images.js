@@ -66,30 +66,9 @@ export const bgData = [
 ];
 
 export const btnData = [
-  {
-    key: 1,
-    source: require("../assets/write_new_btn_2.png"),
-  },
-  {
-    key: 2,
-    source: require("../assets/story_list_btn_3.png"),
-  },
-  {
-    key: 3,
-    source: require("../assets/read_story_btn_2.png"),
-  },
-  {
-    key: 4,
-    source: require("../assets/SPLASH_2.png"),
-  },
-  {
-    key: 5,
-    source: require("../assets/char_list_btn1.png"),
-  },
-  {
-    key: 6,
-    source: require("../assets/char_create_btn1.png"),
-  },
+  { key: 1, source: require("../assets/storylist_btn1.png") },
+  { key: 2, source: require("../assets/storylist_btn2.png") },
+  { key: 3, source: require("../assets/storylist_btn3.png") },
 ];
 
 export const iconData = [
