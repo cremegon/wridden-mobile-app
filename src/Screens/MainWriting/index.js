@@ -11,7 +11,7 @@ import {
   ImageBackground,
   StatusBar,
 } from "react-native";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Modal } from "react-native";
 import DismissKeyboard from "../../Components/DismissKeyboard";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
@@ -23,6 +23,8 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { Entypo } from "@expo/vector-icons";
 import * as ImagePicker from "expo-image-picker";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
+import DatabaseContext from "../../Components/Context/DatabaseContext";
+import { UserContext } from "../../Components/Context/UserContext";
 
 const MainWriting = ({ onLongPress, navigation, route }) => {
   const [isModalVisible, SetIsModalVisible] = useState(false);
@@ -41,7 +43,37 @@ const MainWriting = ({ onLongPress, navigation, route }) => {
     }
   };
 
+  const dbCtx = useContext(DatabaseContext);
+  const { user } = useContext(UserContext);
+
+  const [title, setTitle] = useState("");
+  const [storyId, setStoryId] = useState();
+
   const inset = useSafeAreaInsets();
+
+  const handleStorySave = () => {
+    //if story is not in context, create it
+    if (!storyId) {
+      dbCtx.transaction((tx) => {
+        tx.executeSql(
+          "insert into stories (title, user_id) values (?, ?)",
+          [title, user.id],
+          (tx, result) => {
+            console.log("Story Insert Successful");
+            //this should return id and maintain the context
+            //as long as the view is open to ensure that a duplicate
+            //story is not inserted somehow.
+            result.insertId;
+          },
+          (tx, error) => {
+            console.log("Error inserting data:", error);
+          }
+        );
+      });
+    } else {
+      //else upsert sections of the story and the title if changed.
+    }
+  };
 
   return (
     <DismissKeyboard>
@@ -50,6 +82,8 @@ const MainWriting = ({ onLongPress, navigation, route }) => {
           <StatusBar backgroundColor={"#ffa951"} />
           <ArcGraph />
           <TextInput
+            value={title}
+            onChangeText={setTitle}
             style={styles.title}
             placeholder="Title"
             multiline={true}
@@ -99,7 +133,7 @@ const MainWriting = ({ onLongPress, navigation, route }) => {
                 marginRight: 170,
                 marginLeft: 20,
               }}
-              onPress={() => console.warn("Story Saved")}
+              onPress={() => handleStorySave()}
               onLongPress={() => SetIsModalVisible(true)}
             />
             <FontAwesome

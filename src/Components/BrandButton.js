@@ -1,7 +1,7 @@
 import { View, Text, StyleSheet, Pressable } from "react-native";
 import React from "react";
 
-const Buttons = ({ title, navigation, link, params }) => {
+const BrandButton = ({ title, navigation, link, params }) => {
   return (
     <View style={{ marginVertical: 20 }}>
       <Pressable
@@ -28,4 +28,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Buttons;
+export default BrandButton;

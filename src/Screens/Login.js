@@ -6,26 +6,28 @@ import DismissKeyboard from "../Components/DismissKeyboard";
 import { UserContext } from "../Components/Context/UserContext";
 import DatabaseContext from "../Components/Context/DatabaseContext";
 import { useFonts } from "expo-font";
-import Buttons from "../Components/Buttons";
+import BrandButton from "../Components/BrandButton";
 
 const LoginScreen = ({ navigation }) => {
   const { setUser } = useContext(UserContext);
-  const db = useContext(DatabaseContext);
+  const dbCtx = useContext(DatabaseContext);
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   function handleSubmit() {
-    db.transaction((tx) => {
+    dbCtx.transaction((tx) => {
       tx.executeSql(
         "SELECT * FROM users WHERE (email=? OR username=?) AND password=?",
         [email, email, password],
         (tx, { rows }) => {
-          console.log(rows);
           if (rows.length > 0) {
-            console.log(rows);
-            // setUser({ id: rows[0].id, username: rows[0].username });
-            //navigation.navigate("MainApp");
+            console.log(rows._array);
+            setUser({
+              id: rows._array[0].id,
+              username: rows._array[0].username,
+            });
+            navigation.navigate("MainApp");
           } else {
             console.log("Incorrect Username or Password");
           }
@@ -78,7 +80,11 @@ const LoginScreen = ({ navigation }) => {
             Forgot Password?
           </Text>
 
-          <Buttons link={"MainApp"} title={"Login"} navigation={navigation} />
+          <View style={{ marginVertical: 20 }}>
+            <Pressable onPress={handleSubmit}>
+              <Text style={styles.login_button}>Login</Text>
+            </Pressable>
+          </View>
         </View>
 
         <View style={styles.signup_container}>
@@ -104,6 +110,18 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     backgroundColor: "pink",
+  },
+  login_button: {
+    alignSelf: "center",
+    backgroundColor: "rgba(253, 148, 24, 1)",
+    width: 300,
+    height: 45,
+    textAlignVertical: "center",
+    textAlign: "center",
+    borderRadius: 30,
+    fontSize: 20,
+    fontFamily: "Nunito-ExtraBold",
+    color: "floralwhite",
   },
   title: {
     fontSize: 40,

@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, Dimensions } from "react-native";
+import { View, Text, StyleSheet, Dimensions, SafeAreaView } from "react-native";
 import React, { useEffect } from "react";
 import { GestureDetector, Gesture } from "react-native-gesture-handler";
 import Animated, {
@@ -21,7 +21,6 @@ const ArcGraph = () => {
       context.value = { y: translateY.value };
     })
     .onUpdate((event) => {
-      console.log(translateY.value);
       translateY.value = event.translationY + context.value.y;
       translateY.value = Math.min(translateY.value, SCREEN_HEIGHT / 3);
     })
@@ -45,10 +44,11 @@ const ArcGraph = () => {
   return (
     <GestureDetector gesture={gesture}>
       <Animated.View style={[styles.topSheet, rTopSheetStyle]}>
-        <SafeAreaView style={{ marginTop: SCREEN_HEIGHT / 1.5 }}>
-          <Text style={{ fontSize: 40 }}>Hello Everynyan</Text>
+        <SafeAreaView style={styles.defaultText}>
+          <Text>
+            You don't have any sections in your story yet, get to work
+          </Text>
         </SafeAreaView>
-        <View style={styles.line} />
       </Animated.View>
     </GestureDetector>
   );
@@ -64,11 +64,16 @@ const styles = StyleSheet.create({
     borderRadius: 25,
     zIndex: 1,
   },
+  defaultText: {
+    fontSize: 20,
+    marginTop: SCREEN_HEIGHT / 1.5,
+    color: "white",
+  },
   line: {
-    backgroundColor: "black",
+    backgroundColor: "white",
     height: 4,
     borderRadius: 30,
-    width: 75,
+    width: 200,
     alignSelf: "center",
     marginVertical: SCREEN_HEIGHT / 4.2,
   },

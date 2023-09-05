@@ -2,7 +2,7 @@ import { View, Text } from "react-native";
 import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import AppHeader from "../../Components/AppHeader";
-import Buttons from "../../Components/Buttons";
+import BrandButton from "../../Components/BrandButton";
 
 const ChapterSelect = ({ navigation, route }) => {
   return (
@@ -13,25 +13,25 @@ const ChapterSelect = ({ navigation, route }) => {
         navigation={navigation}
       />
       <View style={{ alignItems: "center", marginTop: 20 }}>
-        <Buttons
+        <BrandButton
           title={"Chapter 1"}
           navigation={navigation}
           link={"Story 1"}
           params={route.params.paramKey}
         />
-        <Buttons
+        <BrandButton
           title={"Chapter 2"}
           navigation={navigation}
-          link={"Story 1"}
+          link={"Story 2"}
           params={route.params.paramKey}
         />
-        <Buttons
+        <BrandButton
           title={"Chapter 3"}
           navigation={navigation}
           link={"Story 1"}
           params={route.params.paramKey}
         />
-        <Buttons
+        <BrandButton
           title={"Chapter 4"}
           navigation={navigation}
           link={"Story 1"}

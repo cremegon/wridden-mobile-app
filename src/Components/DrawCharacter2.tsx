@@ -5,7 +5,7 @@ import { View, Text, StyleSheet,
 import React, { useEffect, useState } from 'react'
 import { Svg, Path } from 'react-native-svg'
 import { SafeAreaView } from 'react-native-safe-area-context'
-import { Buttons2 } from './Buttons2';
+import { BrandButtonAlt } from './BrandButtonAlt';
 
 const {height, width} = Dimensions.get("window");
 
@@ -79,7 +79,7 @@ const DrawingCharacter2 = ({navigation}) =>  {
         <TextInput placeholder='Enter Character Name' style = {{paddingTop: 30}} onChangeText={(val) => setName(val)}/>
 
         <View style = {styles.buttonList}>
-          <Buttons2 title={"Next"} link={"Character Traits"} navigation={navigation} params={name}/>
+          <BrandButtonAlt title={"Next"} link={"Character Traits"} navigation={navigation} params={name}/>
         </View>
       </SafeAreaView>
       )

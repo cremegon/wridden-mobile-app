@@ -1,11 +1,21 @@
 import { View, Text, StyleSheet, Pressable } from "react-native";
 import React from "react";
 
-export const Buttons2 = ({ navigation, link, title, params }) => {
+export const BrandButtonAlt = ({
+  navigation,
+  link,
+  title,
+  params,
+  onButtonPress,
+}) => {
   return (
     <View style={{ marginVertical: 20 }}>
       <Pressable
-        onPress={() => navigation.navigate(link, { paramKey: params })}
+        onPress={() => {
+          onButtonPress
+            ? onButtonPress()
+            : navigation.navigate(link, { paramKey: params });
+        }}
       >
         <Text style={styles.button}>{title}</Text>
       </Pressable>

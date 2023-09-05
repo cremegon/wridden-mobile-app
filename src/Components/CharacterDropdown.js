@@ -4,9 +4,8 @@ import DropDownPicker from "react-native-dropdown-picker";
 import { useState } from "react";
 import { charData_gender } from "../datalist/CharacterData";
 
-const CharacterDropdown = ({ title, placeholderTitle }) => {
+const CharacterDropdown = ({ title, placeholderTitle, value, onChange }) => {
   const [open, setOpen] = useState(false);
-  const [value, setValue] = useState(null);
   const [items, setItems] = useState(charData_gender);
   return (
     <View style={{ zIndex: 100, alignSelf: "center", marginVertical: 15 }}>
@@ -27,7 +26,7 @@ const CharacterDropdown = ({ title, placeholderTitle }) => {
         value={value}
         items={items}
         setOpen={setOpen}
-        setValue={setValue}
+        setValue={onChange}
         setItems={setItems}
         containerStyle={{ width: 350 }}
         textStyle={{ fontFamily: "OpenSans-Regular", fontSize: 16 }}

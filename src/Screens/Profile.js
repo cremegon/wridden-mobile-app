@@ -6,7 +6,7 @@ import {
   ScrollView,
   Image,
 } from "react-native";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import * as ImagePicker from "expo-image-picker";
@@ -17,6 +17,7 @@ import AppHeader from "../Components/AppHeader";
 import { FontAwesome5 } from "@expo/vector-icons";
 import { StatusBar } from "react-native";
 import { KeyboardAvoidingView } from "react-native";
+import { UserContext } from "../Components/Context/UserContext";
 
 export default Profile = ({ navigation }) => {
   nav = useNavigation();
@@ -51,6 +52,9 @@ export default Profile = ({ navigation }) => {
       setSelectedBgImage({ uri: result.assets[0].uri });
     }
   };
+
+  //sourcing data available in the context
+  const { user } = useContext(UserContext);
 
   return (
     <SafeAreaView style={styles.container}>
@@ -144,7 +148,7 @@ export default Profile = ({ navigation }) => {
         {/* Details Section*/}
 
         <View>
-          <Text style={styles.details}>Hussain Ahmed Shaikh</Text>
+          <Text style={styles.details}>{user.username}</Text>
           <View
             style={{
               marginTop: 5,

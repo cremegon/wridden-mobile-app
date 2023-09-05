@@ -16,10 +16,32 @@ import DropDownPicker from "react-native-dropdown-picker";
 import { useState } from "react";
 import CharacterDropdown from "../../Components/CharacterDropdown";
 import DismissKeyboard from "../../Components/DismissKeyboard";
-import { Buttons2 } from "../../Components/Buttons2";
+import { BrandButtonAlt } from "../../Components/BrandButtonAlt";
 
 const CharacterTraits = ({ navigation, route }) => {
   const [isModalVisible, SetIsModalVisible] = useState(false);
+  //ideally a single state should hold all these variables
+  const [age, setAge] = useState();
+  const [gender, setGender] = useState("");
+  const [physicalAttributes, setPhysicalAttributes] = useState("");
+  const [emotionalAttributes, setEmotionalAttributes] = useState("");
+  const [likes, setLikes] = useState("");
+  const [dislikes, setDislikes] = useState("");
+
+  //for transferring the data, this is the payload
+  /**{
+                  data: {
+                    //not sure if this is the way but khair he..
+                    name: route.params.paramKey,
+                    age: age,
+                    gender: gender,
+                    physicalAttributes: physicalAttributes,
+                    emotionalAttributes: emotionalAttributes,
+                    likes: likes,
+                    dislikes: dislikes,
+                  },
+                } */
+
   return (
     <SafeAreaView style={{ backgroundColor: "rgba(244,244,244,1)", flex: 1 }}>
       <StatusBar backgroundColor={"#e77f04"} />
@@ -77,6 +99,8 @@ const CharacterTraits = ({ navigation, route }) => {
                 placeholder="Enter age"
                 textAlign="left"
                 inputMode="numeric"
+                value={age}
+                onChangeText={(e) => setAge(e)}
                 placeholderTextColor={"lightgrey"}
                 style={{
                   borderWidth: 1,
@@ -94,27 +118,37 @@ const CharacterTraits = ({ navigation, route }) => {
               />
             </View>
             <CharacterDropdown
+              onChange={setGender}
+              value={gender}
               title={"Gender"}
               placeholderTitle={"Select gender"}
             />
             <CharacterInputs
+              value={physicalAttributes}
+              onChange={(e) => setPhysicalAttributes(e)}
               title={"Physical Attributes"}
               placeholderTitle={"Enter physical traits..."}
             />
             <CharacterInputs
+              onChange={(e) => setEmotionalAttributes(e)}
+              value={emotionalAttributes}
               title={"Emotional Attributes"}
               placeholderTitle={"Enter emotional traits..."}
             />
             <CharacterInputs
+              value={likes}
+              onChange={(e) => setLikes(e)}
               title={"Likes"}
               placeholderTitle={"Enter likes..."}
             />
             <CharacterInputs
+              value={dislikes}
+              onChange={(e) => setDislikes(e)}
               title={"Dislikes"}
               placeholderTitle={"Enter dislike..."}
             />
             <View style={{ flexDirection: "row" }}>
-              <Buttons2
+              <BrandButtonAlt
                 title={"Save"}
                 navigation={navigation}
                 link={"Character List"}

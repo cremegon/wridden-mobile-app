@@ -1,8 +1,8 @@
 import { View, Text, Button, StyleSheet, Pressable } from "react-native";
 import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
-import Buttons from "../../Components/Buttons";
-import { Buttons2 } from "../../Components/Buttons2";
+import BrandButton from "../../Components/BrandButton";
+import { BrandButtonAlt } from "../../Components/BrandButtonAlt";
 
 export default CharacterChoice = ({ navigation }) => {
   return (
@@ -19,12 +19,16 @@ export default CharacterChoice = ({ navigation }) => {
         </Text>
       </View>
       <View style={{ flexDirection: "row" }}>
-        <Buttons2
+        <BrandButtonAlt
           title={"Yes"}
           link={"Character Draw"}
           navigation={navigation}
         />
-        <Buttons2 title={"No"} link={"Main Writing"} navigation={navigation} />
+        <BrandButtonAlt
+          title={"No"}
+          link={"Main Writing"}
+          navigation={navigation}
+        />
       </View>
     </SafeAreaView>
   );

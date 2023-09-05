@@ -1,7 +1,13 @@
 import { View, Text, TextInput } from "react-native";
 import React from "react";
 
-const CharacterInputs = ({ navigation, title, placeholderTitle }) => {
+const CharacterInputs = ({
+  navigation,
+  title,
+  placeholderTitle,
+  onChange,
+  value,
+}) => {
   return (
     <View style={{ alignSelf: "center", marginVertical: 15 }}>
       <Text
@@ -17,8 +23,11 @@ const CharacterInputs = ({ navigation, title, placeholderTitle }) => {
         {title}
       </Text>
       <TextInput
+        inputMode="numeric"
+        onChangeText={onChange}
         placeholder={placeholderTitle}
         textAlign="left"
+        value={value}
         multiline={true}
         placeholderTextColor={"lightgrey"}
         style={{

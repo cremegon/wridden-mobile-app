@@ -1,5 +1,5 @@
 import { View, Text, StatusBar } from "react-native";
-import React from "react";
+import React, { useState, useEffect, useContext } from "react";
 import WriteNew from "./Screens/StoryHome/WriteNew";
 import StoryList from "./Screens/StoryHome/StoryList";
 import ReadStory from "./Screens/StoryHome/ReadStory";
@@ -16,11 +16,12 @@ import Story2 from "./Screens/StoryScreens/Story2";
 import Story1 from "./Screens/StoryScreens/Story1";
 import Story3 from "./Screens/StoryScreens/Story3";
 import Story4 from "./Screens/StoryScreens/Story4";
+import { UserContext } from "./Components/Context/UserContext";
 import { Keyboard } from "react-native";
-import { useState, useEffect } from "react";
 import ChapterSelect from "./Screens/StoryScreens/ChapterSelect";
 import CharacterTraits from "./Screens/StoryHome/CharacterTraits";
 
+import ChapterSelect from "./Screens/StoryScreens/ChapterSelect";
 const Bottom = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
 
@@ -103,8 +104,18 @@ const CharacterHomeTab = () => {
   );
 };
 
-const Main = () => {
+const Main = ({ navigation }) => {
   const [keyboardShow, setKeyboardShow] = useState(false);
+
+  const { user } = useContext(UserContext);
+  useEffect(() => {
+    if (!user) {
+      //redirect if the context is lost ....
+      console.log("User Context was lost, rerouting to Login.");
+      navigation.navigate("Login");
+    }
+  }, [user]);
+
   useEffect(() => {
     const keyboardDidShowListener = Keyboard.addListener(
       "keyboardDidShow",
