@@ -70,6 +70,7 @@ const App = () => {
   const [fontsLoaded, fontError] = useFonts({
     "AlegreyaSans-ExtraBold": require("./assets/fonts/AlegreyaSans-ExtraBold.ttf"),
     "AlegreyaSans-ExtraBoldItalic": require("./assets/fonts/AlegreyaSans-ExtraBoldItalic.ttf"),
+    "AlegreyaSans-Bold": require("./assets/fonts/AlegreyaSans-Bold.ttf"),
     "Nunito-ExtraBold": require("./assets/fonts/Nunito-ExtraBold.ttf"),
     "OpenSans-Regular": require("./assets/fonts/OpenSans-Regular.ttf"),
     "OpenSans-Italic": require("./assets/fonts/OpenSans-Italic.ttf"),

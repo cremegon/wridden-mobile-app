@@ -13,6 +13,7 @@ const DrawingCharacter2 = ({navigation}) =>  {
   const [currentPath, setCurrentPath] = useState<string[]>([]);
   const [paths, setPaths] = useState([])
   const [ClearClicked, setClearClicked] = useState(false)
+  const [name, setName] = useState("")
 
   const handleClearClick = () => {
     setPaths([])
@@ -75,10 +76,10 @@ const DrawingCharacter2 = ({navigation}) =>  {
             ))}
         </Svg>
 
-        <TextInput placeholder='Enter Character Name' style = {{paddingTop: 30}}/>
+        <TextInput placeholder='Enter Character Name' style = {{paddingTop: 30}} onChangeText={(val) => setName(val)}/>
 
         <View style = {styles.buttonList}>
-          <Buttons2 title={"Next"} link={"Character Traits"} navigation={navigation}/>
+          <Buttons2 title={"Next"} link={"Character Traits"} navigation={navigation} params={name}/>
         </View>
       </SafeAreaView>
       )

@@ -9,6 +9,7 @@ import {
   TouchableWithoutFeedback,
   KeyboardAvoidingView,
   ImageBackground,
+  StatusBar,
 } from "react-native";
 import React, { useEffect, useState } from "react";
 import { Modal } from "react-native";
@@ -46,6 +47,7 @@ const MainWriting = ({ onLongPress, navigation, route }) => {
     <DismissKeyboard>
       <GestureHandlerRootView style={{ flex: 1 }}>
         <ImageBackground source={selectedImage} style={styles.container}>
+          <StatusBar backgroundColor={"#ffa951"} />
           <ArcGraph />
           <TextInput
             style={styles.title}
@@ -70,7 +72,7 @@ const MainWriting = ({ onLongPress, navigation, route }) => {
             <MaterialCommunityIcons
               name="image"
               size={24}
-              color="#ffe087"
+              color="#ffa951"
               style={{
                 backgroundColor: "white",
                 padding: 10,
@@ -86,7 +88,7 @@ const MainWriting = ({ onLongPress, navigation, route }) => {
             <Entypo
               name="save"
               size={24}
-              color="#ffe087"
+              color="#ffa951"
               style={{
                 backgroundColor: "white",
                 padding: 10,
@@ -103,7 +105,7 @@ const MainWriting = ({ onLongPress, navigation, route }) => {
             <FontAwesome
               name="arrow-circle-right"
               size={32}
-              color="#ffe087"
+              color="#ffa951"
               style={{
                 backgroundColor: "white",
                 padding: 15,
