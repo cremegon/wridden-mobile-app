@@ -18,10 +18,9 @@ import Story3 from "./Screens/StoryScreens/Story3";
 import Story4 from "./Screens/StoryScreens/Story4";
 import { UserContext } from "./Components/Context/UserContext";
 import { Keyboard } from "react-native";
-import ChapterSelect from "./Screens/StoryScreens/ChapterSelect";
 import CharacterTraits from "./Screens/StoryHome/CharacterTraits";
-
 import ChapterSelect from "./Screens/StoryScreens/ChapterSelect";
+
 const Bottom = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
 
