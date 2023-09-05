@@ -6,7 +6,7 @@ import Buttons from "../../Components/Buttons";
 
 const ChapterSelect = ({ navigation, route }) => {
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: "white" }}>
+    <SafeAreaView style={{ flex: 1, backgroundColor: "rgba(226,237,236,0.4)" }}>
       <AppHeader
         title={route.params.paramKey}
         icon={"chevron-back"}

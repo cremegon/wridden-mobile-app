@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import AppHeader from "../../Components/AppHeader";
 import Card from "../../Components/Card";
-import { btnData } from "../../assets/images";
+import { bgData, btnData } from "../../assets/images";
 
 const StoryList = ({ navigation }) => {
   const [count, setCount] = useState(0);
@@ -15,7 +15,7 @@ const StoryList = ({ navigation }) => {
   ];
 
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: "white" }}>
+    <SafeAreaView style={{ flex: 1, backgroundColor: "rgba(226,237,236,0.4)" }}>
       <AppHeader
         title={"Story List"}
         icon={"chevron-back"}
@@ -28,9 +28,10 @@ const StoryList = ({ navigation }) => {
             <Card
               title={item.title}
               navigation={navigation}
-              image={btnData[2].source}
+              image={bgData[3].source}
               link={item.nav}
               params={item.title}
+              key={index}
             />
           ))}
         </View>

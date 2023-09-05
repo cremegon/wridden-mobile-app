@@ -8,18 +8,19 @@ import { btnData } from "../../assets/images";
 const CharacterTabRouter = ({ navigation }) => {
   return (
     <SafeAreaView style={styles.container}>
-      <View style={{ flex: 1, justifyContent: "flex-end", marginBottom: 120 }}>
-        <View style={{ flexDirection: "row" }}>
+      <View style={{ flex: 1, justifyContent: "flex-end", marginBottom: 110 }}>
+        <View style={{}}>
           <View
             style={{
               padding: 15,
               borderRadius: 40,
               paddingHorizontal: 25,
               borderColor: "#fd9418",
-              width: 130,
+              width: 280,
               height: 130,
               backgroundColor: "white",
               elevation: 4,
+              marginBottom: 20,
             }}
           >
             <Pressable onPress={() => navigation.navigate("Character List")}>
@@ -31,7 +32,7 @@ const CharacterTabRouter = ({ navigation }) => {
                 style={{
                   textAlign: "center",
                   fontFamily: "Nunito-ExtraBold",
-                  fontSize: 13,
+                  fontSize: 16,
                   color: "#230a0a",
                   marginTop: 10,
                 }}
@@ -46,8 +47,7 @@ const CharacterTabRouter = ({ navigation }) => {
               borderRadius: 40,
               paddingHorizontal: 25,
               borderColor: "#fd9418",
-              marginLeft: 20,
-              width: 130,
+              width: 280,
               height: 130,
               backgroundColor: "white",
               elevation: 4,
@@ -62,7 +62,7 @@ const CharacterTabRouter = ({ navigation }) => {
                 style={{
                   textAlign: "center",
                   fontFamily: "Nunito-ExtraBold",
-                  fontSize: 13,
+                  fontSize: 16,
                   color: "#230a0a",
                   marginTop: 10,
                 }}

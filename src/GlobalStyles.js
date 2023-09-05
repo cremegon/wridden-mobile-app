@@ -14,4 +14,7 @@ export const GlobalStyles = StyleSheet.create({
   mainAccentBG: {
     backgroundColor: "#fd9418",
   },
+  sideAccent: {
+    color: "#ffe087",
+  },
 });

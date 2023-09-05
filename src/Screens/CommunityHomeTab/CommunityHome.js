@@ -15,6 +15,24 @@ import Posts from "../../Components/Posts";
 import { iconData } from "../../assets/images";
 
 const CommunityHome = ({ navigation }) => {
+  const horizontalTextList = [
+    {
+      key: 1,
+      title: "Popular",
+    },
+    {
+      key: 2,
+      title: "Recommended",
+    },
+    {
+      key: 3,
+      title: "New Topic",
+    },
+    {
+      key: 4,
+      title: "Trending",
+    },
+  ];
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "#e77f04" }}>
       <Image
@@ -90,18 +108,11 @@ const CommunityHome = ({ navigation }) => {
               showsHorizontalScrollIndicator={false}
               style={{ marginTop: 20, marginHorizontal: 20 }}
             >
-              <View>
-                <Text style={styles.horizontalScrollText}>Popular</Text>
-              </View>
-              <View>
-                <Text style={styles.horizontalScrollText}>Recommended</Text>
-              </View>
-              <View>
-                <Text style={styles.horizontalScrollText}>New Topic</Text>
-              </View>
-              <View>
-                <Text style={styles.horizontalScrollText}>Trending</Text>
-              </View>
+              {horizontalTextList.map((item, index) => (
+                <View key={index}>
+                  <Text style={styles.horizontalScrollText}>{item.title}</Text>
+                </View>
+              ))}
             </ScrollView>
           </View>
 

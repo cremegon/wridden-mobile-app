@@ -162,21 +162,42 @@ export default Profile = ({ navigation }) => {
                 marginLeft: 10,
               }}
             >
-              Pakistan
+              Ireland
             </Text>
           </View>
 
           {/* Numerics and Extras*/}
           <View style={styles.numericBox}>
-            <View style={{ alignItems: "center" }}>
+            <View
+              style={{
+                alignItems: "center",
+                borderRightWidth: 2,
+                paddingRight: 15,
+                borderColor: "#a7b1b1",
+              }}
+            >
               <Text style={styles.numericNumber}>20</Text>
               <Text style={styles.numericText}>Reads</Text>
             </View>
-            <View style={{ alignItems: "center" }}>
+            <View
+              style={{
+                alignItems: "center",
+                borderRightWidth: 2,
+                paddingRight: 15,
+                marginLeft: -20,
+                borderColor: "#a7b1b1",
+              }}
+            >
               <Text style={styles.numericNumber}>47</Text>
               <Text style={styles.numericText}>Follows</Text>
             </View>
-            <View style={{ alignItems: "center", marginLeft: -10 }}>
+            <View
+              style={{
+                alignItems: "center",
+                marginLeft: -20,
+                marginRight: -10,
+              }}
+            >
               <Text style={styles.numericNumber}>92</Text>
               <Text style={styles.numericText}>Following</Text>
             </View>
@@ -201,7 +222,7 @@ export default Profile = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "white",
+    backgroundColor: "rgba(226,237,236,0.4)",
   },
   headerNav: {
     flexDirection: "row",
@@ -221,17 +242,17 @@ const styles = StyleSheet.create({
     marginTop: 20,
     marginBottom: 10,
     alignItems: "center",
-    marginHorizontal: 80,
     borderRadius: 16,
     padding: 20,
-    backgroundColor: "white",
-    elevation: 2,
+    backgroundColor: "#fbfbfb",
+    width: 280,
+    alignSelf: "center",
   },
   numericBox: {
     flexDirection: "row",
     justifyContent: "space-evenly",
     marginTop: 10,
-    backgroundColor: "#f0f3f3",
+    backgroundColor: "#fbfbfb",
     width: 280,
     alignSelf: "center",
     paddingVertical: 10,

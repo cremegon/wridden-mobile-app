@@ -8,6 +8,7 @@ import Animated, {
   withSpring,
   withTiming,
 } from "react-native-reanimated";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 const { height: SCREEN_HEIGHT } = Dimensions.get("window");
 
@@ -44,7 +45,10 @@ const ArcGraph = () => {
   return (
     <GestureDetector gesture={gesture}>
       <Animated.View style={[styles.topSheet, rTopSheetStyle]}>
-        <View style={styles.line}></View>
+        <SafeAreaView style={{ marginTop: SCREEN_HEIGHT / 1.5 }}>
+          <Text style={{ fontSize: 40 }}>Hello Everynyan</Text>
+        </SafeAreaView>
+        <View style={styles.line} />
       </Animated.View>
     </GestureDetector>
   );
@@ -66,7 +70,7 @@ const styles = StyleSheet.create({
     borderRadius: 30,
     width: 75,
     alignSelf: "center",
-    marginVertical: SCREEN_HEIGHT / 1.03,
+    marginVertical: SCREEN_HEIGHT / 4.2,
   },
 });
 

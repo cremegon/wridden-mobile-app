@@ -1,4 +1,12 @@
-import { View, Text, StatusBar } from "react-native";
+import {
+  View,
+  Text,
+  StatusBar,
+  StyleSheet,
+  Modal,
+  Pressable,
+  Button,
+} from "react-native";
 import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import AppHeader from "../../Components/AppHeader";
@@ -11,6 +19,7 @@ import DismissKeyboard from "../../Components/DismissKeyboard";
 import { Buttons2 } from "../../Components/Buttons2";
 
 const CharacterTraits = ({ navigation, route }) => {
+  const [isModalVisible, SetIsModalVisible] = useState(false);
   return (
     <SafeAreaView style={{ backgroundColor: "rgba(244,244,244,1)", flex: 1 }}>
       <StatusBar backgroundColor={"#e77f04"} />
@@ -104,16 +113,111 @@ const CharacterTraits = ({ navigation, route }) => {
               title={"Dislikes"}
               placeholderTitle={"Enter dislike..."}
             />
-            <Buttons2
-              title={"Next"}
-              navigation={navigation}
-              link={"Main Writing"}
-            />
+            <View style={{ flexDirection: "row" }}>
+              <Buttons2
+                title={"Save"}
+                navigation={navigation}
+                link={"Character List"}
+              />
+              <View style={{ marginVertical: 20 }}>
+                <Pressable onPress={() => SetIsModalVisible(true)}>
+                  <Text style={styles.button}>Next</Text>
+                </Pressable>
+              </View>
+            </View>
+
+            <Modal
+              visible={isModalVisible}
+              transparent={false}
+              onRequestClose={() => SetIsModalVisible(false)}
+              animationType="slide"
+            >
+              <View
+                style={{
+                  flex: 1,
+                  justifyContent: "center",
+                  alignItems: "center",
+                  backgroundColor: "royalblue",
+                }}
+              >
+                <View
+                  style={{
+                    backgroundColor: "white",
+                    padding: 20,
+                    paddingBottom: 50,
+                    borderRadius: 12,
+                    shadowColor: "black",
+                    elevation: 4,
+                    width: 300,
+                  }}
+                >
+                  <Text
+                    style={{
+                      textAlign: "center",
+                      marginTop: 10,
+                      fontFamily: "OpenSans-Regular",
+                      fontSize: 16,
+                    }}
+                  >
+                    Would you like to create a new character?
+                  </Text>
+                  <View
+                    style={{
+                      flexDirection: "row",
+                      justifyContent: "center",
+                      marginTop: 30,
+                    }}
+                  >
+                    <Pressable
+                      onPress={() => navigation.navigate("Character Draw")}
+                    >
+                      <Text style={styles.modalButton}>Yes</Text>
+                    </Pressable>
+                    <Pressable
+                      onPress={() => {
+                        navigation.navigate("Main Writing");
+                        SetIsModalVisible(false);
+                      }}
+                    >
+                      <Text style={styles.modalButton}>No</Text>
+                    </Pressable>
+                  </View>
+                </View>
+              </View>
+            </Modal>
           </View>
         </ScrollView>
       </DismissKeyboard>
     </SafeAreaView>
   );
 };
+
+const styles = StyleSheet.create({
+  modalButton: {
+    color: "floralwhite",
+    backgroundColor: "#fd9418",
+    textAlign: "center",
+    paddingHorizontal: 40,
+    paddingVertical: 10,
+    borderRadius: 25,
+    elevation: 5,
+    marginHorizontal: 10,
+    fontFamily: "Nunito-ExtraBold",
+    fontSize: 18,
+  },
+  button: {
+    alignSelf: "center",
+    backgroundColor: "rgba(253, 148, 24, 1)",
+    width: 150,
+    height: 45,
+    textAlignVertical: "center",
+    textAlign: "center",
+    borderRadius: 30,
+    fontSize: 20,
+    fontFamily: "Nunito-ExtraBold",
+    color: "floralwhite",
+    marginHorizontal: 10,
+  },
+});
 
 export default CharacterTraits;

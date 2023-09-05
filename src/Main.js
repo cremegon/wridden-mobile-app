@@ -19,6 +19,7 @@ import Story4 from "./Screens/StoryScreens/Story4";
 import { Keyboard } from "react-native";
 import { useState, useEffect } from "react";
 import ChapterSelect from "./Screens/StoryScreens/ChapterSelect";
+import CharacterTraits from "./Screens/StoryHome/CharacterTraits";
 
 const Bottom = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -69,6 +70,11 @@ const StoryHomeTab = () => {
       <Stack.Screen
         name="Chapter Select"
         component={ChapterSelect}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="Character Traits"
+        component={CharacterTraits}
         options={{ headerShown: false }}
       />
     </Stack.Navigator>

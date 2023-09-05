@@ -37,7 +37,7 @@ export default CharacterList = ({ navigation }) => {
         }}
       >
         {charData.map((item, index) => (
-          <View style={{ alignItems: "center", marginTop: 30 }}>
+          <View style={{ alignItems: "center", marginTop: 30 }} key={index}>
             <Text style={styles.charTitle}>{item.name}</Text>
             <TouchableOpacity
               onPress={() => {

@@ -7,19 +7,16 @@ import {
   Pressable,
 } from "react-native";
 import React from "react";
-import { SafeAreaView } from "react-native-safe-area-context";
 
 const Card = ({ title, image, navigation, link, params }) => {
   return (
     <View style={styles.container}>
       <Pressable
         onPress={() => navigation.navigate(link, { paramKey: params })}
-        style={{ marginHorizontal: 50, marginTop: -10, width: "100%" }}
+        style={{ marginHorizontal: 50, width: "100%" }}
       >
-        <View style={{ borderRadius: 20 }}>
-          <Image source={image} style={styles.card} resizeMode="cover" />
-          <Text style={styles.title}>{title}</Text>
-        </View>
+        <Image source={image} style={styles.card} resizeMode="cover" />
+        <Text style={styles.title}>{title}</Text>
       </Pressable>
     </View>
   );
@@ -37,20 +34,21 @@ const styles = StyleSheet.create({
     height: 150,
   },
   card: {
-    marginRight: 5,
-    width: 400,
+    width: 380,
+    height: 150,
     alignSelf: "center",
+    borderWidth: 2,
     borderRadius: 20,
   },
   title: {
     alignSelf: "center",
-    top: 60,
+    top: 50,
     left: 175,
     position: "absolute",
-    fontSize: 20,
-    fontWeight: "bold",
+    fontSize: 23,
     color: "white",
     width: 150,
+    fontFamily: "AlegreyaSans-ExtraBoldItalic",
   },
 });
 

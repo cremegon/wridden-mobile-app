@@ -8,11 +8,11 @@ export default ReadStory = ({ navigation }) => {
   const [count, setCount] = useState(0);
   const titleList = [
     { title: "Where We Simmer", nav: "Story 1" },
-    { title: "Upperdown", nav: "Story 2" },
+    { title: "Upperdown", nav: "Story 1" },
   ];
 
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: "white" }}>
+    <SafeAreaView style={{ flex: 1, backgroundColor: "rgba(226,237,236,0.4)" }}>
       <AppHeader
         title={"Read Stories"}
         icon={"chevron-back"}
@@ -22,13 +22,16 @@ export default ReadStory = ({ navigation }) => {
       <ScrollView>
         <View>
           {titleList.map((item, index) => (
-            <Card
-              title={item.title}
-              navigation={navigation}
-              image={require("../../assets/storylist_btn3.png")}
-              link={item.nav}
-              params={item.title}
-            />
+            <View>
+              <Card
+                title={item.title}
+                navigation={navigation}
+                image={require("../../assets/profile_bg.jpg")}
+                link={item.nav}
+                params={item.title}
+                key={index}
+              />
+            </View>
           ))}
         </View>
       </ScrollView>

@@ -32,6 +32,37 @@ const StoryHomeAccess = ({ navigation }) => {
       <Text style={styles.title2}>and create your own!</Text>
 
       <View style={{ alignItems: "center", width: "100%", marginTop: "105%" }}>
+        <View
+          style={{
+            padding: 15,
+            borderRadius: 40,
+            paddingHorizontal: 25,
+            borderColor: "#fd9418",
+            width: 280,
+            height: 130,
+            marginBottom: 15,
+            backgroundColor: "white",
+            elevation: 4,
+          }}
+        >
+          <Pressable onPress={() => navigation.navigate("Write New")}>
+            <Image
+              source={require("../../assets/write_icon2.png")}
+              style={{ width: 60, height: 60, alignSelf: "center" }}
+            />
+            <Text
+              style={{
+                textAlign: "center",
+                fontFamily: "Nunito-ExtraBold",
+                fontSize: 16,
+                color: "#230a0a",
+                marginTop: 10,
+              }}
+            >
+              Write New
+            </Text>
+          </Pressable>
+        </View>
         <View style={{ flexDirection: "row" }}>
           <View
             style={{
@@ -45,9 +76,9 @@ const StoryHomeAccess = ({ navigation }) => {
               elevation: 4,
             }}
           >
-            <Pressable onPress={() => navigation.navigate("Write New")}>
+            <Pressable onPress={() => navigation.navigate("Story List")}>
               <Image
-                source={require("../../assets/write_icon2.png")}
+                source={require("../../assets/storylist_icon2.png")}
                 style={{ width: 60, height: 60, alignSelf: "center" }}
               />
               <Text
@@ -59,7 +90,7 @@ const StoryHomeAccess = ({ navigation }) => {
                   marginTop: 10,
                 }}
               >
-                Write New
+                Story List
               </Text>
             </Pressable>
           </View>
@@ -76,7 +107,7 @@ const StoryHomeAccess = ({ navigation }) => {
               elevation: 4,
             }}
           >
-            <Pressable onPress={() => navigation.navigate("Story List")}>
+            <Pressable onPress={() => navigation.navigate("Read Story")}>
               <Image
                 source={require("../../assets/storylist_icon2.png")}
                 style={{ width: 60, height: 60, alignSelf: "center" }}
@@ -85,46 +116,15 @@ const StoryHomeAccess = ({ navigation }) => {
                 style={{
                   textAlign: "center",
                   fontFamily: "Nunito-ExtraBold",
-                  fontSize: 16,
+                  fontSize: 15,
                   color: "#230a0a",
                   marginTop: 10,
                 }}
               >
-                Story List
+                Read Story
               </Text>
             </Pressable>
           </View>
-        </View>
-        <View
-          style={{
-            padding: 15,
-            borderRadius: 40,
-            paddingHorizontal: 25,
-            borderColor: "#fd9418",
-            width: 280,
-            height: 130,
-            marginTop: 15,
-            backgroundColor: "white",
-            elevation: 4,
-          }}
-        >
-          <Pressable onPress={() => navigation.navigate("Read Story")}>
-            <Image
-              source={require("../../assets/storylist_icon2.png")}
-              style={{ width: 60, height: 60, alignSelf: "center" }}
-            />
-            <Text
-              style={{
-                textAlign: "center",
-                fontFamily: "Nunito-ExtraBold",
-                fontSize: 16,
-                color: "#230a0a",
-                marginTop: 10,
-              }}
-            >
-              Read Stories
-            </Text>
-          </Pressable>
         </View>
       </View>
     </SafeAreaView>
