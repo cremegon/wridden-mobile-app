@@ -1,11 +1,29 @@
-import { View, Text, Button, TextInput, StyleSheet } from "react-native";
+import {
+  View,
+  Text,
+  Button,
+  TextInput,
+  StyleSheet,
+  ImageBackground,
+  Pressable,
+} from "react-native";
 import React, { useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 const ResetPass = ({ navigation }) => {
   const [reset, setReset] = useState("");
   return (
-    <SafeAreaView style={styles.container}>
+    <ImageBackground
+      source={require("../assets/splash_bg.png")}
+      style={{
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+        height: null,
+        width: null,
+      }}
+      resizeMode="cover"
+    >
       <View>
         <Text style={styles.title}>Forgot your Password?</Text>
         <Text style={styles.content}>
@@ -19,34 +37,35 @@ const ResetPass = ({ navigation }) => {
           placeholder="E-mail"
           textAlign="left"
           onChangeText={(val) => setReset(val)}
+          placeholderTextColor={"lightgrey"}
         />
         <View style={styles.button}>
-          <Button
-            title="Reset Password"
-            onPress={() => navigation.navigate("Login")}
-          />
+          <View style={{ marginVertical: 20 }}>
+            <Pressable onPress={() => navigation.navigate("Login")}>
+              <Text style={styles.login_button}>Reset Password</Text>
+            </Pressable>
+          </View>
         </View>
       </View>
-    </SafeAreaView>
+    </ImageBackground>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  container: {
-    justifyContent: "center",
-    flex: 1,
-    alignItems: "center",
-    marginTop: -50,
-  },
-  button: {
+  login_button: {
+    alignSelf: "center",
+    backgroundColor: "rgba(253, 148, 24, 1)",
     width: 300,
-    paddingTop: 20,
+    height: 45,
+    textAlignVertical: "center",
+    textAlign: "center",
+    borderRadius: 30,
+    fontSize: 20,
+    fontFamily: "Nunito-ExtraBold",
+    color: "floralwhite",
+    elevation: 2,
   },
   inputbox: {
-    borderWidth: 1,
     borderColor: "grey",
     paddingTop: 10,
     borderRadius: 10,
@@ -54,17 +73,19 @@ const styles = StyleSheet.create({
     width: 300,
     paddingHorizontal: 10,
     paddingVertical: 5,
+    backgroundColor: "white",
   },
   title: {
     fontSize: 20,
-    fontWeight: "bold",
     textAlign: "center",
+    fontFamily: "Nunito-ExtraBold",
   },
   content: {
-    marginTop: 10,
-    fontSize: 17,
+    marginVertical: 10,
+    fontSize: 16,
     textAlign: "center",
     marginHorizontal: 50,
+    fontFamily: "OpenSans-Regular",
   },
 });
 

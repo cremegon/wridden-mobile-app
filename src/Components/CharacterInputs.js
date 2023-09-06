@@ -23,7 +23,6 @@ const CharacterInputs = ({
         {title}
       </Text>
       <TextInput
-        inputMode="numeric"
         onChangeText={onChange}
         placeholder={placeholderTitle}
         textAlign="left"

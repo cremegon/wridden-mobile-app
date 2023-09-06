@@ -1,4 +1,12 @@
-import { View, Text, Button, TextInput, StyleSheet } from "react-native";
+import {
+  View,
+  Text,
+  Button,
+  TextInput,
+  StyleSheet,
+  ImageBackground,
+  Pressable,
+} from "react-native";
 import React, { useState } from "react";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -31,23 +39,26 @@ const SignUp = ({ navigation }) => {
   }
 
   return (
-    <SafeAreaView style={styles.container}>
+    <ImageBackground
+      source={require("../assets/splash_bg.png")}
+      style={{
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+        height: null,
+        width: null,
+      }}
+      resizeMode="cover"
+    >
       <View>
-        <Text
-          style={{
-            fontSize: 20,
-            fontWeight: "bold",
-            marginBottom: 10,
-          }}
-        >
-          Wridden
-        </Text>
+        <Text style={[styles.title]}>Wridden</Text>
         <TextInput
           style={styles.inputbox}
           placeholder="Enter email"
           textAlign="left"
           value={email}
           onChangeText={(val) => setEmail(val)}
+          placeholderTextColor={"lightgrey"}
         />
 
         <TextInput
@@ -56,6 +67,7 @@ const SignUp = ({ navigation }) => {
           textAlign="left"
           value={name}
           onChangeText={(val) => setName(val)}
+          placeholderTextColor={"lightgrey"}
         />
 
         <TextInput
@@ -65,6 +77,7 @@ const SignUp = ({ navigation }) => {
           value={pass}
           secureTextEntry={true}
           onChangeText={(val) => setPass(val)}
+          placeholderTextColor={"lightgrey"}
         />
 
         <TextInput
@@ -74,15 +87,20 @@ const SignUp = ({ navigation }) => {
           value={pass2}
           secureTextEntry={true}
           onChangeText={(val) => setPass2(val)}
+          placeholderTextColor={"lightgrey"}
         />
 
-        <View style={styles.button}>
-          <Button title="Create Account" onPress={() => handleSubmit()} />
+        <View style={{ marginVertical: 20 }}>
+          <Pressable onPress={() => handleSubmit()}>
+            <Text style={styles.login_button}>Create Account</Text>
+          </Pressable>
         </View>
       </View>
 
       <View style={styles.signup_container}>
-        <Text>Already have an account?</Text>
+        <Text style={{ color: "black", fontFamily: "Nunito-Bold" }}>
+          Already have an account?
+        </Text>
         <Text
           style={styles.signup}
           onPress={() => navigation.navigate("Login")}
@@ -91,7 +109,7 @@ const SignUp = ({ navigation }) => {
           Login
         </Text>
       </View>
-    </SafeAreaView>
+    </ImageBackground>
   );
 };
 
@@ -108,7 +126,6 @@ const styles = StyleSheet.create({
     paddingTop: 20,
   },
   inputbox: {
-    borderWidth: 1,
     borderColor: "grey",
     paddingTop: 10,
     borderRadius: 10,
@@ -116,14 +133,39 @@ const styles = StyleSheet.create({
     width: 300,
     paddingHorizontal: 10,
     paddingVertical: 5,
+    backgroundColor: "white",
+  },
+  login_button: {
+    alignSelf: "center",
+    backgroundColor: "rgba(253, 148, 24, 1)",
+    width: 300,
+    height: 45,
+    textAlignVertical: "center",
+    textAlign: "center",
+    borderRadius: 30,
+    fontSize: 20,
+    fontFamily: "Nunito-ExtraBold",
+    color: "floralwhite",
+    elevation: 3,
+  },
+  title: {
+    fontSize: 40,
+    textAlign: "center",
+    marginBottom: 10,
+    fontFamily: "AlegreyaSans-ExtraBold",
   },
   signup_container: {
     flexDirection: "row",
-    marginTop: 50,
+    marginTop: 20,
+    backgroundColor: "white",
+    padding: 5,
+    paddingHorizontal: 15,
+    paddingVertical: 10,
+    borderRadius: 20,
   },
   signup: {
-    fontWeight: "bold",
-    color: "royalblue",
+    fontFamily: "Nunito-ExtraBold",
+    color: "#fd9418",
   },
 });
 

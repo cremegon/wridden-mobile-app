@@ -22,14 +22,13 @@ export default ReadStory = ({ navigation }) => {
       <ScrollView>
         <View>
           {titleList.map((item, index) => (
-            <View>
+            <View key={index}>
               <Card
                 title={item.title}
                 navigation={navigation}
                 image={require("../../assets/profile_bg.jpg")}
                 link={item.nav}
                 params={item.title}
-                key={index}
               />
             </View>
           ))}
