@@ -122,6 +122,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontFamily: "Nunito-ExtraBold",
     color: "floralwhite",
+    elevation: 2,
   },
   title: {
     fontSize: 40,
