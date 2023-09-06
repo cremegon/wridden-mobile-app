@@ -17,9 +17,10 @@ import { useState } from "react";
 import CharacterDropdown from "../../Components/CharacterDropdown";
 import DismissKeyboard from "../../Components/DismissKeyboard";
 import { BrandButtonAlt } from "../../Components/BrandButtonAlt";
+import { useStoryContext } from "../CreateStory/Router";
 
 const CharacterTraits = ({ navigation, route }) => {
-  const [isModalVisible, SetIsModalVisible] = useState(false);
+  const [isModalVisible, setIsModalVisible] = useState(false);
   //ideally a single state should hold all these variables
   const [age, setAge] = useState();
   const [gender, setGender] = useState("");
@@ -28,19 +29,25 @@ const CharacterTraits = ({ navigation, route }) => {
   const [likes, setLikes] = useState("");
   const [dislikes, setDislikes] = useState("");
 
-  //for transferring the data, this is the payload
-  /**{
-                  data: {
-                    //not sure if this is the way but khair he..
-                    name: route.params.paramKey,
-                    age: age,
-                    gender: gender,
-                    physicalAttributes: physicalAttributes,
-                    emotionalAttributes: emotionalAttributes,
-                    likes: likes,
-                    dislikes: dislikes,
-                  },
-                } */
+  const { story, setStory } = useStoryContext();
+
+  function addCharacter() {
+    setStory((prev) => ({
+      ...prev,
+      characters: [
+        ...prev.characters,
+        {
+          name: route.params.paramKey,
+          age: age,
+          gender: gender,
+          physicalAttributes: physicalAttributes,
+          emotionalAttributes: emotionalAttributes,
+          likes: likes,
+          dislikes: dislikes,
+        },
+      ],
+    }));
+  }
 
   return (
     <SafeAreaView style={{ backgroundColor: "rgba(244,244,244,1)", flex: 1 }}>
@@ -148,13 +155,14 @@ const CharacterTraits = ({ navigation, route }) => {
               placeholderTitle={"Enter dislike..."}
             />
             <View style={{ flexDirection: "row" }}>
-              <BrandButtonAlt
-                title={"Save"}
-                navigation={navigation}
-                link={"Character List"}
-              />
               <View style={{ marginVertical: 20 }}>
-                <Pressable onPress={() => SetIsModalVisible(true)}>
+                <Pressable
+                  onPress={() => {
+                    //pass in the params
+                    addCharacter();
+                    setIsModalVisible(true);
+                  }}
+                >
                   <Text style={styles.button}>Next</Text>
                 </Pressable>
               </View>
@@ -163,7 +171,7 @@ const CharacterTraits = ({ navigation, route }) => {
             <Modal
               visible={isModalVisible}
               transparent={false}
-              onRequestClose={() => SetIsModalVisible(false)}
+              onRequestClose={() => setIsModalVisible(false)}
               animationType="slide"
             >
               <View
@@ -210,7 +218,7 @@ const CharacterTraits = ({ navigation, route }) => {
                     <Pressable
                       onPress={() => {
                         navigation.navigate("Main Writing");
-                        SetIsModalVisible(false);
+                        setIsModalVisible(false);
                       }}
                     >
                       <Text style={styles.modalButton}>No</Text>

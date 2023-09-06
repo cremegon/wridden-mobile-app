@@ -8,8 +8,6 @@ import Animated, {
   withSpring,
   withTiming,
 } from "react-native-reanimated";
-import { SafeAreaView } from "react-native-safe-area-context";
-
 const { height: SCREEN_HEIGHT } = Dimensions.get("window");
 
 const ArcGraph = () => {

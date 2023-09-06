@@ -25,6 +25,7 @@ import * as ImagePicker from "expo-image-picker";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import DatabaseContext from "../../Components/Context/DatabaseContext";
 import { UserContext } from "../../Components/Context/UserContext";
+import { useStoryContext } from "../CreateStory/Router";
 
 const MainWriting = ({ onLongPress, navigation, route }) => {
   const [isModalVisible, SetIsModalVisible] = useState(false);
@@ -46,10 +47,12 @@ const MainWriting = ({ onLongPress, navigation, route }) => {
   const dbCtx = useContext(DatabaseContext);
   const { user } = useContext(UserContext);
 
-  const [title, setTitle] = useState("");
+  const [storyTitle, setStoryTitle] = useState("");
+  const [sectionTitle, setSectionTitle] = useState("Chapter 1");
+
   const [storyId, setStoryId] = useState();
 
-  const inset = useSafeAreaInsets();
+  const { story, setStory } = useStoryContext();
 
   const handleStorySave = () => {
     //if story is not in context, create it
@@ -57,16 +60,48 @@ const MainWriting = ({ onLongPress, navigation, route }) => {
       dbCtx.transaction((tx) => {
         tx.executeSql(
           "insert into stories (title, user_id) values (?, ?)",
-          [title, user.id],
+          [storyTitle, user.id],
           (tx, result) => {
+            setStoryId(result.insertId);
             console.log("Story Insert Successful");
-            //this should return id and maintain the context
-            //as long as the view is open to ensure that a duplicate
-            //story is not inserted somehow.
-            result.insertId;
+            if (story.characters) {
+              story.characters.map((character) => {
+                const {
+                  name,
+                  age,
+                  gender,
+                  physicalAttributes,
+                  emotionalAttributes,
+                  likes,
+                  dislikes,
+                } = character;
+                tx.executeSql(
+                  "insert into characters (name, image_uri, story_id, user_id, age, gender, physicalAttributes, emotionalAttributes, likes, dislikes) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+                  [
+                    name,
+                    "",
+                    result.insertId,
+                    user.id,
+                    age,
+                    gender,
+                    physicalAttributes,
+                    emotionalAttributes,
+                    likes,
+                    dislikes,
+                  ],
+                  (tx, result) => {
+                    console.log("Character " + name + " Saved");
+                  },
+                  (tx, error) => {
+                    console.warn("Character not saved: ", error);
+                  }
+                );
+              });
+            }
+            //iterate over the context
           },
           (tx, error) => {
-            console.log("Error inserting data:", error);
+            console.log("Error inserting Story data: ", error);
           }
         );
       });
@@ -82,15 +117,24 @@ const MainWriting = ({ onLongPress, navigation, route }) => {
           <StatusBar backgroundColor={"#ffa951"} />
           <ArcGraph />
           <TextInput
-            value={title}
-            onChangeText={setTitle}
+            value={storyTitle}
+            onChangeText={setStoryTitle}
             style={styles.title}
             placeholder="Title"
             multiline={true}
           />
           <TextInput
+            style={styles.heading}
+            value={sectionTitle}
+            onChangeText={(e) => setSectionTitle(e)}
+            placeholder="Section Heading"
+            multiline={true}
+            enablesReturnKeyAutomatically
+            placeholderTextColor={"lightgrey"}
+          />
+          <TextInput
             style={styles.notes}
-            placeholder="Note"
+            placeholder="Begin Writing ..."
             multiline={true}
             enablesReturnKeyAutomatically
             placeholderTextColor={"lightgrey"}
@@ -219,6 +263,12 @@ const styles = StyleSheet.create({
     marginTop: 100,
     paddingLeft: 20,
     fontWeight: "bold",
+  },
+  heading: {
+    fontSize: 24,
+    marginTop: 20,
+    paddingLeft: 20,
+    fontWeight: "semibold",
   },
   notes: {
     fontSize: 18,

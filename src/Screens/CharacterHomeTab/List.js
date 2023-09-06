@@ -8,15 +8,35 @@ import {
   Dimensions,
   Pressable,
 } from "react-native";
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import AppHeader from "../../Components/AppHeader";
 import { charData } from "../../assets/images";
 import { StatusBar } from "react-native";
+import DatabaseContext from "../../Components/Context/DatabaseContext";
 
 export default CharacterList = ({ navigation }) => {
   const [isModalVisible, SetIsModalVisible] = useState(false);
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
+
+  const [characters, setCharacters] = useState([]);
+
+  const dbCtx = useContext(DatabaseContext);
+
+  useEffect(() => {
+    dbCtx.transaction((tx) =>
+      tx.executeSql(
+        "select * from characters",
+        [],
+        (tx, { rows }) => {
+          setCharacters(rows._array);
+        },
+        (tx, errors) => {
+          console.log("Error selecting characters", errors);
+        }
+      )
+    );
+  }, []);
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "rgba(244,244,244,1)" }}>

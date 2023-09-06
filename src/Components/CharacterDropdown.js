@@ -2,11 +2,16 @@ import { View, Text } from "react-native";
 import React from "react";
 import DropDownPicker from "react-native-dropdown-picker";
 import { useState } from "react";
-import { charData_gender } from "../datalist/CharacterData";
 
 const CharacterDropdown = ({ title, placeholderTitle, value, onChange }) => {
   const [open, setOpen] = useState(false);
-  const [items, setItems] = useState(charData_gender);
+  const [items, setItems] = useState([
+    { label: "Male", value: "male" },
+    { label: "Female", value: "female" },
+    { label: "Transgender", value: "transgender" },
+    { label: "Non-Binary", value: "non-binary" },
+  ]);
+
   return (
     <View style={{ zIndex: 100, alignSelf: "center", marginVertical: 15 }}>
       <Text
