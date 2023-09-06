@@ -26,6 +26,7 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 import DatabaseContext from "../../Components/Context/DatabaseContext";
 import { UserContext } from "../../Components/Context/UserContext";
 import { useStoryContext } from "../CreateStory/Router";
+import { StorySection } from "../../Components/StorySection";
 
 const MainWriting = ({ onLongPress, navigation, route }) => {
   const [isModalVisible, SetIsModalVisible] = useState(false);
@@ -48,7 +49,7 @@ const MainWriting = ({ onLongPress, navigation, route }) => {
   const { user } = useContext(UserContext);
 
   const [storyTitle, setStoryTitle] = useState("");
-  const [sectionTitle, setSectionTitle] = useState("Chapter 1");
+  const [section, setSection] = useState({ title: "", content: "" });
 
   const [storyId, setStoryId] = useState();
 
@@ -123,22 +124,19 @@ const MainWriting = ({ onLongPress, navigation, route }) => {
             placeholder="Title"
             multiline={true}
           />
-          <TextInput
-            style={styles.heading}
-            value={sectionTitle}
-            onChangeText={(e) => setSectionTitle(e)}
-            placeholder="Section Heading"
-            multiline={true}
-            enablesReturnKeyAutomatically
-            placeholderTextColor={"lightgrey"}
+
+          <StorySection
+            title={section.title}
+            content={section.content}
+            onEdit={(key, value) => {
+              if (key === "title") {
+                setSection({ ...section, title: value });
+              } else {
+                setSection({ ...section, content: value });
+              }
+            }}
           />
-          <TextInput
-            style={styles.notes}
-            placeholder="Begin Writing ..."
-            multiline={true}
-            enablesReturnKeyAutomatically
-            placeholderTextColor={"lightgrey"}
-          />
+
           <View
             style={{
               flexDirection: "row",

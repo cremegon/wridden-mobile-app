@@ -20,6 +20,7 @@ import { UserContext } from "./Components/Context/UserContext";
 import { Keyboard } from "react-native";
 import CharacterTraits from "./Screens/StoryHome/CharacterTraits";
 import ChapterSelect from "./Screens/StoryScreens/ChapterSelect";
+import CommunityStory from "./Screens/CommunityHomeTab/CommunityStory";
 
 const Bottom = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -75,6 +76,11 @@ const StoryHomeTab = () => {
       <Stack.Screen
         name="Character Traits"
         component={CharacterTraits}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="Community Story"
+        component={CommunityStory}
         options={{ headerShown: false }}
       />
     </Stack.Navigator>

@@ -6,6 +6,7 @@ import {
   Image,
   TouchableOpacity,
   ScrollView,
+  Pressable,
 } from "react-native";
 import AppHeader from "../../Components/AppHeader";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -179,10 +180,12 @@ const CommunityHome = ({ navigation }) => {
               style={{ marginTop: 20, marginLeft: 20 }}
             >
               <View style={styles.horizontalScrollItems}>
-                <Image
-                  source={iconData[0].source}
-                  style={styles.scrollItemIcon}
-                />
+                <Pressable>
+                  <Image
+                    source={iconData[0].source}
+                    style={styles.scrollItemIcon}
+                  />
+                </Pressable>
                 <Text style={styles.scrollText}>Mystery</Text>
               </View>
               <View style={styles.horizontalScrollItems}>
