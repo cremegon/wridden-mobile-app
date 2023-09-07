@@ -19,13 +19,11 @@ import {
   ScrollView,
 } from "react-native-gesture-handler";
 import ArcGraph from "../../Components/ArcGraph";
-import WritingButtons from "../../Components/WritingButtons";
 import { bgData, charData } from "../../assets/images";
 import { FontAwesome } from "@expo/vector-icons";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { Entypo } from "@expo/vector-icons";
 import * as ImagePicker from "expo-image-picker";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
 import DatabaseContext from "../../Components/Context/DatabaseContext";
 import { UserContext } from "../../Components/Context/UserContext";
 import { useStoryContext } from "../CreateStory/Router";
@@ -104,9 +102,31 @@ const MainWriting = ({ navigation }) => {
       });
     } else {
       //else upsert sections of the story and the title if changed.
-      console.warn("TODO : Update Function, brain no workie, baad mein ;)");
+      console.warn("TODO : Update Function, brain no workie, baad mein :(");
     }
   };
+
+  const [keyboardShow, setKeyboardShow] = useState(false);
+
+  useEffect(() => {
+    const keyboardDidShowListener = Keyboard.addListener(
+      "keyboardDidShow",
+      () => {
+        setKeyboardShow(true);
+      }
+    );
+    const keyboardDidHideListener = Keyboard.addListener(
+      "keyboardDidHide",
+      () => {
+        setKeyboardShow(false);
+      }
+    );
+
+    return () => {
+      keyboardDidHideListener.remove();
+      keyboardDidShowListener.remove();
+    };
+  }, []);
 
   return (
     <DismissKeyboard>
@@ -138,64 +158,66 @@ const MainWriting = ({ navigation }) => {
                   }}
                 />
               </View>
-
-              <View
-                style={{
-                  flexDirection: "row",
-                  justifyContent: "center",
-                  marginTop: 10,
-                  paddingBottom: 10,
-                }}
-              >
-                <MaterialCommunityIcons
-                  name="image"
-                  size={24}
-                  color="#ffa951"
-                  style={{
-                    backgroundColor: "white",
-                    padding: 10,
-                    borderRadius: 90,
-                    alignSelf: "center",
-                    elevation: 4,
-                    paddingLeft: 10,
-                  }}
-                  onPress={() => {
-                    handleImageSelection();
-                  }}
-                />
-                <Entypo
-                  name="save"
-                  size={24}
-                  color="#ffa951"
-                  style={{
-                    backgroundColor: "white",
-                    padding: 10,
-                    borderRadius: 90,
-                    alignSelf: "center",
-                    elevation: 4,
-                    paddingLeft: 10,
-                    marginRight: 170,
-                    marginLeft: 20,
-                  }}
-                  onPress={() => handleStorySave()}
-                  onLongPress={() => SetIsModalVisible(true)}
-                />
-                <FontAwesome
-                  name="arrow-circle-right"
-                  size={32}
-                  color="#ffa951"
-                  style={{
-                    backgroundColor: "white",
-                    padding: 15,
-                    borderRadius: 90,
-                    alignSelf: "center",
-                    elevation: 4,
-                    paddingLeft: 16,
-                  }}
-                />
-              </View>
             </View>
           </ScrollView>
+
+          <View style={{ paddingBottom: keyboardShow ? 20 : 100 }}>
+            <View
+              style={{
+                flexDirection: "row",
+                justifyContent: "center",
+                marginTop: 10,
+              }}
+            >
+              <MaterialCommunityIcons
+                name="image"
+                size={24}
+                color="#ffa951"
+                style={{
+                  backgroundColor: "white",
+                  padding: 10,
+                  borderRadius: 90,
+                  alignSelf: "center",
+                  elevation: 4,
+                  paddingLeft: 10,
+                }}
+                onPress={() => {
+                  handleImageSelection();
+                }}
+              />
+              <Entypo
+                name="save"
+                size={24}
+                color="#ffa951"
+                style={{
+                  backgroundColor: "white",
+                  padding: 10,
+                  borderRadius: 90,
+                  alignSelf: "center",
+                  elevation: 4,
+                  paddingLeft: 10,
+                  marginRight: 170,
+                  marginLeft: 20,
+                }}
+                onPress={() => handleStorySave()}
+                onLongPress={() => SetIsModalVisible(true)}
+              />
+              <FontAwesome
+                name="arrow-circle-right"
+                size={32}
+                color="#ffa951"
+                style={{
+                  backgroundColor: "white",
+                  padding: 15,
+                  borderRadius: 90,
+                  alignSelf: "center",
+                  elevation: 4,
+                  paddingLeft: 16,
+                }}
+              />
+            </View>
+          </View>
+
           <Modal
             visible={isModalVisible}
             transparent={true}

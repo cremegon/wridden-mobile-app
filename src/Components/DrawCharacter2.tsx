@@ -79,7 +79,7 @@ const DrawingCharacter2 = ({navigation}) =>  {
         <TextInput placeholder='Enter Character Name' style = {{paddingTop: 30}} onChangeText={(val) => setName(val)}/>
 
         <View style = {styles.buttonList}>
-          <BrandButtonAlt title={"Next"} link={"Character Traits"} navigation={navigation} params={name}/>
+          <BrandButtonAlt title={"Next"} link={"Character Traits"} navigation={navigation} params={name} onButtonPress={console.log("Hi")}/>
         </View>
       </SafeAreaView>
       )

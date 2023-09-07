@@ -1,29 +1,43 @@
 import { View, Text, SafeAreaView, Button, Image } from "react-native";
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
+import { Animated } from "react-native";
+import { Easing } from "react-native-reanimated";
 
 const Splash = ({ navigation }) => {
+  const translation = useRef(new Animated.Value(0)).current;
+
   useEffect(() => {
+    Animated.spring(translation, {
+      toValue: 170,
+      useNativeDriver: true,
+      easing: Easing.bounce,
+      duration: 2000,
+    }).start();
+
     setTimeout(() => {
       navigation.navigate("Login");
-    }, 500);
+    }, 2000);
   });
 
-  const inset = useSafeAreaInsets();
   return (
-    <SafeAreaView
+    <Animated.View
       style={{
-        paddingTop: inset.top,
         alignItems: "center",
         justifyContent: "center",
+        marginTop: -300,
         flex: 1,
       }}
     >
-      <Image
-        source={require("../assets/thunk.png")}
-        style={{ width: 170, height: 170 }}
+      <Animated.Image
+        source={require("../assets/stories/main_logo.png")}
+        style={{
+          width: 150,
+          height: 150,
+          transform: [{ translateY: translation }],
+        }}
       />
-    </SafeAreaView>
+    </Animated.View>
   );
 };
 
