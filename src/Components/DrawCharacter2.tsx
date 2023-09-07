@@ -98,7 +98,7 @@ const styles = StyleSheet.create({
     svgContainer: {
         height: "70%",
         width: "100%",
-        backgroundColor: "black",
+        backgroundColor: "white",
         
     },
     clearButton: {

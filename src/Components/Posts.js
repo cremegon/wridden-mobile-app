@@ -35,7 +35,9 @@ export default Posts = ({ title, name, number }) => {
           }}
         />
         <View style={{ paddingTop: 7, marginHorizontal: 12 }}>
-          <Text style={{ fontSize: 18, fontWeight: "bold" }}>{title}</Text>
+          <Text style={{ fontSize: 18, fontWeight: "bold", marginRight: 70 }}>
+            {title}
+          </Text>
           <View style={{ flexDirection: "row" }}>
             <Text style={{ color: "grey" }}>{name}</Text>
             <View
@@ -69,19 +71,19 @@ export default Posts = ({ title, name, number }) => {
         }}
       >
         <View style={{ flexDirection: "row" }}>
-          <FontAwesome name="thumbs-up" size={20} color="#f5b371" />
+          <FontAwesome name="thumbs-up" size={20} color="#ffc07f" />
           <Text style={{ marginTop: 2, marginHorizontal: 5, color: "grey" }}>
             23 votes
           </Text>
         </View>
         <View style={{ flexDirection: "row" }}>
-          <Ionicons name="chatbubble-ellipses" size={20} color="#f5b371" />
+          <Ionicons name="chatbubble-ellipses" size={20} color="#ffc07f" />
           <Text style={{ marginTop: 2, marginHorizontal: 5, color: "grey" }}>
             9 comments
           </Text>
         </View>
         <View style={{ flexDirection: "row" }}>
-          <Ionicons name="eye" size={20} color="#f5b371" />
+          <Ionicons name="eye" size={20} color="#ffc07f" />
           <Text style={{ marginTop: 2, marginHorizontal: 5, color: "grey" }}>
             35 views
           </Text>

@@ -78,8 +78,13 @@ const StoryHomeAccess = ({ navigation }) => {
           >
             <Pressable onPress={() => navigation.navigate("Story List")}>
               <Image
-                source={require("../../assets/storylist_icon2.png")}
-                style={{ width: 60, height: 60, alignSelf: "center" }}
+                source={require("../../assets/list_icon.png")}
+                style={{
+                  width: 50,
+                  height: 50,
+                  alignSelf: "center",
+                  marginTop: 10,
+                }}
               />
               <Text
                 style={{

@@ -14,7 +14,10 @@ import {
 import React, { useContext, useEffect, useState } from "react";
 import { Modal } from "react-native";
 import DismissKeyboard from "../../Components/DismissKeyboard";
-import { GestureHandlerRootView } from "react-native-gesture-handler";
+import {
+  GestureHandlerRootView,
+  ScrollView,
+} from "react-native-gesture-handler";
 import ArcGraph from "../../Components/ArcGraph";
 import WritingButtons from "../../Components/WritingButtons";
 import { bgData, charData } from "../../assets/images";
@@ -111,82 +114,88 @@ const MainWriting = ({ navigation }) => {
         <ImageBackground source={selectedImage} style={styles.container}>
           <StatusBar backgroundColor={"#ffa951"} />
           <ArcGraph />
-          <TextInput
-            value={storyTitle}
-            onChangeText={setStoryTitle}
-            style={styles.title}
-            placeholder="Title"
-            multiline={true}
-          />
+          <ScrollView>
+            <View style={{ flex: 1, paddingBottom: 100 }}>
+              <View>
+                <TextInput
+                  value={storyTitle}
+                  onChangeText={setStoryTitle}
+                  style={styles.title}
+                  placeholder="Title"
+                  multiline={true}
+                />
 
-          <StorySection
-            readOnly={false}
-            title={section.title}
-            content={section.content}
-            onEdit={(key, value) => {
-              if (key === "title") {
-                setSection({ ...section, title: value });
-              } else {
-                setSection({ ...section, content: value });
-              }
-            }}
-          />
+                <StorySection
+                  readOnly={false}
+                  title={section.title}
+                  content={section.content}
+                  onEdit={(key, value) => {
+                    if (key === "title") {
+                      setSection({ ...section, title: value });
+                    } else {
+                      setSection({ ...section, content: value });
+                    }
+                  }}
+                />
+              </View>
 
-          <View
-            style={{
-              flexDirection: "row",
-              justifyContent: "center",
-              flex: 1,
-              marginTop: 60,
-            }}
-          >
-            <MaterialCommunityIcons
-              name="image"
-              size={24}
-              color="#ffa951"
-              style={{
-                backgroundColor: "white",
-                padding: 10,
-                borderRadius: 90,
-                alignSelf: "center",
-                elevation: 4,
-                paddingLeft: 10,
-              }}
-              onPress={() => {
-                handleImageSelection();
-              }}
-            />
-            <Entypo
-              name="save"
-              size={24}
-              color="#ffa951"
-              style={{
-                backgroundColor: "white",
-                padding: 10,
-                borderRadius: 90,
-                alignSelf: "center",
-                elevation: 4,
-                paddingLeft: 10,
-                marginRight: 170,
-                marginLeft: 20,
-              }}
-              onPress={() => handleStorySave()}
-              onLongPress={() => SetIsModalVisible(true)}
-            />
-            <FontAwesome
-              name="arrow-circle-right"
-              size={32}
-              color="#ffa951"
-              style={{
-                backgroundColor: "white",
-                padding: 15,
-                borderRadius: 90,
-                alignSelf: "center",
-                elevation: 4,
-                paddingLeft: 16,
-              }}
-            />
-          </View>
+              <View
+                style={{
+                  flexDirection: "row",
+                  justifyContent: "center",
+                  marginTop: 10,
+                  paddingBottom: 10,
+                }}
+              >
+                <MaterialCommunityIcons
+                  name="image"
+                  size={24}
+                  color="#ffa951"
+                  style={{
+                    backgroundColor: "white",
+                    padding: 10,
+                    borderRadius: 90,
+                    alignSelf: "center",
+                    elevation: 4,
+                    paddingLeft: 10,
+                  }}
+                  onPress={() => {
+                    handleImageSelection();
+                  }}
+                />
+                <Entypo
+                  name="save"
+                  size={24}
+                  color="#ffa951"
+                  style={{
+                    backgroundColor: "white",
+                    padding: 10,
+                    borderRadius: 90,
+                    alignSelf: "center",
+                    elevation: 4,
+                    paddingLeft: 10,
+                    marginRight: 170,
+                    marginLeft: 20,
+                  }}
+                  onPress={() => handleStorySave()}
+                  onLongPress={() => SetIsModalVisible(true)}
+                />
+                <FontAwesome
+                  name="arrow-circle-right"
+                  size={32}
+                  color="#ffa951"
+                  style={{
+                    backgroundColor: "white",
+                    padding: 15,
+                    borderRadius: 90,
+                    alignSelf: "center",
+                    elevation: 4,
+                    paddingLeft: 16,
+                  }}
+                />
+              </View>
+            </View>
+          </ScrollView>
           <Modal
             visible={isModalVisible}
             transparent={true}

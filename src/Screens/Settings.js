@@ -89,7 +89,7 @@ const SettingsPage = ({ navigation }) => {
   return (
     <SafeAreaView
       style={{
-        backgroundColor: "rgba(226,237,236,0.4)",
+        backgroundColor: "rgba(240,245,245,1)",
         flex: 1,
       }}
     >

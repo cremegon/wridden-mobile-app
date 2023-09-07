@@ -14,6 +14,8 @@ import Ionicons from "react-native-vector-icons/Ionicons";
 import { charData } from "../../assets/images";
 import Posts from "../../Components/Posts";
 import { iconData } from "../../assets/images";
+import { FlatList } from "react-native-gesture-handler";
+import { postData } from "../../assets/posts/posts";
 
 const CommunityHome = ({ navigation }) => {
   const horizontalTextList = [
@@ -173,44 +175,27 @@ const CommunityHome = ({ navigation }) => {
             </View>
           </View>
 
-          <View style={{ height: 170, marginTop: 15 }}>
-            <ScrollView
-              horizontal={true}
-              showsHorizontalScrollIndicator={false}
-              style={{ marginTop: 20, marginLeft: 20 }}
-            >
-              <View style={styles.horizontalScrollItems}>
-                <Pressable>
-                  <Image
-                    source={iconData[0].source}
-                    style={styles.scrollItemIcon}
-                  />
-                </Pressable>
-                <Text style={styles.scrollText}>Mystery</Text>
-              </View>
-              <View style={styles.horizontalScrollItems}>
-                <Image
-                  source={iconData[1].source}
-                  style={styles.scrollItemIcon}
-                />
-                <Text style={styles.scrollText}>Romance</Text>
-              </View>
-              <View style={styles.horizontalScrollItems}>
-                <Image
-                  source={iconData[2].source}
-                  style={styles.scrollItemIcon}
-                />
-                <Text style={styles.scrollText}>Action</Text>
-              </View>
-              <View style={styles.horizontalScrollItems}>
-                <Image
-                  source={iconData[3].source}
-                  style={styles.scrollItemIcon}
-                />
-                <Text style={styles.scrollText}>Fantasy</Text>
-              </View>
-            </ScrollView>
-          </View>
+          <FlatList
+            showsHorizontalScrollIndicator={false}
+            style={{ height: 150, marginTop: 20, marginLeft: 20 }}
+            horizontal={true}
+            data={iconData}
+            renderItem={({ item }) => (
+              <Pressable
+                onPress={() =>
+                  navigation.navigate("Community Story", {
+                    paramKey: item.title,
+                  })
+                }
+              >
+                <View style={styles.horizontalScrollItems}>
+                  <Image source={item.source} style={styles.scrollItemIcon} />
+
+                  <Text style={styles.scrollText}>{item.title}</Text>
+                </View>
+              </Pressable>
+            )}
+          />
 
           <Text
             style={{
@@ -223,20 +208,11 @@ const CommunityHome = ({ navigation }) => {
             Trending Posts
           </Text>
 
-          <Posts
-            title={"Need review for the ending pls"}
-            name={"Michael Dawodu"}
-            number={5}
-          />
-          <Posts
-            title={"Is a soft magic system good?"}
-            name={"Yologo Ya"}
-            number={2}
-          />
-          <Posts
-            title={"hi I'm new here :)"}
-            name={"Oleksandra Pichuhina"}
-            number={1}
+          <FlatList
+            data={postData}
+            renderItem={({ item }) => (
+              <Posts title={item.title} name={item.name} number={item.number} />
+            )}
           />
         </View>
       </ScrollView>

@@ -78,6 +78,18 @@ const StoryHomeTab = () => {
         component={CharacterTraits}
         options={{ headerShown: false }}
       />
+    </Stack.Navigator>
+  );
+};
+
+const CommunityHomeTab = () => {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen
+        name="Community Home"
+        component={CommunityHome}
+        options={{ headerShown: false }}
+      />
       <Stack.Screen
         name="Community Story"
         component={CommunityStory}
@@ -191,8 +203,8 @@ const Main = ({ navigation }) => {
           }}
         />
         <Bottom.Screen
-          name="Community Home"
-          component={CommunityHome}
+          name="Community Home Tab"
+          component={CommunityHomeTab}
           options={{
             tabBarIcon: (tabInfo) => {
               return (

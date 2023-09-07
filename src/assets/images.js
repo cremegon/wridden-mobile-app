@@ -72,8 +72,8 @@ export const btnData = [
 ];
 
 export const iconData = [
-  { key: 1, source: require("../assets/mystery_icon.png") },
-  { key: 2, source: require("../assets/romance_icon2.png") },
-  { key: 3, source: require("../assets/action_icon.png") },
-  { key: 4, source: require("../assets/fantasy_icon2.png") },
+  { key: 1, source: require("../assets/mystery_icon.png"), title: "Mystery" },
+  { key: 2, source: require("../assets/romance_icon2.png"), title: "Romance" },
+  { key: 3, source: require("../assets/action_icon.png"), title: "Action" },
+  { key: 4, source: require("../assets/fantasy_icon2.png"), title: "Fantasy" },
 ];

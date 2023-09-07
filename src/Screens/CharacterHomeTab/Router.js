@@ -8,6 +8,19 @@ import { btnData } from "../../assets/images";
 const CharacterTabRouter = ({ navigation }) => {
   return (
     <SafeAreaView style={styles.container}>
+      <Image
+        source={require("../../assets/V2_character_make.png")}
+        style={{
+          position: "absolute",
+          top: 60,
+          alignSelf: "center",
+          zIndex: 0,
+        }}
+      />
+
+      <Text style={styles.title2}>Bring your Characters</Text>
+      <Text style={styles.title1}>to Life!</Text>
+
       <View style={{ flex: 1, justifyContent: "flex-end", marginBottom: 110 }}>
         <View style={{}}>
           <View
@@ -17,7 +30,7 @@ const CharacterTabRouter = ({ navigation }) => {
               paddingHorizontal: 25,
               borderColor: "#fd9418",
               width: 280,
-              height: 130,
+              height: 120,
               backgroundColor: "white",
               elevation: 4,
               marginBottom: 20,
@@ -25,7 +38,7 @@ const CharacterTabRouter = ({ navigation }) => {
           >
             <Pressable onPress={() => navigation.navigate("Character List")}>
               <Image
-                source={require("../../assets/write_icon2.png")}
+                source={require("../../assets/char_list.png")}
                 style={{ width: 60, height: 60, alignSelf: "center" }}
               />
               <Text
@@ -48,14 +61,14 @@ const CharacterTabRouter = ({ navigation }) => {
               paddingHorizontal: 25,
               borderColor: "#fd9418",
               width: 280,
-              height: 130,
+              height: 120,
               backgroundColor: "white",
               elevation: 4,
             }}
           >
             <Pressable onPress={() => navigation.navigate("Character Draw")}>
               <Image
-                source={require("../../assets/storylist_icon2.png")}
+                source={require("../../assets/char_icon2.png")}
                 style={{ width: 60, height: 60, alignSelf: "center" }}
               />
               <Text
@@ -82,6 +95,28 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     backgroundColor: "rgba(226,237,236,0.4)",
+  },
+  title1: {
+    position: "absolute",
+    fontSize: 27,
+    top: "47.5%",
+    left: "50%",
+    fontFamily: "AlegreyaSans-ExtraBold",
+    color: "#230a0a",
+    borderWidth: 4,
+    paddingHorizontal: 20,
+    paddingVertical: 5,
+    borderColor: "#ffa951",
+    borderRadius: 40,
+  },
+  title2: {
+    position: "absolute",
+    fontSize: 35,
+    top: "44%",
+    left: "10%",
+    fontFamily: "AlegreyaSans-ExtraBold",
+    color: "#230a0a",
+    zIndex: 2,
   },
 });
 

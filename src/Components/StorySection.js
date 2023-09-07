@@ -36,8 +36,10 @@ const styles = StyleSheet.create({
     fontWeight: "semibold",
   },
   notes: {
+    flex: 1,
     fontSize: 18,
     marginTop: 20,
+    marginBottom: 10,
     width: "90%",
     alignSelf: "center",
     textAlignVertical: "top",
