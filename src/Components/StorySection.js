@@ -1,10 +1,11 @@
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, TextInput } from "react-native";
 import React from "react";
 
-export const StorySection = ({ content, title, onEdit }) => {
+export const StorySection = ({ content, title, onEdit, readOnly }) => {
   return (
     <View>
       <TextInput
+        editable={!readOnly}
         style={styles.heading}
         value={title}
         onChangeText={(e) => onEdit("title", e)}
@@ -14,6 +15,7 @@ export const StorySection = ({ content, title, onEdit }) => {
         placeholderTextColor={"lightgrey"}
       />
       <TextInput
+        editable={!readOnly}
         style={styles.notes}
         value={content}
         onChangeText={(e) => onEdit("content", e)}
@@ -26,7 +28,7 @@ export const StorySection = ({ content, title, onEdit }) => {
   );
 };
 
-const styles = StyleSheet({
+const styles = StyleSheet.create({
   heading: {
     fontSize: 24,
     marginTop: 20,
@@ -39,7 +41,5 @@ const styles = StyleSheet({
     width: "90%",
     alignSelf: "center",
     textAlignVertical: "top",
-    flex: 1,
-    marginBottom: 70,
   },
 });

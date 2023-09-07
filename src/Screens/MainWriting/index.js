@@ -28,7 +28,7 @@ import { UserContext } from "../../Components/Context/UserContext";
 import { useStoryContext } from "../CreateStory/Router";
 import { StorySection } from "../../Components/StorySection";
 
-const MainWriting = ({ onLongPress, navigation, route }) => {
+const MainWriting = ({ navigation }) => {
   const [isModalVisible, SetIsModalVisible] = useState(false);
   const [selectedImage, setSelectedImage] = useState({ uri: bgData[2].source });
   const handleImageSelection = async () => {
@@ -37,9 +37,6 @@ const MainWriting = ({ onLongPress, navigation, route }) => {
       allowsEditing: true,
       quality: 1,
     });
-
-    console.log(result);
-
     if (!result.canceled) {
       setSelectedImage({ uri: result.assets[0].uri });
     }
@@ -47,13 +44,9 @@ const MainWriting = ({ onLongPress, navigation, route }) => {
 
   const dbCtx = useContext(DatabaseContext);
   const { user } = useContext(UserContext);
-
+  const { story, setStory } = useStoryContext();
   const [storyTitle, setStoryTitle] = useState("");
   const [section, setSection] = useState({ title: "", content: "" });
-
-  const [storyId, setStoryId] = useState();
-
-  const { story, setStory } = useStoryContext();
 
   const handleStorySave = () => {
     //if story is not in context, create it
@@ -108,6 +101,7 @@ const MainWriting = ({ onLongPress, navigation, route }) => {
       });
     } else {
       //else upsert sections of the story and the title if changed.
+      console.warn("TODO : Update Function, brain no workie, baad mein ;)");
     }
   };
 
@@ -126,6 +120,7 @@ const MainWriting = ({ onLongPress, navigation, route }) => {
           />
 
           <StorySection
+            readOnly={false}
             title={section.title}
             content={section.content}
             onEdit={(key, value) => {

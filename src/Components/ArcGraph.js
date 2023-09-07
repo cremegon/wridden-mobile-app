@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, Dimensions } from "react-native";
+import { View, Text, StyleSheet, Dimensions, SafeAreaView } from "react-native";
 import React, { useEffect } from "react";
 import { GestureDetector, Gesture } from "react-native-gesture-handler";
 import Animated, {
