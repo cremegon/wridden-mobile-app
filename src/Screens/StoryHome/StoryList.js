@@ -1,4 +1,4 @@
-import { View, Text, ScrollView } from "react-native";
+import { View, Text, ScrollView, StatusBar } from "react-native";
 import React, { useState, useEffect, useContext } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import AppHeader from "../../Components/AppHeader";
@@ -42,6 +42,7 @@ const StoryList = ({ navigation }) => {
         navigation={navigation}
         onPress={"Story Home Access"}
       />
+      <StatusBar backgroundColor={"#e77f04"} />
       <ScrollView>
         <View style={{ marginBottom: 100, marginTop: 20 }}>
           {(stories &&
@@ -50,7 +51,7 @@ const StoryList = ({ navigation }) => {
                 key={item.id}
                 title={item.title}
                 navigation={navigation}
-                image={btnData[2].source}
+                image={require("../../assets/stories/readstory1.png")}
                 link={item.nav}
                 params={item.title}
               />
