@@ -202,7 +202,7 @@ const CharacterTraits = ({ navigation, route }) => {
                     shadowColor: "black",
                     elevation: 4,
                     width: 300,
-                    marginTop: 150,
+                    marginTop: 200,
                   }}
                 >
                   <Text
@@ -219,7 +219,7 @@ const CharacterTraits = ({ navigation, route }) => {
                     style={{
                       flexDirection: "row",
                       justifyContent: "center",
-                      marginTop: 30,
+                      marginTop: 20,
                     }}
                   >
                     <Pressable

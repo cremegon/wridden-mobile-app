@@ -12,7 +12,7 @@ const CharacterTabRouter = ({ navigation }) => {
         source={require("../../assets/V2_character_make.png")}
         style={{
           position: "absolute",
-          top: 60,
+          top: 5,
           alignSelf: "center",
           zIndex: 0,
         }}
@@ -99,20 +99,20 @@ const styles = StyleSheet.create({
   title1: {
     position: "absolute",
     fontSize: 27,
-    top: "47.5%",
+    top: "44%",
     left: "50%",
     fontFamily: "AlegreyaSans-ExtraBold",
     color: "#230a0a",
     borderWidth: 4,
     paddingHorizontal: 20,
-    paddingVertical: 5,
+    paddingVertical: 3,
     borderColor: "#ffa951",
     borderRadius: 40,
   },
   title2: {
     position: "absolute",
     fontSize: 35,
-    top: "44%",
+    top: "40%",
     left: "10%",
     fontFamily: "AlegreyaSans-ExtraBold",
     color: "#230a0a",

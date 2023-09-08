@@ -32,7 +32,7 @@ const ArcGraph = () => {
     .onEnd(() => {
       if (translateY.value > SCREEN_HEIGHT / 6) {
         translateY.value = withSpring(SCREEN_HEIGHT / 3);
-      } else if (translateY.value < SCREEN_HEIGHT / 4) {
+      } else if (translateY.value < SCREEN_HEIGHT / 5) {
         translateY.value = withSpring(SCREEN_HEIGHT / 10);
       }
     });
@@ -55,7 +55,7 @@ const ArcGraph = () => {
             resizeMode="contain"
             style={{
               width: 420,
-              top: SCREEN_HEIGHT / 1.6,
+              top: SCREEN_HEIGHT / 1.7,
               borderWidth: 4,
               height: 350,
             }}

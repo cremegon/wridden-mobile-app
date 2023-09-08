@@ -101,6 +101,7 @@ const styles = StyleSheet.create({
         marginHorizontal: 20,
         justifyContent: "flex-start",
         alignItems: "center",
+        marginBottom: 30
         
     },
     svgContainer: {
@@ -123,5 +124,6 @@ const styles = StyleSheet.create({
     },
     buttonList: {
       flexDirection: 'row',
+    
     },
 })

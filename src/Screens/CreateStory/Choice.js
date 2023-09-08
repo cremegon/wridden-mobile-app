@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     fontSize: 35,
     top: "52%",
-    left: "8%",
+    left: "3%",
     fontFamily: "AlegreyaSans-ExtraBold",
     color: "#230a0a",
   },

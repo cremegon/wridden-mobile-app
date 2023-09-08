@@ -59,7 +59,7 @@ const MainWriting = ({ navigation }) => {
           [storyTitle, user.id],
           (tx, result) => {
             setStoryId(result.insertId);
-            console.log("Story Insert Successful");
+            console.warn("Story Insert Successful");
             if (story.characters) {
               story.characters.map((character) => {
                 const {

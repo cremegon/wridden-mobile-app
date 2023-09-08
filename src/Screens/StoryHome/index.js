@@ -31,104 +31,109 @@ const StoryHomeAccess = ({ navigation }) => {
       <Text style={styles.title1}>Explore the world of fantasies</Text>
       <Text style={styles.title2}>and create your own!</Text>
 
-      <View style={{ alignItems: "center", width: "100%", marginTop: "105%" }}>
+      <View style={{ flex: 1, marginBottom: 120 }}>
         <View
-          style={{
-            padding: 15,
-            borderRadius: 40,
-            paddingHorizontal: 25,
-            borderColor: "#fd9418",
-            width: 280,
-            height: 130,
-            marginBottom: 15,
-            backgroundColor: "white",
-            elevation: 4,
-          }}
+          style={{ alignItems: "center", width: "100%", marginTop: "105%" }}
         >
-          <Pressable onPress={() => navigation.navigate("Write New")}>
-            <Image
-              source={require("../../assets/write_icon2.png")}
-              style={{ width: 60, height: 60, alignSelf: "center" }}
-            />
-            <Text
-              style={{
-                textAlign: "center",
-                fontFamily: "Nunito-ExtraBold",
-                fontSize: 16,
-                color: "#230a0a",
-                marginTop: 10,
-              }}
-            >
-              Write New
-            </Text>
-          </Pressable>
-        </View>
-        <View style={{ flexDirection: "row" }}>
           <View
             style={{
               padding: 15,
               borderRadius: 40,
               paddingHorizontal: 25,
               borderColor: "#fd9418",
-              width: 130,
-              height: 130,
+              width: 280,
+              height: 120,
+              marginBottom: 15,
               backgroundColor: "white",
               elevation: 4,
+              marginTop: -10,
             }}
           >
-            <Pressable onPress={() => navigation.navigate("Story List")}>
+            <Pressable onPress={() => navigation.navigate("Write New")}>
               <Image
-                source={require("../../assets/list_icon.png")}
-                style={{
-                  width: 50,
-                  height: 50,
-                  alignSelf: "center",
-                  marginTop: 10,
-                }}
-              />
-              <Text
-                style={{
-                  textAlign: "center",
-                  fontFamily: "Nunito-ExtraBold",
-                  fontSize: 15,
-                  color: "#230a0a",
-                  marginTop: 10,
-                }}
-              >
-                Story List
-              </Text>
-            </Pressable>
-          </View>
-          <View
-            style={{
-              padding: 15,
-              borderRadius: 40,
-              paddingHorizontal: 25,
-              borderColor: "#fd9418",
-              marginLeft: 20,
-              width: 130,
-              height: 130,
-              backgroundColor: "white",
-              elevation: 4,
-            }}
-          >
-            <Pressable onPress={() => navigation.navigate("Read Story")}>
-              <Image
-                source={require("../../assets/storylist_icon2.png")}
+                source={require("../../assets/write_icon2.png")}
                 style={{ width: 60, height: 60, alignSelf: "center" }}
               />
               <Text
                 style={{
                   textAlign: "center",
                   fontFamily: "Nunito-ExtraBold",
-                  fontSize: 15,
+                  fontSize: 16,
                   color: "#230a0a",
                   marginTop: 10,
                 }}
               >
-                Read Story
+                Write New
               </Text>
             </Pressable>
+          </View>
+          <View style={{ flexDirection: "row" }}>
+            <View
+              style={{
+                padding: 15,
+                borderRadius: 40,
+                paddingHorizontal: 25,
+                borderColor: "#fd9418",
+                width: 120,
+                height: 120,
+                backgroundColor: "white",
+                elevation: 4,
+              }}
+            >
+              <Pressable onPress={() => navigation.navigate("Story List")}>
+                <Image
+                  source={require("../../assets/list_icon.png")}
+                  style={{
+                    width: 50,
+                    height: 50,
+                    alignSelf: "center",
+                    marginTop: 10,
+                  }}
+                />
+                <Text
+                  style={{
+                    textAlign: "center",
+                    fontFamily: "Nunito-ExtraBold",
+                    fontSize: 14,
+                    color: "#230a0a",
+                    marginTop: 10,
+                  }}
+                >
+                  Story List
+                </Text>
+              </Pressable>
+            </View>
+            <View
+              style={{
+                padding: 15,
+                borderRadius: 40,
+                paddingHorizontal: 25,
+                borderColor: "#fd9418",
+                marginLeft: 20,
+                width: 120,
+                height: 120,
+                backgroundColor: "white",
+                elevation: 4,
+              }}
+            >
+              <Pressable onPress={() => navigation.navigate("Read Story")}>
+                <Image
+                  source={require("../../assets/storylist_icon2.png")}
+                  style={{ width: 60, height: 60, alignSelf: "center" }}
+                />
+                <Text
+                  style={{
+                    textAlign: "center",
+                    fontFamily: "Nunito-ExtraBold",
+                    fontSize: 13,
+                    color: "#230a0a",
+                    marginTop: 10,
+                  }}
+                >
+                  Read Story
+                </Text>
+              </Pressable>
+            </View>
           </View>
         </View>
       </View>
@@ -172,7 +177,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     fontSize: 27,
     top: "41%",
-    left: "7%",
+    left: "2%",
     fontFamily: "AlegreyaSans-ExtraBold",
     color: "#230a0a",
     borderWidth: 4,

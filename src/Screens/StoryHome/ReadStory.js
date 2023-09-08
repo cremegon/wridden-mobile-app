@@ -29,7 +29,7 @@ export default ReadStory = ({ navigation }) => {
       />
       <StatusBar backgroundColor={"#e77f04"} />
       <ScrollView>
-        <View>
+        <View style={{ alignSelf: "center" }}>
           {titleList.map((item, index) => (
             <View key={index}>
               <Card

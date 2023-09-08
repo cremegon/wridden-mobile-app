@@ -30,11 +30,11 @@ const styles = StyleSheet.create({
     backgroundColor: "royalblue",
     marginHorizontal: 20,
     borderRadius: 20,
-    width: 380,
+    width: 360,
     height: 150,
   },
   card: {
-    width: 380,
+    width: 360,
     height: 150,
     alignSelf: "center",
     borderWidth: 2,
