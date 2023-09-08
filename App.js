@@ -48,7 +48,8 @@ const App = () => {
   useEffect(() => {
     db.transaction((tx) => {
       tx.executeSql(
-        "create table if not exists stories (id integer primary key autoincrement, title text, user_id integer references users(id) on delete cascade);" +
+        "create table if not exists users (id integer primary key autoincrement, email text, username text, password text);" +
+          "create table if not exists stories (id integer primary key autoincrement, title text, user_id integer references users(id) on delete cascade);" +
           "create table if not exists characters (id integer primary key autoincrement, name text, image_uri text, story_id integer references stories(id) on delete cascade, user_id integer references users(id) on delete cascade, age text, gender text, physicalAttributes text, emotionalAttributes text, likes text, dislikes text);" +
           "create table if not exists sections (id integer primary key autoincrement, name text, body text, story_id integer references stories(id) on delete cascade);",
         null,

@@ -48,6 +48,7 @@ const MainWriting = ({ navigation }) => {
   const { story, setStory } = useStoryContext();
   const [storyTitle, setStoryTitle] = useState("");
   const [section, setSection] = useState({ title: "", content: "" });
+  const [storyId, setStoryId] = useState();
 
   const handleStorySave = () => {
     //if story is not in context, create it
