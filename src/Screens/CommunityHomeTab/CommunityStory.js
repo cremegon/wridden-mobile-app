@@ -19,6 +19,8 @@ import {
 } from "../../assets/stories/stories";
 import { ScrollView } from "react-native-gesture-handler";
 import { FlatList } from "react-native";
+import { charData } from "../../assets/images";
+import { FontAwesome } from "@expo/vector-icons";
 
 const CommunityStory = ({ navigation, route }) => {
   const [isModalVisible, SetIsModalVisible] = useState(false);
@@ -211,11 +213,24 @@ const CommunityStory = ({ navigation, route }) => {
                 aspectRatio: 2,
               }}
             />
+
+            <Image
+              source={{ uri: arrayIndex[selectedImageIndex].uri }}
+              style={{
+                width: 100,
+                height: 100,
+                borderRadius: 90,
+                position: "absolute",
+                alignSelf: "center",
+                top: 135,
+              }}
+            />
+
             <Text
               style={{
                 textAlign: "center",
                 fontSize: 30,
-                marginTop: 15,
+                marginTop: 40,
                 fontFamily: "AlegreyaSans-ExtraBoldItalic",
               }}
             >
@@ -224,22 +239,60 @@ const CommunityStory = ({ navigation, route }) => {
             <Text
               style={{
                 textAlign: "center",
-                marginTop: 10,
+                marginTop: 0,
                 fontFamily: "OpenSans-Regular",
               }}
             >
-              Would you like to edit this Character?
+              - {arrayIndex[selectedImageIndex].author}
             </Text>
+            <Text
+              style={{
+                marginTop: 20,
+                fontFamily: "OpenSans-Regular",
+                width: 300,
+                textAlign: "center",
+                marginLeft: 42,
+              }}
+            >
+              {arrayIndex[selectedImageIndex].content}
+            </Text>
+
             <View
               style={{
                 flexDirection: "row",
-                justifyContent: "center",
-                marginTop: 30,
+                alignSelf: "center",
+                marginTop: 20,
+                backgroundColor: "#ffa951",
+                width: 150,
+                paddingHorizontal: 20,
+                paddingVertical: 3,
+                borderRadius: 30,
+                elevation: 4,
               }}
             >
-              <Text style={styles.modalButton}>Yes</Text>
+              <Text
+                style={{
+                  fontFamily: "OpenSans-BoldItalic",
+                  fontSize: 15,
+                  marginTop: 7,
+                  marginRight: 10,
+                  color: "white",
+                }}
+              >
+                Read more
+              </Text>
               <Pressable onPress={() => SetIsModalVisible(false)}>
-                <Text style={styles.modalButton}>No</Text>
+                <FontAwesome
+                  name="arrow-circle-right"
+                  size={26}
+                  color="#ffa951"
+                  style={{
+                    backgroundColor: "white",
+                    padding: 5,
+                    borderRadius: 90,
+                    alignSelf: "center",
+                  }}
+                />
               </Pressable>
             </View>
           </View>

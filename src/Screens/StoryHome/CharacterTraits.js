@@ -6,6 +6,8 @@ import {
   Modal,
   Pressable,
   Button,
+  ImageBackground,
+  Image,
 } from "react-native";
 import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -174,23 +176,33 @@ const CharacterTraits = ({ navigation, route }) => {
               onRequestClose={() => setIsModalVisible(false)}
               animationType="slide"
             >
-              <View
+              <ImageBackground
+                source={require("../../assets/abstract_bg2.png")}
                 style={{
                   flex: 1,
                   justifyContent: "center",
                   alignItems: "center",
-                  backgroundColor: "royalblue",
                 }}
               >
+                <Image
+                  source={require("../../assets/V2_character_make.png")}
+                  style={{
+                    position: "absolute",
+                    top: 60,
+                    alignSelf: "center",
+                    zIndex: 0,
+                  }}
+                />
                 <View
                   style={{
                     backgroundColor: "white",
                     padding: 20,
-                    paddingBottom: 50,
+                    paddingBottom: 40,
                     borderRadius: 12,
                     shadowColor: "black",
                     elevation: 4,
                     width: 300,
+                    marginTop: 150,
                   }}
                 >
                   <Text
@@ -225,7 +237,7 @@ const CharacterTraits = ({ navigation, route }) => {
                     </Pressable>
                   </View>
                 </View>
-              </View>
+              </ImageBackground>
             </Modal>
           </View>
         </ScrollView>

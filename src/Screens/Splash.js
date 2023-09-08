@@ -12,7 +12,7 @@ const Splash = ({ navigation }) => {
       toValue: 170,
       useNativeDriver: true,
       easing: Easing.bounce,
-      duration: 2000,
+      duration: 1000,
     }).start();
 
     setTimeout(() => {

@@ -7,8 +7,16 @@ import Card from "../../Components/Card";
 export default ReadStory = ({ navigation }) => {
   const [count, setCount] = useState(0);
   const titleList = [
-    { title: "Where We Simmer", nav: "Story 1" },
-    { title: "Upperdown", nav: "Story 1" },
+    {
+      title: "Where We Simmer",
+      nav: "Story 1",
+      source: require("../../assets/stories/readstory1.png"),
+    },
+    {
+      title: "Upperdown",
+      nav: "Story 1",
+      source: require("../../assets/stories/readstory2.png"),
+    },
   ];
 
   return (
@@ -26,7 +34,7 @@ export default ReadStory = ({ navigation }) => {
               <Card
                 title={item.title}
                 navigation={navigation}
-                image={require("../../assets/profile_bg.jpg")}
+                image={item.source}
                 link={item.nav}
                 params={item.title}
               />

@@ -211,7 +211,12 @@ const CommunityHome = ({ navigation }) => {
           <FlatList
             data={postData}
             renderItem={({ item }) => (
-              <Posts title={item.title} name={item.name} number={item.number} />
+              <Posts
+                title={item.title}
+                name={item.name}
+                number={item.number}
+                content={item.content}
+              />
             )}
           />
         </View>

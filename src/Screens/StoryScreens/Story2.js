@@ -19,34 +19,35 @@ export default Story2 = ({ navigation, route }) => {
           <Text style={styles.title}>{route.params.paramKey}</Text>
 
           <Text style={styles.notes}>
-            At vero eos et accusamus et iusto odio dignissimos ducimus qui
-            blanditiis praesentium voluptatum deleniti atque corrupti quos
-            dolores et quas molestias excepturi sint occaecati cupiditate non
-            provident, similique sunt in culpa qui officia deserunt mollitia
-            animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis
-            est et expedita distinctio. Nam libero tempore, cum soluta nobis est
-            eligendi optio cumque nihil impedit quo minus id quod maxime placeat
-            facere possimus, omnis voluptas assumenda est, omnis dolor
-            repellendus. Temporibus autem quibusdam et aut officiis debitis aut
-            rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint
-            et molestiae non recusandae. Itaque earum rerum hic tenetur a
-            sapiente delectus, ut aut reiciendis voluptatibus maiores alias
-            consequatur aut perferendis doloribus asperiores repellat.
+            Days turned into weeks, and Alex became a regular at the cafe. Ella
+            noticed the transformation in Alex's writing, from frustration to
+            inspiration. They struck up conversations about life, dreams, and
+            the power of finding a place where one could simmer in thought. As
+            winter gave way to spring, Alex's book neared completion, and Ella
+            couldn't have been prouder. Their friendship was one of the many
+            beautiful stories that had unfolded within the cozy walls of Simmer
+            & Sip. In the end, Simmer & Sip was not just a cafe; it was a place
+            where people simmered in the warmth of human connection, where the
+            chaotic world outside could be put on hold, and where dreams were
+            given the space to flourish. Ella had created a sanctuary where
+            life's moments could be savored, and in doing so, she had enriched
+            the lives of everyone who crossed her cafe's threshold.
             {"\n"}
             {"\n"}
-            At vero eos et accusamus et iusto odio dignissimos ducimus qui
-            blanditiis praesentium voluptatum deleniti atque corrupti quos
-            dolores et quas molestias excepturi sint occaecati cupiditate non
-            provident, similique sunt in culpa qui officia deserunt mollitia
-            animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis
-            est et expedita distinctio. Nam libero tempore, cum soluta nobis est
-            eligendi optio cumque nihil impedit quo minus id quod maxime placeat
-            facere possimus, omnis voluptas assumenda est, omnis dolor
-            repellendus. Temporibus autem quibusdam et aut officiis debitis aut
-            rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint
-            et molestiae non recusandae. Itaque earum rerum hic tenetur a
-            sapiente delectus, ut aut reiciendis voluptatibus maiores alias
-            consequatur aut perferendis doloribus asperiores repellat.
+            As the months passed, Simmer & Sip continued to flourish. Word of
+            mouth spread, drawing in more people seeking solace, connection, and
+            a perfect cup of coffee. Ella's cafe became a true cornerstone of
+            the community, a place where celebrations were toasted and sorrows
+            shared. Alex, the young writer, finished their novel with a sense of
+            accomplishment and gratitude to Ella for providing the nurturing
+            atmosphere they needed. They dedicated their book to "Simmer & Sip,
+            where stories simmered and dreams found their voice." But Simmer &
+            Sip was not just a place for writers and dreamers. It became a hub
+            for local artists, musicians, and thinkers. Ella organized open mic
+            nights, art exhibitions, and poetry readings that turned her cozy
+            cafe into a vibrant hub of creativity. The walls adorned with local
+            artwork spoke volumes about the talent that thrived within the
+            community.
           </Text>
           <View
             style={{
