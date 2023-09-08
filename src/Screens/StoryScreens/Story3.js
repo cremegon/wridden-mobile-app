@@ -19,34 +19,32 @@ export default Story3 = ({ navigation, route }) => {
           <Text style={styles.title}>{route.params.paramKey}</Text>
 
           <Text style={styles.notes}>
-            At vero eos et accusamus et iusto odio dignissimos ducimus qui
-            blanditiis praesentium voluptatum deleniti atque corrupti quos
-            dolores et quas molestias excepturi sint occaecati cupiditate non
-            provident, similique sunt in culpa qui officia deserunt mollitia
-            animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis
-            est et expedita distinctio. Nam libero tempore, cum soluta nobis est
-            eligendi optio cumque nihil impedit quo minus id quod maxime placeat
-            facere possimus, omnis voluptas assumenda est, omnis dolor
-            repellendus. Temporibus autem quibusdam et aut officiis debitis aut
-            rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint
-            et molestiae non recusandae. Itaque earum rerum hic tenetur a
-            sapiente delectus, ut aut reiciendis voluptatibus maiores alias
-            consequatur aut perferendis doloribus asperiores repellat.
+            One evening, as Ella was brewing her signature espresso, she
+            overheard a conversation between two strangers at the counter.
+            Sarah, a young pianist new to the city, was lamenting her inability
+            to find a suitable space to practice. James, an architect sitting
+            next to her, offered a solution. He proposed creating a soundproof
+            practice studio above the cafe.
             {"\n"}
             {"\n"}
-            At vero eos et accusamus et iusto odio dignissimos ducimus qui
-            blanditiis praesentium voluptatum deleniti atque corrupti quos
-            dolores et quas molestias excepturi sint occaecati cupiditate non
-            provident, similique sunt in culpa qui officia deserunt mollitia
-            animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis
-            est et expedita distinctio. Nam libero tempore, cum soluta nobis est
-            eligendi optio cumque nihil impedit quo minus id quod maxime placeat
-            facere possimus, omnis voluptas assumenda est, omnis dolor
-            repellendus. Temporibus autem quibusdam et aut officiis debitis aut
-            rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint
-            et molestiae non recusandae. Itaque earum rerum hic tenetur a
-            sapiente delectus, ut aut reiciendis voluptatibus maiores alias
-            consequatur aut perferendis doloribus asperiores repellat.
+            Excitement rippled through the community as James's idea became a
+            reality. The studio was designed with elegance, complete with a
+            grand piano and soundproof walls. Sarah's music filled the cafe, and
+            patrons marveled at the harmonious fusion of coffee aromas and
+            melodic tunes. It wasn't long before other artists began
+            collaborating, and Simmer & Sip became a hub for artistic fusion. As
+            the cafe's reputation grew, so did Ella's vision.
+            {"\n"}
+            {"\n"}
+            She expanded the menu to include not just coffee but also a
+            delectable assortment of pastries, sandwiches, and locally sourced
+            delicacies. Her commitment to quality and community never wavered,
+            and Simmer & Sip blossomed into a beloved institution in the city.
+            Years passed, and Ella watched as the stories of her customers
+            intertwined and evolved. She couldn't help but smile as she realized
+            that Simmer & Sip had become more than she had ever dreamed. It was
+            a place where life's beautiful moments were celebrated, where
+            creativity thrived, and where people found a second family.
           </Text>
           <View
             style={{

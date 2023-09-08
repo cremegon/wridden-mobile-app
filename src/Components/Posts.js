@@ -4,7 +4,7 @@ import { charData } from "../assets/images";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 import Ionicons from "react-native-vector-icons/Ionicons";
 
-export default Posts = ({ title, name, number }) => {
+export default Posts = ({ title, name, number, content }) => {
   return (
     <View
       style={{
@@ -57,10 +57,7 @@ export default Posts = ({ title, name, number }) => {
       </View>
       <View style={{ marginHorizontal: 15, marginTop: 10 }}>
         <Text style={{ flexWrap: "wrap", fontFamily: "OpenSans-Regular" }}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat.
+          {content}
         </Text>
       </View>
       <View

@@ -43,9 +43,9 @@ const styles = StyleSheet.create({
   title: {
     alignSelf: "center",
     top: 50,
-    left: 175,
+    left: 80,
     position: "absolute",
-    fontSize: 23,
+    fontSize: 25,
     color: "white",
     width: 150,
     fontFamily: "AlegreyaSans-ExtraBoldItalic",
