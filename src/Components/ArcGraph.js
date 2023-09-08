@@ -1,4 +1,11 @@
-import { View, Text, StyleSheet, Dimensions, SafeAreaView } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  Dimensions,
+  SafeAreaView,
+  Image,
+} from "react-native";
 import React, { useEffect } from "react";
 import { GestureDetector, Gesture } from "react-native-gesture-handler";
 import Animated, {
@@ -43,9 +50,16 @@ const ArcGraph = () => {
     <GestureDetector gesture={gesture}>
       <Animated.View style={[styles.topSheet, rTopSheetStyle]}>
         <SafeAreaView style={styles.defaultText}>
-          <Text>
-            You don't have any sections in your story yet, get to work
-          </Text>
+          <Image
+            source={require("../assets/stories/arcgraph.png")}
+            resizeMode="contain"
+            style={{
+              width: 420,
+              top: SCREEN_HEIGHT / 1.6,
+              borderWidth: 4,
+              height: 350,
+            }}
+          />
         </SafeAreaView>
       </Animated.View>
     </GestureDetector>
@@ -64,8 +78,8 @@ const styles = StyleSheet.create({
   },
   defaultText: {
     fontSize: 20,
-    marginTop: SCREEN_HEIGHT / 1.5,
     color: "white",
+    alignItems: "center",
   },
   line: {
     backgroundColor: "white",
@@ -73,7 +87,6 @@ const styles = StyleSheet.create({
     borderRadius: 30,
     width: 200,
     alignSelf: "center",
-    marginVertical: SCREEN_HEIGHT / 4.2,
   },
 });
 
