@@ -217,8 +217,8 @@ const CommunityStory = ({ navigation, route }) => {
             <Image
               source={{ uri: arrayIndex[selectedImageIndex].uri }}
               style={{
-                width: 100,
-                height: 100,
+                width: 80,
+                height: 80,
                 borderRadius: 90,
                 position: "absolute",
                 alignSelf: "center",
