@@ -1,4 +1,4 @@
-import { View, Text, ScrollView } from "react-native";
+import { View, Text, ScrollView, StatusBar } from "react-native";
 import React, { useState, useEffect } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import AppHeader from "../../Components/AppHeader";
@@ -27,6 +27,7 @@ export default ReadStory = ({ navigation }) => {
         navigation={navigation}
         onPress={"Story Home Access"}
       />
+      <StatusBar backgroundColor={"#e77f04"} />
       <ScrollView>
         <View>
           {titleList.map((item, index) => (
