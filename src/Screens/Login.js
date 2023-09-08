@@ -129,6 +129,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
     marginBottom: 10,
     fontFamily: "AlegreyaSans-ExtraBold",
+    color: "#3f2b2b",
   },
   inputbox: {
     borderColor: "grey",

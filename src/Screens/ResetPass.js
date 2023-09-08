@@ -79,6 +79,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     textAlign: "center",
     fontFamily: "Nunito-ExtraBold",
+    color: "#3f2b2b",
   },
   content: {
     marginVertical: 10,

@@ -76,7 +76,14 @@ const DrawingCharacter2 = ({navigation}) =>  {
             ))}
         </Svg>
 
-        <TextInput placeholder='Enter Character Name' style = {{paddingTop: 30}} onChangeText={(val) => setName(val)}/>
+        <TextInput placeholder='Enter Character Name' style = 
+        {{marginTop: 20, borderWidth: 2, 
+        borderColor: "white", borderRadius: 30, 
+        paddingHorizontal: 20, paddingVertical: 10, 
+        fontFamily: "OpenSans-Italic", fontSize: 16, 
+        textAlign: "center", backgroundColor: "white", elevation: 2}} 
+        onChangeText={(val) => setName(val)} 
+        placeholderTextColor={"grey"}/>
 
         <View style = {styles.buttonList}>
           <BrandButtonAlt title={"Next"} link={"Character Traits"} navigation={navigation} params={name} onButtonPress={console.log("Hi")}/>
@@ -93,7 +100,8 @@ const styles = StyleSheet.create({
         marginTop: 20,
         marginHorizontal: 20,
         justifyContent: "flex-start",
-        alignItems: "center"
+        alignItems: "center",
+        
     },
     svgContainer: {
         height: "70%",
