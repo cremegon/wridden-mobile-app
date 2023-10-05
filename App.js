@@ -88,11 +88,6 @@ const App = () => {
         <NavigationContainer>
           <RootStack.Navigator>
             <RootStack.Screen
-              name="Splash"
-              component={Splash}
-              options={{ headerShown: false }}
-            />
-            <RootStack.Screen
               name="Login"
               component={LoginScreen}
               options={{ headerShown: false }}
@@ -120,6 +115,11 @@ const App = () => {
             <RootStack.Screen
               name="MainApp"
               component={MainApp}
+              options={{ headerShown: false }}
+            />
+            <RootStack.Screen
+              name="Splash"
+              component={Splash}
               options={{ headerShown: false }}
             />
           </RootStack.Navigator>

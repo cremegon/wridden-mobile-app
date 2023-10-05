@@ -55,7 +55,7 @@ const ArcGraph = () => {
             resizeMode="contain"
             style={{
               width: 420,
-              top: SCREEN_HEIGHT / 1.7,
+              top: SCREEN_HEIGHT / 1.65,
               borderWidth: 4,
               height: 350,
             }}
