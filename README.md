@@ -9,7 +9,7 @@
 ![post4](https://github.com/cremegon/wridden/assets/116914360/6426b3d3-47f0-4412-b19a-3114872b4758.jpg)
 
 
-# Wridden Prototyping and Design Process
+# Wridden Prototyping and UI/UX Design Process
 
 What we wanted to achieve from this project was a seemless creative application. While the main idea of the project is focused around writing stories, it
 is also concerned with more creative abilities such as being able to draw, create character profiles, link drawings and profiles together as well as 
